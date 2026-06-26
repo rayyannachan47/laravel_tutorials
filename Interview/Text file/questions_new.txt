@@ -1,0 +1,313 @@
+1. How browser come to know about sessions? 
+
+-> Core PHP
+Uses the default session cookie:
+PHPSESSID
+Set-Cookie: PHPSESSID=abc123
+
+-> How to Prevent Conflict in Core PHP
+session_name('APP1SESSID');
+session_start();
+
+-> Laravel
+Does NOT use PHPSESSID. Uses its own cookie:
+laravel_session
+Set-Cookie: laravel_session=eyJpdiI6...
+This cookie is encrypted,is signed, Contains the session ID securely
+
+-> Why Laravel Does Not Use PHPSESSID
+Better security
+Framework-level control
+Supports multiple session drivers (file, DB, Redis)
+Avoids conflicts with other PHP apps on same domain
+
+2. How to Prevent SQL Injection?
+
+SQL injection is prevented by using prepared statements, parameter binding, and avoiding direct query concatenation. Laravel’s Eloquent and Query Builder protect against SQL injection by default.
+
+3. For vs For each loop
+
+For loop use for for numeric or index-controlled loops, and foreach for iterating over arrays or objects directly.
+For loop is used when you know the number of iterations. You manually manage the counter, condition, and increment.
+For each, however, is designed for arrays or objects. It automatically iterates over each element.
+
+4. Is multiple inheritance supported in PHP?
+
+No, PHP does not support multiple inheritance. A class in PHP cannot extend more than one class. PHP allows a class to extend only one parent class. PHP provides Traits and Interfaces for this.
+
+Trait Example :
+
+trait Logger
+{
+    public function log($message)
+    {
+        echo "Log: $message\n";
+    }
+}
+
+trait Mailer
+{
+    public function sendMail($email)
+    {
+        echo "Sending mail to $email\n";
+    }
+}
+
+class UserService
+{
+    use Logger, Mailer;
+}
+
+$service = new UserService();
+
+$service->log("User created");
+$service->sendMail("test@example.com");
+
+Interface Example :
+
+interface Flyable
+{
+    public function fly();
+}
+
+interface Swimmable
+{
+    public function swim();
+}
+
+class Duck implements Flyable, Swimmable
+{
+    public function fly()
+    {
+        echo "Flying";
+    }
+
+    public function swim()
+    {
+        echo "Swimming";
+    }
+}
+
+5. What is faster?
+
+1- Combining two variables as follows:
+$variable1 = 'Hello ';
+$variable2 = 'World';
+$variable3 = $variable1.$variable2;
+
+Or
+
+2- $variable3 = "$variable1$variable2";
+
+Concatenation (.) is faster because PHP doesn’t need to parse the string for variables.
+Interpolation ("$var1$var2") is slightly slower due to the variable parsing step, though for small strings the difference is negligible.
+
+6. Arrays example
+
+-> 1D
+
+<?php
+$arr1D = [10, 20, 30, 40, 50];
+echo $arr1D[2]; // Output: 30
+?>
+
+-> 2D
+
+<?php
+$arr2D = 
+[
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+echo $arr2D[1][2]; // Output: 6
+?>
+
+-> 3D
+
+<?php
+$arr3D = 
+[
+    [   // Layer 0
+        [1,  2,  3],
+        [4,  5,  6]
+    ],
+    [   // Layer 1
+        [7,  8,  9],
+        [10, 11, 12]
+    ]
+];
+
+echo $arr3D[1][0][2]; // Output: 9
+?>
+
+-> 4D
+
+<?php
+$arr4D = 
+[
+    [   // Year 2024
+        [   // Month 1
+            [1, 2],   // Week 1
+            [3, 4]    // Week 2
+        ],
+        [   // Month 2
+            [5, 6],
+            [7, 8]
+        ]
+    ],
+    [   // Year 2025
+        [   // Month 1
+            [9, 10],
+            [11, 12]
+        ],
+        [   // Month 2
+            [13, 14],
+            [15, 16]
+        ]
+    ]
+];
+
+echo $arr4D[1][0][1][1]; // Output: 12
+?>
+
+-> Dependency Injection
+
+Dependency Injection is a design pattern where a class receives its dependencies from the outside instead of creating them internally.
+Dependency = any object or service your class needs to work.
+Helps in making code loosely coupled, testable, and maintainable.
+
+Without DI (tightly coupled):
+
+<?php
+class Logger {
+    public function log($msg) {
+        echo $msg;
+    }
+}
+
+class User {
+    private $logger;
+
+    public function __construct() {
+        $this->logger = new Logger(); // tightly coupled
+    }
+
+    public function create() {
+        $this->logger->log("User created");
+    }
+}
+
+Problem: You cannot change Logger easily or mock it for testing.
+
+With DI (loosely coupled):
+
+<?php
+class Logger {
+    public function log($msg) {
+        echo $msg;
+    }
+}
+
+class User {
+    private $logger;
+    public function __construct(Logger $logger) {
+        $this->logger = $logger;
+    }
+    public function create() {
+        $this->logger->log("User created");
+    }
+}
+
+// Pass dependency from outside
+$logger = new Logger();
+$user = new User($logger);
+$user->create();
+
+Advantages:
+Loosely coupled
+Easier to unit test
+Flexible (you can inject different implementations)
+
+-> Types of Dependency Injection
+
+1. Constructor Injection (most common)
+
+Dependencies are provided via the class constructor.
+Example:
+
+class User {
+    private $logger;
+    public function __construct(Logger $logger) {
+        $this->logger = $logger;
+    }
+}
+
+2. Setter Injection
+
+Dependencies are provided via a setter method.
+Example:
+
+class User {
+    private $logger;
+
+    public function setLogger(Logger $logger) {
+        $this->logger = $logger;
+    }
+}
+$logger = new Logger();
+$user = new User();
+$user->setLogger($logger);
+
+3. Interface Injection
+
+The dependency is injected via an interface method that the class must implement.
+Less common in PHP, but used in some frameworks.
+
+interface LoggerAware {
+    public function setLogger(Logger $logger);
+}
+
+class User implements LoggerAware {
+    private $logger;
+    public function setLogger(Logger $logger) {
+        $this->logger = $logger;
+    }
+}
+
+Conclusion
+
+Dependency Injection is a design pattern where a class receives its dependencies from outside rather than creating them internally.
+This makes the code loosely coupled, easier to test, and maintainable.
+There are three main types:
+
+1. Constructor Injection – dependencies passed through the constructor.
+2. Setter Injection – dependencies passed through setter methods.
+3. Interface Injection – class implements an interface to receive dependencies.
+
+-> What is Tight Coupling?
+
+Tight coupling means a class is strongly dependent on another class and creates or controls it directly.
+Any change in one class forces changes in the other.
+
+-> What is Loose Coupling?
+
+Loose coupling means a class depends on abstractions or injected dependencies, not concrete implementations.
+Classes can change independently.
+
+-> When to Use Traits and Interface?
+
+Use an Interface when:
+You need polymorphism
+You want to enforce a contract
+You are designing APIs or services
+You use dependency injection (Laravel, Symfony)
+
+Use a Trait when:
+You want to reuse code
+Multiple classes share behavior
+You want to avoid deep inheritance trees
+You want “mixins”
+(A mixin in Laravel is a class that contains reusable methods which can be “mixed into” another class at runtime using:
+ClassName::mixin(new SomeMixin);)

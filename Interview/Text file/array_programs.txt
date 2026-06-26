@@ -1,0 +1,346 @@
+1. Swap 2 strings
+
+$str1 = "Hello";
+$str2 = "World";
+$str1 = $str1 . $str2;
+$str2 = substr($str1, 0, strlen($str1) - strlen($str2));
+$str1 = substr($str1, strlen($str2));
+echo "str1: $str1, str2: $str2";
+
+2. Reverse Array
+
+$array = [1, 2, 3, 6, 5];
+$length = count($array);
+
+for ($i = 0; $i < $length / 2; $i++) {
+    $temp = $array[$i];
+    $array[$i] = $array[$length - 1 - $i];
+    $array[$length - 1 - $i] = $temp;
+}
+
+print_r($array);
+
+3. Sort Array(Descending)
+
+$array = [1, 2, 3, 4, 5];
+$length = count($array);
+
+for ($i = 0; $i < $length; $i++) {
+    for ($j = 0; $j < $length - 1 - $i; $j++) {
+        if ($array[$j] < $array[$j + 1]) {
+            // Swap the elements
+            $temp = $array[$j];
+            $array[$j] = $array[$j + 1];
+            $array[$j + 1] = $temp;
+        }
+    }
+}
+
+print_r($array);
+
+4. Find same number within 2 arrays
+	$array1 = [1, 2, 3, 4, 5];
+	$array2 = [3, 4, 5,6];
+	
+$array1 = [1, 2, 3, 4, 5];
+$array2 = [3, 4, 5,6];
+$array3 = [];
+foreach($array2 as $val){
+	if(in_array($val,$array1)){
+    	$array3[] = $val;
+    }
+}
+print_r($array3);
+
+---------------------------------------------------------
+
+$array1 = [1, 2, 3, 4, 5];
+$array2 = [3, 4, 5,6];
+$array3 = [];
+$arr = [];
+foreach($array1 as $val){
+	$arr[$val] = true;
+}
+foreach($array2 as $test){
+	if(isset($arr[$test])){
+    	$array3[] = $test;
+    }
+}
+
+print_r($array3);
+
+5. Remove Duplicates
+
+$array = [1, 2, 3, 6, 5, 2, 1];
+$duplicates = [];
+$counts = count($array);
+for($i = 0; $i < $counts; $i++){
+	for($j = $i + 1; $j < $counts; $j++){
+    	if($array[$i] == $array[$j]){        	
+            unset($array[$i]);
+            unset($array[$j]);
+        }
+	}
+}
+print_r($array);
+
+6. $array1 = [1, 2, 3, 4, 5] to 1@2@3@4@5
+
+$array1 = [1, 2, 3, 4, 5];
+
+echo $short = implode("@",$array1);
+
+---------------------------------------------------------
+
+$value = "";
+foreach($array1 as $val){
+	$value .= $val."@";
+}
+$trim_data = trim($value,"@");
+echo $trim_data;
+
+7. Reverse Number / String
+
+$num = 2004;
+$sum = 0;
+
+while ($num != 0) {
+    $rem = $num % 10;    
+    $sum = $rem + $sum * 10;
+    $num = intdiv($num, 10);
+}
+
+echo $sum;
+
+---------------------------------------------------------
+
+$str = "Hello, World!";
+$length = strlen($str);
+$reversedStr = '';
+
+for ($i = $length - 1; $i >= 0; $i--) {
+    $reversedStr .= $str[$i];
+}
+
+echo $reversedStr;
+
+8. Find sub list within list
+
+$arr1 = [-2, 5, 3, 2, 0, 10];
+$arr2 = [-2, 5, 3, 11];
+$result = true;
+
+$arr1_associative = array();
+foreach ($arr1 as $val) {
+    $arr1_associative[$val] = true;
+}
+
+foreach ($arr2 as $val) {
+    if (!isset($arr1_associative[$val])) {
+        $result = false;
+        break;
+    }
+}
+
+echo $result ? " Sublist is present " : " Sublist is not present ";
+
+---------------------------------------------------------
+
+$arr1 = [-2, 5, 3, 2, 0,10];
+$arr2 = [-2, 5, 3,11];
+$result = true;
+foreach($arr2 as $val){
+	if(!in_array($val,$arr1)){
+    	$result = false;
+        break;
+    }
+}
+
+echo $result? " Sublist is present ":" Sublist is not present ";
+
+9. Find Duplicates
+
+$array = [1, 2, 3, 6, 5, 2, 1];
+$duplicates = [];
+$counts = count($array);
+for($i = 0; $i < $counts; $i++){
+	for($j = $i + 1; $j < $counts; $j++){
+    	if($array[$i] == $array[$j]){
+        	$duplicates[] = $array[$i];
+        }
+	}
+}
+print_r($duplicates);
+
+10. Find highest, second,third
+
+$arr = [-2, 5, 3, 2, 0,10];
+$first = 0;
+$second = 0;
+$third = 0;
+foreach($arr as $num){
+	if($num > $first){
+    	$third = $second;
+        $second = $first;
+        $first = $num;
+    }else if($num > $second){
+    	$third = $second;
+        $second = $num;        
+    }else if($num > $third){
+    	$third = $num;              
+    }
+}
+
+echo "$first,$second,$third";
+
+11. Missing number
+
+$arr = [-2, 5, 3, 2, 0];
+$missing = [];
+$start = min($arr);
+$end = max($arr);
+for($i = $start; $i < $end; $i++){
+	if(!in_array($i,$arr)){
+    	$missing[] = $i;
+    }
+}
+
+print_r($missing);
+
+---------------------------------------------------------
+
+$arr = [-2, 5, 3, 2, 0];
+$missing = [];
+$start = $arr[0];
+$end = $arr[0];
+foreach ($arr as $num) {
+    if ($num < $start) {
+        $start = $num;
+    }
+    if ($num > $end) {
+        $end = $num;
+    }
+}
+$lookup = [];
+foreach ($arr as $num) {
+    $lookup[$num] = true;
+}
+
+for ($i = $start; $i < $end; $i++) {
+    if (!isset($lookup[$i])) {
+        $missing[] = $i;
+    }
+}
+
+print_r($missing);
+
+12. Change to Upper case
+
+$name = ["tests","Tested","TesT"];
+foreach($name as $key => $val){
+	$name[$key] = strtoupper($val);
+}
+print_r($name);
+
+13. Find a pair with the given difference
+
+Input: arr[] = {5, 20, 3, 2, 50, 80}, n = 78
+Output: Pair Found: (2, 80)
+
+$arr = [5, 20, 3, 2, 50, 80,0];
+$n = 78;
+$pair = [];
+foreach($arr as $val1){
+	foreach($arr as $val2){
+    	$sub = abs($val1 - $val2); 
+        if($sub == $n){
+        	$pair[] = "$val1,$val2";
+        }
+	}
+}
+print_r($pair);
+
+<?php
+$arr = [5, 20, 3, 2, 50, 80, 0,78];
+$n = 78;
+$pair = [];
+
+foreach ($arr as $val1) {
+    foreach ($arr as $val2) {
+        $sub = abs($val1 - $val2);
+        if ($sub == $n) {
+            $pairKey = min($val1, $val2) . ',' . max($val1, $val2);
+            $pair[$pairKey] = true;
+        }
+    }
+}
+
+$uniquePairs = array_keys($pair);
+print_r($uniquePairs);
+?> 
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+1. Swap 2 strings
+
+$str1 = "Hello";
+$str2 = "World";
+
+2. Reverse Array
+
+$array = [1, 2, 3, 6, 5];
+
+3. Find same number within 2 arrays
+
+$array1 = [1, 2, 3, 4, 5];
+$array2 = [3, 4, 5,6];
+
+4. Sort Array(Descending)
+
+$array = [1, 2, 3, 4, 5];
+
+5. Remove Duplicates
+
+$array = [1, 2, 3, 6, 5, 2, 1];
+
+6. $array1 = [1, 2, 3, 4, 5] to 1@2@3@4@5
+
+7. Reverse Number
+
+$num = 2004;
+
+7. Reverse String
+
+$str = "Hello, World!";
+
+8. Find sub list within list
+
+$arr1 = [-2, 5, 3, 2, 0, 10];
+$arr2 = [-2, 5, 3, 11];
+
+9. Find Duplicates
+
+$array = [1, 2, 3, 6, 5, 2, 1];
+
+10. Find highest, second,third
+
+$arr = [-2, 5, 3, 2, 0,10];
+
+11. Missing number
+
+$arr = [-2, 5, 3, 2, 0];
+
+12. Change to Upper case
+
+$name = ["tests","Tested","TesT"];
+
+13. Find a pair with the given difference
+
+$arr = [5, 20, 3, 2, 50, 80,0];
+$n = 78;
+
+
+
+
+
+

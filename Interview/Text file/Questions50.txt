@@ -1,0 +1,424 @@
+HTML — 50 Senior-Level Interview Questions
+
+1. How does browser parsing differ between HTML, CSS, and JS?
+2. What happens if you omit `<html>`, `<head>`, or `<body>`?
+3. Difference between `async` and `defer` with real use cases?
+4. How does the DOM tree differ from the render tree?
+5. How does accessibility affect HTML structure?
+6. What are ARIA roles and when should you avoid them?
+7. Explain semantic HTML and SEO impact.
+8. When should you use `<section>` vs `<article>`?
+9. What is the purpose of `<meta charset>`?
+10. How does HTML5 improve performance?
+11. What is the critical rendering path?
+12. What is the difference between inline, inline-block, and block?
+13. How does browser handle invalid HTML?
+14. Explain shadow DOM conceptually.
+15. Difference between cookies, localStorage, sessionStorage (HTML context)?
+16. What are data-* attributes and best practices?
+17. How does form validation work without JS?
+18. What happens during a form submit?
+19. How does `<picture>` improve performance?
+20. What is preload, prefetch, and preconnect?
+21. Why avoid tables for layout?
+22. Difference between SVG and Canvas?
+23. How does lazy loading work in HTML?
+24. What is viewport meta tag?
+25. Explain iframe security risks.
+26. How does browser autofill work?
+27. Explain HTML drag and drop API.
+28. What are custom elements?
+29. How does HTML affect CLS (Core Web Vitals)?
+30. Difference between `id` and `class` internally?
+31. What is tabindex and accessibility risk?
+32. How does browser decide image sizes?
+33. Explain contenteditable risks.
+34. What is DOM reflow?
+35. What is DOM repaint?
+36. Difference between innerHTML and textContent?
+37. How does HTML support internationalization?
+38. What happens when charset is wrong?
+39. Explain `<noscript>` use cases.
+40. What is sandbox attribute?
+41. Why is `<base>` tag dangerous?
+42. What is document fragment?
+43. How does browser cache HTML?
+44. Explain microdata vs JSON-LD.
+45. What happens when HTML is streamed?
+46. Explain XSS from HTML perspective.
+47. What are obsolete HTML tags?
+48. What is progressive enhancement?
+49. How does HTML help PWA?
+50. What mistakes break SEO unintentionally?
+
+CSS — 50 Advanced Interview Questions
+
+1. Explain CSS rendering pipeline.
+2. Difference between reflow and repaint?
+3. How does CSS specificity really work?
+4. What causes layout thrashing?
+5. Difference between `display: none` and `visibility: hidden`?
+6. How does Flexbox calculate space?
+7. Flexbox vs Grid — when to use which?
+8. Explain stacking context.
+9. Why `z-index` fails sometimes?
+10. What is BFC (Block Formatting Context)?
+11. How does `position: sticky` work?
+12. How does browser calculate `%` height?
+13. Explain `contain` property.
+14. How does CSS affect performance?
+15. What is critical CSS?
+16. Difference between `em`, `rem`, `%`, `vw`, `vh`?
+17. How does media query evaluation work?
+18. Explain CSS variables and scoping.
+19. How does `calc()` work internally?
+20. What causes CLS in CSS?
+21. How does `will-change` work?
+22. Explain `object-fit` use cases.
+23. Difference between pseudo-class and pseudo-element?
+24. How does `:has()` work?
+25. How does browser match selectors?
+26. Explain `@layer`.
+27. What is CSS isolation?
+28. Why avoid `!important`?
+29. Explain logical properties.
+30. Difference between opacity and rgba?
+31. What is subgrid?
+32. How does font loading work?
+33. Explain FOIT vs FOUT.
+34. How does `line-height` calculate?
+35. What is CSS Houdini?
+36. How do animations affect performance?
+37. When to use transform instead of top/left?
+38. Explain `aspect-ratio`.
+39. What is scroll snapping?
+40. How does overflow create stacking context?
+41. Explain `min-content` and `max-content`.
+42. What is `@supports`?
+43. Difference between `inline-flex` and `flex`?
+44. How does CSS handle RTL layouts?
+45. What is specificity inversion?
+46. How does browser decide final styles?
+47. Explain `clip-path`.
+48. How does dark mode CSS work?
+49. Explain CSS architecture (BEM/OOCSS).
+50. Common CSS performance mistakes.
+
+JavaScript — 50 Deep Questions
+
+1. Explain event loop step by step.
+2. Difference between microtasks and macrotasks?
+3. How does JS engine optimize code?
+4. Explain hoisting internally.
+5. How closures work in memory?
+6. Explain prototype chain.
+7. Difference between `==` and `===` deeply?
+8. How does garbage collection work?
+9. What is memory leak in JS?
+10. How does async/await work internally?
+11. What is promise chaining?
+12. Explain debounce vs throttle.
+13. What is temporal dead zone?
+14. How does `this` work?
+15. Arrow function vs normal function?
+16. Explain call, apply, bind.
+17. How does JS handle large arrays?
+18. What is structured cloning?
+19. How does JSON stringify fail?
+20. Explain module bundling.
+21. How does tree shaking work?
+22. Explain Web Workers.
+23. Difference between shallow & deep copy?
+24. Explain immutability.
+25. How does JS handle floating numbers?
+26. What is NaN internally?
+27. Explain proxy use cases.
+28. What is currying?
+29. How does optional chaining work?
+30. What is tail call optimization?
+31. Explain race condition.
+32. How does fetch work internally?
+33. Explain AbortController.
+34. Difference between map and forEach?
+35. How does JS handle errors?
+36. Explain try/catch performance.
+37. What is functional programming?
+38. Explain event delegation.
+39. What is lazy evaluation?
+40. How does JS interact with DOM?
+41. What is strict mode?
+42. Explain WeakMap.
+43. How does JS engine parse code?
+44. What is JIT compilation?
+45. Explain symbol use cases.
+46. What is shadowing?
+47. How does JS handle dates?
+48. Explain BigInt.
+49. How does module caching work?
+50. What causes blocking JS?
+
+React — 50 Senior Questions
+
+1. Explain React reconciliation.
+2. How does virtual DOM work?
+3. What triggers re-render?
+4. How does key affect rendering?
+5. Explain hooks lifecycle.
+6. How does useEffect cleanup work?
+7. useMemo vs useCallback?
+8. Controlled vs uncontrolled components?
+9. How does context re-render?
+10. Explain React batching.
+11. How does Suspense work?
+12. What is concurrent rendering?
+13. Explain server components.
+14. When does React skip re-render?
+15. Explain prop drilling solutions.
+16. How does React diff algorithm work?
+17. Explain hydration.
+18. How does error boundary work?
+19. Why avoid index as key?
+20. Explain memoization pitfalls.
+21. What is state lifting?
+22. How does React handle events?
+23. What is strict mode?
+24. Explain refs usage.
+25. What causes infinite re-render?
+26. Explain synthetic events.
+27. How does React optimize DOM updates?
+28. Explain lazy loading.
+29. What is compound component?
+30. Explain render props.
+31. How does React handle forms?
+32. What is portal?
+33. Explain React security risks.
+34. How does React work with SSR?
+35. Explain state immutability.
+36. How does React batch setState?
+37. Difference between useLayoutEffect & useEffect?
+38. How does React handle lists?
+39. Explain reconciliation failure cases.
+40. What is controlled re-render?
+41. How does React handle CSS?
+42. What is hydration mismatch?
+43. Explain forwardRef.
+44. How does React testing work?
+45. Explain useReducer.
+46. How does React handle async?
+47. Explain React fiber.
+48. What is React scheduler?
+49. How does React handle memory?
+50. Common React performance mistakes.
+
+Next.js — 50 Advanced Questions
+
+1. Explain SSR vs SSG vs ISR.
+2. How does Next.js routing work?
+3. App Router vs Pages Router?
+4. What is hydration?
+5. How does Next.js cache work?
+6. Explain server actions.
+7. How does middleware work?
+8. How does image optimization work?
+9. Explain edge functions.
+10. How does Next.js handle env variables?
+11. What is streaming SSR?
+12. Explain partial rendering.
+13. What is React Server Components?
+14. How does Next.js improve SEO?
+15. Explain dynamic routes.
+16. How does Next.js bundle code?
+17. Explain code splitting.
+18. What is `use client`?
+19. How does Next.js handle auth?
+20. Explain rewrites & redirects.
+21. How does Next.js handle APIs?
+22. Explain incremental static regeneration.
+23. How does Next.js optimize fonts?
+24. What is prefetching?
+25. How does Next.js handle errors?
+26. Explain build vs runtime.
+27. How does Next.js deploy on Vercel?
+28. Explain caching headers.
+29. How does Next.js handle forms?
+30. Explain route groups.
+31. What is parallel routing?
+32. How does Next.js handle images on CDN?
+33. Explain metadata API.
+34. How does Next.js handle security?
+35. What causes hydration errors?
+36. Explain Next.js data fetching.
+37. How does Next.js handle cookies?
+38. Explain static export limitations.
+39. What is edge runtime?
+40. How does Next.js improve performance?
+41. Explain API rate limiting.
+42. How does Next.js handle i18n?
+43. Explain middleware limitations.
+44. How does Next.js work with Docker?
+45. What is output file tracing?
+46. How does Next.js tree-shake?
+47. Explain `notFound()` and `redirect()`.
+48. How does Next.js handle layouts?
+49. What is streaming UI?
+50. Common Next.js production mistakes.
+
+PHP — 50 Deep Questions
+
+1. How does PHP handle request lifecycle?
+2. Explain PHP memory management.
+3. How does PHP opcode cache work?
+4. Difference between include & require?
+5. Explain namespaces.
+6. How does PHP handle sessions?
+7. Explain garbage collection in PHP.
+8. How does PHP handle large files?
+9. Explain PHP error handling.
+10. How does PHP handle concurrency?
+11. Difference between array and object?
+12. Explain PHP autoloading.
+13. How does PHP serialize data?
+14. What is late static binding?
+15. Explain traits.
+16. How does PHP handle references?
+17. Explain PHP security risks.
+18. How does PHP handle file uploads?
+19. Explain composer internals.
+20. How does PHP handle timezones?
+21. Explain PHP type juggling.
+22. What is strict typing?
+23. How does PHP handle JSON?
+24. Explain PHP output buffering.
+25. How does PHP handle cookies?
+26. Explain dependency injection.
+27. How does PHP handle CLI vs web?
+28. Explain PHP streams.
+29. How does PHP handle memory leaks?
+30. Explain SPL.
+31. How does PHP handle errors internally?
+32. Explain PHP request limits.
+33. How does PHP handle encoding?
+34. Explain PHP reflection.
+35. How does PHP handle encryption?
+36. Explain PHP hashing.
+37. How does PHP handle HTTP headers?
+38. Explain PHP caching.
+39. How does PHP handle file locking?
+40. Explain PHP session fixation.
+41. How does PHP handle exceptions?
+42. Explain PHP closures.
+43. How does PHP handle floats?
+44. Explain PHP internals lifecycle.
+45. How does PHP handle date?
+46. Explain PHP configuration.
+47. How does PHP handle memory fragmentation?
+48. Explain PHP FPM.
+49. How does PHP handle large traffic?
+50. Common PHP performance mistakes.
+
+Laravel — 50 Senior Questions
+
+1. Explain Laravel request lifecycle.
+2. How does service container work?
+3. Explain facades internally.
+4. How does middleware work?
+5. Explain Eloquent internals.
+6. How does Laravel handle relationships?
+7. What is N+1 problem?
+8. How does Laravel queue work?
+9. Explain jobs lifecycle.
+10. How does Laravel caching work?
+11. Explain event & listener.
+12. How does Laravel handle auth?
+13. Explain policies vs gates.
+14. How does Laravel handle API auth?
+15. Explain Laravel scheduler.
+16. How does Laravel handle validation?
+17. Explain Laravel exception handling.
+18. How does Laravel handle migrations?
+19. Explain Laravel broadcasting.
+20. How does Laravel handle file storage?
+21. Explain Laravel config caching.
+22. How does Laravel handle environment?
+23. Explain Laravel blade compilation.
+24. How does Laravel handle CSRF?
+25. Explain Laravel rate limiting.
+26. How does Laravel handle transactions?
+27. Explain Laravel testing.
+28. How does Laravel handle dependency injection?
+29. Explain Laravel macro.
+30. How does Laravel handle localization?
+31. Explain Laravel pagination.
+32. How does Laravel handle encryption?
+33. Explain Laravel notifications.
+34. How does Laravel handle multi-tenancy?
+35. Explain Laravel API resources.
+36. How does Laravel handle memory?
+37. Explain Laravel model observers.
+38. How does Laravel handle soft deletes?
+39. Explain Laravel scopes.
+40. How does Laravel handle policies?
+41. Explain Laravel Passport vs Sanctum.
+42. How does Laravel handle jobs failure?
+43. Explain Laravel route caching.
+44. How does Laravel handle logs?
+45. Explain Laravel session drivers.
+46. How does Laravel handle file uploads?
+47. Explain Laravel bootstrapping.
+48. How does Laravel handle config merging?
+49. Explain Laravel custom guards.
+50. Common Laravel scaling mistakes.
+
+MySQL — 50 Advanced Questions
+
+1. How does MySQL execute a query?
+2. Explain index internals.
+3. B-Tree vs Hash index?
+4. What is query optimizer?
+5. Explain EXPLAIN plan.
+6. What is covering index?
+7. How does MySQL handle locks?
+8. Explain deadlocks.
+9. Row-level vs table-level lock?
+10. How does InnoDB work?
+11. Explain ACID.
+12. What is isolation level?
+13. Explain MVCC.
+14. How does MySQL handle transactions?
+15. What is slow query log?
+16. How does MySQL handle joins?
+17. Explain normalization vs denormalization.
+18. How does MySQL handle replication?
+19. Explain read replicas.
+20. How does MySQL handle backups?
+21. Explain sharding.
+22. How does MySQL handle NULL?
+23. Explain index selectivity.
+24. How does MySQL cache work?
+25. Explain full-text search.
+26. How does MySQL handle large tables?
+27. Explain foreign keys.
+28. How does MySQL handle charset?
+29. Explain collation.
+30. How does MySQL handle concurrency?
+31. Explain optimistic locking.
+32. How does MySQL handle rollbacks?
+33. Explain temporary tables.
+34. How does MySQL handle pagination?
+35. Explain query cache removal.
+36. How does MySQL handle subqueries?
+37. Explain stored procedures.
+38. How does MySQL handle views?
+39. Explain triggers.
+40. How does MySQL handle partitioning?
+41. Explain index merge.
+42. How does MySQL handle timezones?
+43. Explain explain analyze.
+44. How does MySQL handle memory?
+45. Explain MySQL security risks.
+46. How does MySQL handle failover?
+47. Explain write amplification.
+48. How does MySQL handle JSON?
+49. Explain locking reads.
+50. Common MySQL performance mistakes.
+

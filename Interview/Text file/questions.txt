@@ -1,0 +1,35 @@
+-> csrf(Cross-Site Request Forgery)
+-> facades
+-> Eloquent
+-> queues
+-> Abstract classes
+-> interface
+-> Overloading
+-> overriding
+-> traits
+-> Primary and Unique keyword
+-> Trigger
+-> Stored Procedure
+-> Stored function
+-> Final class
+-> Final method
+-> namespaces
+-> static methods
+-> Composer
+-> Routing
+-> Reverse routing in Laravel
+-> service providers
+-> dependency injection
+-> What is a Service Container
+-> Authentication Frontline in Laravel
+-> Rate Limit
+-> Constructor and Destructor
+-> How Does the Client Know About the Session If It Is Stored on the Server
+-> What Happens When You Hit google.com
+-> What is an OPTIONS Request
+-> Pointers in C
+-> Pass by Value and Refrence
+-> Multithreading in C
+-> Resource Collection
+-> Jobs
+-> PDO

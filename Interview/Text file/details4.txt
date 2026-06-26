@@ -1,0 +1,112 @@
+Sure! Here are **50 questions** that can help you prepare for your **PHP Developer** interview at **GOQii Technologies Pvt. Ltd.**. These cover a variety of topics, including **PHP fundamentals**, **advanced PHP concepts**, **AI-related topics**, **security**, **databases**, and **behavioral questions**.
+
+---
+
+### **PHP Fundamentals**
+1. **What is PHP and how does it work?**
+2. **Explain the difference between `include()` and `require()` in PHP.**
+3. **What is the purpose of the `$_SESSION` variable?**
+4. **How does PHP handle error reporting?**
+5. **What is the difference between `==` and `===` in PHP?**
+6. **Explain how to connect PHP to a MySQL database.**
+7. **What are PHP superglobals, and can you name a few?**
+8. **What is the difference between `GET` and `POST` methods in PHP?**
+9. **What are cookies and sessions, and how do they work in PHP?**
+10. **Explain how you would secure a PHP application.**
+
+---
+
+### **Object-Oriented Programming (OOP) in PHP**
+11. **What are the basic principles of OOP (Encapsulation, Abstraction, Inheritance, Polymorphism)?**
+12. **What is the difference between public, private, and protected visibility in PHP classes?**
+13. **Explain the concept of constructor and destructor in PHP.**
+14. **What is the difference between `static` and `non-static` methods/properties in PHP?**
+15. **What are interfaces and abstract classes in PHP?**
+16. **How would you implement inheritance in PHP?**
+17. **What are traits in PHP?**
+
+---
+
+### **PHP Frameworks**
+18. **What is the MVC pattern, and how is it implemented in PHP frameworks like Laravel?**
+19. **What are the benefits of using a framework like Laravel for PHP development?**
+20. **Explain Eloquent ORM in Laravel.**
+21. **What is the purpose of middleware in Laravel?**
+22. **What is Dependency Injection in the context of PHP frameworks?**
+
+---
+
+### **Security in PHP**
+23. **What are some common security issues in PHP applications?**
+24. **How do you prevent SQL injection in PHP?**
+25. **What is Cross-Site Scripting (XSS) and how do you prevent it?**
+26. **What is Cross-Site Request Forgery (CSRF), and how do you protect against it?**
+27. **How do you securely store passwords in PHP?**
+28. **Explain how HTTPS works and why it’s important for PHP applications.**
+29. **What is session hijacking and how do you prevent it in PHP?**
+30. **What are prepared statements in PHP and why are they important for security?**
+
+---
+
+### **Databases & SQL**
+31. **How do you perform a CRUD operation in PHP with MySQL?**
+32. **What is the difference between `INNER JOIN`, `LEFT JOIN`, and `RIGHT JOIN` in SQL?**
+33. **What is the purpose of indexes in MySQL databases?**
+34. **Explain the concept of normalization in databases.**
+35. **What are foreign keys, and how do you use them in MySQL?**
+36. **What is the purpose of a transaction in MySQL?**
+37. **Explain the difference between `CHAR` and `VARCHAR` data types in MySQL.**
+
+---
+
+### **APIs & Web Services**
+38. **What is REST and how do you create a REST API in PHP?**
+39. **How do you consume a REST API in PHP?**
+40. **Explain the concept of WebSockets and how they differ from HTTP requests.**
+41. **What is the difference between GET and POST methods in an API context?**
+42. **What is JSON, and how do you work with it in PHP?**
+43. **What is the purpose of API authentication, and how do you implement OAuth in PHP?**
+
+---
+
+### **Performance Optimization**
+44. **What are some common performance optimization techniques for PHP applications?**
+45. **What is caching and how can it be implemented in PHP?**
+46. **How would you optimize a slow database query in PHP?**
+47. **What is the purpose of OPcache in PHP?**
+
+---
+
+### **AI and Machine Learning Concepts (Health Tech Focus)**
+48. **How do you think AI could enhance the user experience in health platforms like GOQii?**
+49. **What AI algorithms would you use for analyzing fitness data or health behavior patterns?**
+50. **How would you integrate an AI-powered recommendation engine with a PHP-based platform?**
+
+---
+
+### **Behavioral Questions**
+51. **Tell me about a time you faced a challenging problem in PHP and how you solved it.**
+52. **How do you prioritize tasks when working on multiple projects?**
+53. **Tell me about a time when you had to collaborate with non-technical stakeholders.**
+54. **How do you handle tight deadlines or stressful situations?**
+55. **Can you describe a project where you contributed to the design and architecture of the system?**
+
+---
+
+### **Miscellaneous**
+56. **What are namespaces in PHP?**
+57. **What are the differences between `echo` and `print` in PHP?**
+58. **What is the purpose of `isset()` and `empty()` functions in PHP?**
+59. **How do you handle file uploads in PHP?**
+60. **What is the difference between `include` and `require` in PHP, and when would you use each?**
+61. **Explain the difference between `exit()` and `die()` in PHP.**
+62. **How do you implement file handling in PHP (reading, writing, uploading)?**
+63. **How would you use PHP to send an email?**
+64. **Explain the concept of **PDO (PHP Data Objects)** in PHP and how it differs from using MySQLi.**
+65. **What is the use of the `filter_var()` function in PHP?**
+66. **What is Composer and how does it work in PHP projects?**
+67. **What is a callback function in PHP?**
+
+---
+
+By preparing for these questions, you'll be ready to demonstrate a deep understanding of PHP, backend development, security, and even how AI could be implemented in the context of a health-tech platform like GOQii.

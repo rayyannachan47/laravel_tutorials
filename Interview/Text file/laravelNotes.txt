@@ -1,0 +1,404 @@
+=> Routing
+
+Route::view('about','/about');
+
+Route::get('/{name}', function ($name) {
+    return view('passdata',['name'=>$name]);
+});
+
+Route::get('/', function () {
+    return redirect('about');
+});
+
+=> Controller
+
+php artisan make:controller UserController
+
+Route::get("user",[UserController::class,'show']);
+user -> any name
+show -> function in controller
+
+Route::get("user/{id}",[UserController::class,'show']);
+
+=> Components
+
+php artisan make:Component Header
+<x-header/> -> put this in page where want to show header
+
+php artisan view:clear -> to solve unresolvable parameter
+
+<x-header componentName='Users'/>
+change page content of header.php in view
+
+=> Pass data in view
+
+$data = ['Rayyan','Anil','Rohit','Jay'];
+return view('users',['users'=>$data]);
+
+=>Include page
+
+@include('innerPage')
+
+=> Passing data from controller to view
+
+check route for undefined variable
+
+=> Middleware
+
+php artisan make:Middleware checkAge
+
+add Middleware in kernel.php
+
+->Global middleware
+
+if($request->age && $request->age<18){
+    return redirect('noaccess');
+}
+return $next($request);
+
+It will apply everywhere
+
+->Group middleware
+
+kernel.php
+ 
+'protectPage'=>[
+    \App\Http\Middleware\AgeCheck::class,
+]
+
+Route::group(['middleware'=>['protectPage']],function(){
+    Route::view('about','/about');
+});
+
+
+for multiple middleware just use ',' with protectPage.
+protectPage is defined in kernel.
+It will apply only to about page. Use group middleware if we want to apply for specific pages.
+
+->Route middleware
+
+add Middleware in kernel.php
+
+Route::view('routeMiddleware','/routeMiddleware')->middleware('protectedPages'); in web.php
+
+=> HttpClients
+
+use Illuminate\Support\Facades\Http; in controller
+
+$data = Http::get("https://reqres.in/api/users?page=1");
+return view('welcome',['collection'=>$data['data']]);  
+
+$data['data'] -> because we need 'data' information.
+
+=> Sessions
+
+Route::get('/profile', function () {
+    if(session()->has('name')){
+        return view('profile');
+    }
+    return redirect('/login');
+});
+
+Route::get('/login', function () {
+    if(session()->has('name')){
+        return redirect('profile');
+    }
+    return view('/login');
+});
+
+=> Localization
+
+Make folder hi for hindi in lang folder which is in resources and make pages in that.
+Make similar page in en and hindi.
+Put this code in hi page
+<?php
+
+return [
+    'Welcome' => "स्वागत पृष्ठ",
+    'About' => "बारे में",
+    'Contact' => "संपर्क करना"
+]
+
+?>
+
+language from route
+
+Route::get('/{lang}', function ($lang) {
+    App::setLocale($lang);
+    return view('welcome');
+});
+
+=> Models
+
+php artisan make:model member
+
+name will be based on table and model name will be singular and table will be plural.
+
+use App\Models\member; in controller
+
+$data =  member::paginate(2); for pagination and add
+
+<div>
+    {{$members->links()}}
+</div>
+
+<style>
+    .w-5{
+        display:none;
+    }
+</style>
+
+public $timestamps=false; 
+place in model page for error like unknown column updated at
+
+=> Migrations
+
+php artisan make:migration create_test_table
+
+it will be there in database -> migrations -> create_test_table........
+
+up will create table and down will delete in that migration file.
+
+we can add fields as per our wish.
+
+command : php artisan migrate 
+it will update in db
+
+command : php artisan migrate:reset 
+it will reset in db
+
+command : php artisan migrate:rollback 
+rollback remove last migrated tables
+
+command : php artisan migrate:rollback  --step 2
+rollback last 2
+
+command : php artisan migrate:refresh
+
+command : php artisan migrate --path=/database/migrations/2022_12_03_155738_create_test_table.php
+
+for single migration
+
+=> Seeding
+
+dummy entry through laravel. Example predefined data for testing.
+
+command : php artisan make:seeder testSeeder
+database -> seeder folder
+
+Add DB, str in that file.
+Insert data in that file.
+
+command : php artisan db:seed --class=testSeeder
+
+=> Factory
+
+php artisan make:factory UserFactory --model=Test
+
+In factory page define columns which we do in seeder.
+
+php artisan make:seed UserTableSeeder
+
+In seeder call factory and proceed.
+
+php artisan db:seed --class=UserTableSeeder
+
+now seed the data. Data will be inserted as per conditions.
+
+=> Stub
+
+Stub is skeleton file.
+Example if we want to create controller file so what content will be there in that file defines by stub.
+We can apply stub everywhere.
+
+command : php artisan stub:publish
+
+stub-> particular that file.
+Do changes in file and while making controller we will get file with new changes in file.
+
+=> Accessor
+
+Use accessor if you want to modify database data before showing on html form
+
+in model make function and modify data as per situation.
+
+function getEmailAttribute($value){
+        return ucfirst($value);
+}
+
+function getAddressAttribute($value2){
+        return $value2.', India';
+}
+
+=> Mutator
+
+Modify db content before saving data(opposite of accessor)
+
+function setAddressAttribute($value4){
+        return $this->attributes['address'] = $value4.' , India';
+}
+
+function setNameAttribute($value3){
+        return $this->attributes['name'] = 'Mr. '.$value3;
+}
+
+=>One to one/Many relations
+
+It will match only one and first one even if multiple because one to one.
+
+Controller
+
+function index(){
+   return employee::find(1)->companyData;
+}
+
+Models
+
+function companyData(){
+   return $this->hasOne('App\Models\Company');
+}
+function companyData(){
+   return $this->hasMany('App\Models\Company');
+}
+
+=>Fluent Strings
+
+Chaining of methods in string.
+
+$info = "hi, how are you";
+
+Normal -------
+
+$info = Str::ucfirst(($info));
+$info = Str::replaceFirst('Hi', 'hello', $info);
+$info = Str::camel(($info));
+
+Fluent -------
+
+$info = Str::of($info)
+    ->ucfirst($info)
+    ->replaceFirst('Hi', 'hello', $info)
+    ->camel($info);
+
+echo $info;
+
+=> Route model binding
+
+Inject Route and model.
+
+=> API
+
+Declare route in api.php instead of web.php
+
+=>API with resource
+
+php artisan make:controller UserController --resource
+
+=> Multiple db connection
+
+Copy mysql in .env file.
+in config/database.php file copy same thing.
+
+=> 404 page
+
+make folder errors in views and place file 404.blade.php
+
+=> Scheduler
+
+php artisan make:command everyMinute
+
+it is placed in app/console/commands
+
+in kernel remove comment for scheduler
+
+php artisan list
+
+php artisan minute:update
+
+php artisan schedule:run
+
+=>Contact Form
+
+php artisan make:mail ContactMail
+
+=>Import
+
+composer require maatwebsite/excel
+
+Go to php.ini file in C:\xampp\php
+Search this ;extension=gd
+Remove ; then restart the xampp
+Add "maatwebsite/excel": "^3.0" to "require" in composer.json file
+Run composer update maatwebsite/excel
+
+Changes in config/app.php
+
+\Maatwebsite\Excel\ExcelServiceProvider::class in providers
+'Excel' => \Maatwebsite\Excel\Facades\Excel::class, in alias
+
+php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider"
+
+php artisan make:import EmployeeImport --model=Employee
+
+php artisan make:export EmployeeExport --model=Employee
+
+=> PDF export
+
+composer require barryvdh/laravel-dompdf
+
+Barryvdh\DomPDF\ServiceProvider::class, in providers(config/app)
+
+'PDF' => Barryvdh\DomPDF\Facade::class, in aliases
+
+php artisan vendor:publish --provider="Barryvdh\DomPDF\ServiceProvider"
+
+=>Helpers
+
+first make folder in app/Helpers and made file in it.
+
+in autoload add this
+
+"files":[
+            "app/Helpers/functions.php"
+        ]
+
+composer dump-autoload		
+
+=> Jetstream
+
+https://jetstream.laravel.com/2.x/installation.html
+
+composer require laravel/jetstream
+
+Install Jetstream With Livewire
+php artisan jetstream:install livewire
+php artisan jetstream:install livewire --teams
+
+#Or, Install Jetstream With Inertia
+php artisan jetstream:install inertia
+php artisan jetstream:install inertia --teams
+
+=> Maintenance mode
+
+php artisan up
+
+php artisan down
+
+php artisan down --secret='abc12345'
+
+create folder error in view and make file maintenance.blade.php
+
+php artisan down --render="errors::maintenance"
+
+=>Slot
+
+It will send data from view to component.
+
+=> authentication
+
+composer require laravel/jetstream
+
+php artisan jetstream:install livewire
+
+composer require setasign/fpdi-fpdf
+

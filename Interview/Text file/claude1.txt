@@ -1,0 +1,31 @@
+How would you optimize frontend performance in a PHP-rendered application?
+Minify JS/CSS, lazy-load images, use CDN, implement HTTP/2, cache API responses with Redis, use Webpack/Vite for asset bundling, reduce DOM complexity, defer non-critical JS.
+
+How would you implement caching in a high-traffic PHP application?
+Layer 1: HTTP caching (Cache-Control, ETags). Layer 2: Redis/Memcached for DB query results and sessions. Layer 3: CDN (CloudFront) for static assets. Discuss cache invalidation strategies — TTL, event-driven purge, cache tags in Laravel.
+
+What is the difference between == and === in PHP? When does == cause bugs?
+== does type juggling — 0 == "foo" returns true, "1" == true returns true. === checks value AND type — no coercion. Classic bug: comparing user input (string "0") with integer 0 using ==, which evaluates to true unexpectedly. Always prefer === in conditionals.
+var_dump(0 == "foo");    // true  ← bug trap
+PHP converted the non-numeric string "foo" to the number 0, so the comparison became:
+0 == 0
+var_dump(0 === "foo");   // false ← correct
+var_dump("1" == true);   // true
+var_dump("" == false);   // true
+Interviewers often follow up: "What about null == false?" — answer: true. Always use === unless intentional coercion is needed.
+
+What are PHP generators? How do they differ from arrays and when should you use them?
+AdvancedPHP
+Generators use yield to produce values lazily — one at a time, without loading all data into memory. Ideal for processing large CSV files, database cursors, or log streams. A 1M-row dataset as an array uses ~500MB RAM; a generator uses ~1KB.
+function readLargeCSV(string $path): Generator {
+    $handle = fopen($path, 'r');
+    while (($row = fgetcsv($handle)) !== false) {
+        yield $row;
+    }
+    fclose($handle);
+}
+
+foreach (readLargeCSV('million_rows.csv') as $row) {
+    processRow($row); // only one row in memory at a time
+}
+

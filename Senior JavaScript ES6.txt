@@ -1,0 +1,513 @@
+Perfect! Let’s go through **all 30 ES6+ questions with detailed explanations and examples**, so you can confidently answer them in an interview. I’ll provide **multi-line answers** with examples suitable for a **senior-level interview**.
+
+---
+
+# **Senior JavaScript ES6+ Interview Answers (1–30)**
+
+---
+
+## **1. Difference between `let`, `const`, and `var`**
+
+**Explanation:**
+
+* `var` is **function-scoped**, can be redeclared, and is hoisted.
+* `let` is **block-scoped**, cannot be redeclared in the same scope, and is hoisted but in the Temporal Dead Zone (TDZ).
+* `const` is **block-scoped**, cannot be reassigned, but **mutable objects inside it can be changed**.
+
+**Example:**
+
+```js
+var a = 1;
+let b = 2;
+const c = 3;
+
+a = 10; // OK
+b = 20; // OK
+// c = 30; // Error
+
+if(true){
+  let b = 100; // block-scoped, separate from outer b
+  console.log(b); // 100
+}
+console.log(b); // 20
+```
+
+---
+
+## **2. Arrow Functions and lexical `this`**
+
+**Explanation:**
+
+* Arrow functions do **not have their own `this`**.
+* They inherit `this` from the surrounding scope.
+
+**Example:**
+
+```js
+function Person(name) {
+  this.name = name;
+  this.sayHi = () => console.log('Hi, I am ' + this.name);
+}
+const p = new Person('Alice');
+p.sayHi(); // Hi, I am Alice
+```
+
+---
+
+## **3. Default Parameters**
+
+**Explanation:**
+
+* Functions can have default values for parameters.
+* Useful to avoid `undefined` and set fallback values.
+
+**Example:**
+
+```js
+function greet(name = 'Guest') {
+  console.log(`Hello ${name}`);
+}
+greet(); // Hello Guest
+greet('Alice'); // Hello Alice
+```
+
+---
+
+## **4. Template Literals**
+
+**Explanation:**
+
+* Use backticks `` ` `` instead of quotes.
+* Support **string interpolation**, **multi-line strings**, and **tagged templates**.
+
+**Example:**
+
+```js
+const name = 'Alice';
+const greeting = `Hello ${name}!
+Welcome to ES6.`;
+console.log(greeting);
+```
+
+---
+
+## **5. Destructuring Assignment**
+
+**Explanation:**
+
+* Extract values from arrays or objects into variables.
+* Can use **default values** and **nested destructuring**.
+
+**Example:**
+
+```js
+const arr = [1, 2, 3];
+const [a, b] = arr; // a=1, b=2
+
+const obj = {x:10, y:20};
+const {x, y, z=30} = obj; // x=10, y=20, z=30
+```
+
+---
+
+## **6. Spread and Rest Operators**
+
+**Explanation:**
+
+* **Spread (`...`)**: expands iterable into elements.
+* **Rest (`...`)**: collects remaining elements into an array.
+
+**Example:**
+
+```js
+const arr1 = [1,2];
+const arr2 = [...arr1,3]; // [1,2,3]
+
+function sum(...nums) {
+  return nums.reduce((a,b)=>a+b,0);
+}
+console.log(sum(1,2,3)); // 6
+```
+
+---
+
+## **7. Enhanced Object Literals**
+
+**Explanation:**
+
+* Shorthand property names, methods, and computed property keys.
+
+**Example:**
+
+```js
+const name = 'Alice';
+const id = 101;
+const obj = {
+  name,
+  greet() { console.log('Hi'); },
+  ['id_' + id]: 101
+};
+console.log(obj.id_101); // 101
+obj.greet(); // Hi
+```
+
+---
+
+## **8. Classes**
+
+**Explanation:**
+
+* Syntactic sugar over prototypes.
+* Supports inheritance via `extends` and parent constructor call via `super()`.
+
+**Example:**
+
+```js
+class Person {
+  constructor(name) { this.name = name; }
+  greet() { console.log(this.name); }
+}
+class Employee extends Person {
+  constructor(name, id) { super(name); this.id = id; }
+}
+const emp = new Employee('Bob', 1);
+emp.greet(); // Bob
+```
+
+---
+
+## **9. Modules: `import` and `export`**
+
+**Explanation:**
+
+* Modularize code into separate files.
+* Can use **named** or **default exports**.
+
+**Example:**
+
+```js
+// math.js
+export const add = (a,b) => a+b;
+export default function multiply(a,b){ return a*b; }
+
+// main.js
+import multiply, { add } from './math.js';
+console.log(add(2,3)); // 5
+console.log(multiply(2,3)); // 6
+```
+
+---
+
+## **10. Promises and Async/Await**
+
+**Explanation:**
+
+* Promises replace callbacks for async operations.
+* `async/await` allows cleaner, synchronous-looking code.
+
+**Example:**
+
+```js
+const p = new Promise(resolve => resolve(5));
+
+async function f() {
+  const val = await p;
+  console.log(val); // 5
+}
+f();
+```
+
+---
+
+## **11. Map, Set, WeakMap, WeakSet**
+
+**Explanation:**
+
+* **Map**: Key-value store, keys can be objects.
+* **Set**: Unique values collection.
+* **WeakMap/WeakSet**: Garbage-collected keys (only objects).
+
+**Example:**
+
+```js
+const map = new Map();
+map.set('a',1); console.log(map.get('a')); // 1
+
+const set = new Set([1,2,2]); console.log(set); // {1,2}
+
+const wm = new WeakMap();
+let obj = {}; wm.set(obj, 'data'); obj = null; // eligible for GC
+```
+
+---
+
+## **12. Symbols**
+
+**Explanation:**
+
+* Unique, immutable primitive values used as object property keys.
+
+**Example:**
+
+```js
+const id = Symbol('id');
+const obj = { [id]: 123 };
+console.log(obj[id]); // 123
+```
+
+---
+
+## **13. Iterators and Generators**
+
+**Explanation:**
+
+* **Iterators:** Custom objects that implement `next()` method.
+* **Generators:** Functions that pause/resume with `yield`.
+
+**Example:**
+
+```js
+function* gen() {
+  yield 1; yield 2;
+}
+for(const val of gen()) { console.log(val); } // 1 2
+```
+
+---
+
+## **14. `for..of` vs `for..in`**
+
+**Explanation:**
+
+* `for..in`: iterates **keys** of object/array.
+* `for..of`: iterates **values** of iterable objects.
+
+**Example:**
+
+```js
+const arr = [10,20];
+for(let i in arr) console.log(i); // 0 1
+for(let v of arr) console.log(v); // 10 20
+```
+
+---
+
+## **15. Object copying: `Object.assign()` vs spread**
+
+**Explanation:**
+
+* Shallow copy or merge objects.
+
+**Example:**
+
+```js
+const a = {x:1}, b = {y:2};
+const c = {...a,...b}; // {x:1,y:2}
+const d = Object.assign({}, a, b); // {x:1,y:2}
+```
+
+---
+
+## **16. `const` with mutable arrays/objects**
+
+**Explanation:**
+
+* Cannot reassign the variable itself, but internal data can be changed.
+
+**Example:**
+
+```js
+const arr = [1];
+arr.push(2); // OK
+// arr = [3]; // Error
+```
+
+---
+
+## **17. String utilities: `includes`, `startsWith`, `endsWith`**
+
+**Example:**
+
+```js
+const str = 'Hello';
+console.log(str.includes('He')); // true
+console.log(str.startsWith('He')); // true
+console.log(str.endsWith('lo')); // true
+```
+
+---
+
+## **18. Number utilities: `Number.isNaN()`, `Number.isFinite()`**
+
+**Example:**
+
+```js
+console.log(Number.isNaN(NaN)); // true
+console.log(Number.isNaN('NaN')); // false
+console.log(Number.isFinite(10/2)); // true
+```
+
+---
+
+## **19. `Object.keys()`, `Object.values()`, `Object.entries()`**
+
+**Example:**
+
+```js
+const obj = {a:1,b:2};
+console.log(Object.keys(obj)); // ['a','b']
+console.log(Object.values(obj)); // [1,2]
+console.log(Object.entries(obj)); // [['a',1],['b',2]]
+```
+
+---
+
+## **20. Template literal tagged functions**
+
+**Explanation:**
+
+* Tagged templates allow custom processing of template literals.
+
+**Example:**
+
+```js
+function tag(strings, ...values) {
+  console.log(strings, values);
+}
+const name = 'Alice';
+tag`Hello ${name}!`; 
+```
+
+---
+
+## **21. Destructuring with default values**
+
+**Example:**
+
+```js
+const obj = {x:1};
+const {x, y=10} = obj;
+console.log(x, y); // 1 10
+```
+
+---
+
+## **22. Default + named parameters together**
+
+**Example:**
+
+```js
+function greet(name='Guest', age=20) { console.log(name, age); }
+greet(); // Guest 20
+greet('Alice', 25); // Alice 25
+```
+
+---
+
+## **23. Symbol usage for hidden properties**
+
+**Example:**
+
+```js
+const id = Symbol('id');
+const obj = { [id]: 123 };
+console.log(Object.keys(obj)); // [] (hidden)
+console.log(obj[id]); // 123
+```
+
+---
+
+## **24. Proxy and Reflect**
+
+**Example:**
+
+```js
+const obj = {a:1};
+const proxy = new Proxy(obj, {
+  get(target, prop){ console.log(prop); return target[prop]; }
+});
+console.log(proxy.a); // Logs "a" → 1
+```
+
+---
+
+## **25. WeakRef (memory-safe caching)**
+
+**Example:**
+
+```js
+let obj = {data: 123};
+const weak = new WeakRef(obj);
+obj = null; // obj eligible for GC
+console.log(weak.deref()); // May be undefined
+```
+
+---
+
+## **26. Dynamic Import (`import()`)**
+
+**Example:**
+
+```js
+async function loadModule() {
+  const module = await import('./math.js');
+  console.log(module.add(2,3));
+}
+```
+
+---
+
+## **27. Optional chaining (`?.`)**
+
+**Example:**
+
+```js
+const user = {name:'Alice'};
+console.log(user?.address?.street); // undefined, no error
+```
+
+---
+
+## **28. Nullish coalescing (`??`)**
+
+**Example:**
+
+```js
+const val = null ?? 'default';
+console.log(val); // default
+const val2 = 0 ?? 10;
+console.log(val2); // 0 (not null/undefined)
+```
+
+---
+
+## **29. BigInt**
+
+**Example:**
+
+```js
+const big = 123456789012345678901234567890n;
+console.log(big + 1n); // 123456789012345678901234567891n
+```
+
+---
+
+## **30. ES6+ array methods (`find`, `findIndex`, `some`, `every`)**
+
+**Example:**
+
+```js
+const arr = [1,2,3,4];
+console.log(arr.find(x=>x>2)); // 3
+console.log(arr.findIndex(x=>x>2)); // 2
+console.log(arr.some(x=>x>3)); // true
+console.log(arr.every(x=>x>0)); // true
+```
+
+---
+
+✅ That completes **all 30 ES6+ interview questions with detailed explanations and examples**, perfect for senior-level interviews.
+
+If you want, I can now **combine these 30 ES6+ questions with your 50 core JS questions into one full “ready-to-revise” cheat sheet** with examples — this is extremely useful for **last-minute interview prep**.
+
+Do you want me to do that?

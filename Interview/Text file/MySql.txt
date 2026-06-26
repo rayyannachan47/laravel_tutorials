@@ -1,0 +1,70 @@
+1. What does null represent in sql? How to handle null in queries? How to handle and replace null values in SQL queries?
+2. Common data types in sql and briefly explain them?
+3. What is the difference between aggregate and scalar function?
+4. What is primary key? Why it is important?
+5. What is foreign key?
+6. Aggregate functions explain briefly?
+7. Database normalization and its importance in SQL?
+8. Does normalization helps in minimizing dependency also? what is denormalization?
+9. What is indexing? How it improves query performance?
+10. What is concept of transcation and explain it with example?
+
+11. How filter and replace works in sql query(Syntax)?
+12. Process of creating index. What are important factors to be consider when designing index for database?
+13. What is subquery in SQL?
+14. What you understand by Store Procedure?
+
+15. Difference between databases?
+16. What is where clause? Different operators using where clause?
+17. Sql joins?
+18. SQL Windows function?
+19. What is difference between rank and dense rank?
+20. What is fact? What is difference between fact and dimension table?
+21. What is difference between normal db and cloud?
+22. What is full name of microsoft software?
+23. Which version of sql you are using right now?
+24. What are sql set operators?
+25. Difference between having and where clause?
+26. When students result are coming that time which concept we will be using? rank or dense rank?
+27. What is the difference between outer join and cross join?
+28. What is the difference between inner join and left join?
+29. What is difference between lead and lag?
+30. What is order of execution of queries in sql?
+31. Example of ROW_NUMBER?
+32. How to give rank based on salary wise department?
+
+33. In which scenario we use index column?
+34. What is Snowflake Schema?
+35. What is difference between sort and filter?
+36. What is difference between DML and DDL?
+37. What is difference between Delete, Drop and Truncate?
+38. How to delete specific column from table?
+39. How to concat data ?
+40. What is the use of "use" in mysql?
+
+41. What is difference between Star and Snowflake Schema?
+
+42. What is Schema?
+43. What is Surrogate key?
+
+44. Command to drop primary key?
+45. What is view?
+46. Is Table and view have same row id?
+47. Materialized view?
+48. Suppose i drop main table so view will exist?
+49. Table and materialised view have different row id? Yes
+50. Materialized view take physical space?
+51. Is it possible ddl command in view?
+52. Is it possible dml command in materialized view?
+53. Is it possible ddl command in materialized view?
+54. What is dual? Dummy table
+55. What is sysdate?
+56. What is difference between delete and truncate?
+57. What is difference between union and union all and how they are different from intersect?
+
+
+
+
+
+
+

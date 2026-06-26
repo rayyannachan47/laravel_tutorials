@@ -1,0 +1,90 @@
+Core HTML Concepts
+
+1. What is HTML and why is it important in web development?
+2. Explain the difference between HTML, XHTML, and HTML5.
+3. What are the new semantic elements introduced in HTML5?
+4. Difference between `<section>`, `<article>`, `<div>`, and `<main>`.
+5. Difference between `<span>` and `<div>`.
+6. What is the difference between inline, block, and inline-block elements?
+7. What is the difference between `<b>` vs `<strong>` and `<i>` vs `<em>`?
+8. What are data attributes (`data-*`) and how are they used?
+9. Explain the difference between HTML global attributes and specific attributes.
+10. Difference between `<meta>` tags: charset, viewport, description, and robots.
+
+Forms and Inputs
+
+11. Difference between GET and POST methods in forms.
+12. How do you validate forms using HTML5 attributes?
+13. What are the new input types in HTML5?
+14. Explain `<input type="range">`, `<input type="date">`, `<input type="email">`.
+15. How do you use `<datalist>` and `<fieldset>`?
+16. What are `required`, `pattern`, `min`, `max`, and `step` attributes in form validation?
+17. Explain the difference between `<button type="submit">` and `<input type="submit">`.
+18. How do you prevent browser autocomplete in forms?
+19. Difference between `<label>` and `aria-label`.
+20. How do you create accessible forms for screen readers?
+
+Multimedia & Embedded Content
+
+21. Difference between `<audio>` and `<video>` tags.
+22. How do you make videos responsive?
+23. What are `<iframe>` security considerations?
+24. Difference between `<embed>` and `<object>` tags.
+25. How do you use `<picture>` and `<source>` for responsive images?
+26. What is the `alt` attribute and why is it important for accessibility?
+27. Difference between `<img>` `srcset` and `sizes` attributes.
+28. How do you lazy-load images in HTML5?
+29. What is the role of `<canvas>` and `<svg>` in HTML5?
+30. Explain autoplay, controls, muted, and preload attributes for media.
+
+Semantic HTML & Accessibility
+
+31. What is semantic HTML and why is it important?
+32. Difference between `<header>` vs `<nav>` vs `<footer>`.
+33. How do you make tables accessible?
+34. Difference between `<th>` `scope="row"` vs `scope="col"`.
+35. How do you implement ARIA roles in HTML?
+36. How do you make interactive elements keyboard accessible?
+37. Explain the difference between landmark roles and ARIA roles.
+38. How do you make a skip link for accessibility?
+39. Difference between `tabindex="0"` and `tabindex="-1"`.
+40. How do you make content readable by screen readers only?
+
+HTML Performance & SEO
+
+41. Difference between `<script>` `defer` vs `async`.
+42. Difference between inline, internal, and external scripts and CSS.
+43. How do you optimize HTML for SEO?
+44. What are meta tags for social sharing (Open Graph/Twitter cards)?
+45. Difference between canonical tags and noindex.
+46. How do you use `<link rel="preload">` and `<link rel="prefetch">`?
+47. Difference between `<base>` and relative URLs.
+48. How do you reduce DOM size and improve HTML performance?
+49. Difference between `<noscript>` and `<script>` tags.
+50. How do you handle progressive enhancement in HTML?
+
+Modern HTML Features
+
+51. Difference between local storage, session storage, and cookies.
+52. What are web components and how are they implemented?
+53. How do you use `<template>` and `<slot>`?
+54. Difference between `<dialog>` and traditional modals.
+55. How do you implement custom elements using `is` attribute?
+56. Explain HTML drag-and-drop API.
+57. How do you use `<meter>` and `<progress>` elements?
+58. What is the difference between `<mark>` and `<ins>`?
+59. How do you implement responsive embeds with `<iframe>`?
+60. How do you use `<details>` and `<summary>` for collapsible content?
+
+Integration & Best Practices
+
+61. How do you combine HTML5 with CSS Grid and Flexbox layouts?
+62. How do you ensure HTML is valid and well-structured?
+63. How do you debug HTML accessibility issues?
+64. Difference between `id` and `class` in terms of specificity.
+65. Difference between `data-*` attributes and custom JS properties.
+66. How do you implement microdata/schema.org in HTML?
+67. How do you handle internationalization (lang attribute, dir)?
+68. Difference between `<script type="module">` and classic script.
+69. How do you implement HTML forms with progressive enhancement?
+70. How do you handle browser compatibility for HTML5 features?

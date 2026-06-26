@@ -1,0 +1,56 @@
+A component is a piece of code, which we can reuse in any blade template.
+ 
+We can easily share database schema without any extra effort. 
+Migrations are files that contain code to create a database table or make changes in any tables, 
+this files can be used by other team members to make changes in the database by just executing that migration file.
+Migration is Laravel's database version control system that allows developers to create, modify, and manage database schemas using PHP code instead of writing SQL manually.
+After a migration has been run, I create a new migration to alter the table rather than modifying the old migration file.
+When can you edit the old migration?
+Before deployment / before others use it.
+When should you create a new migration?
+After deployment or when working in a team.
+
+Model: It interacts with the database.
+View: User Interface. It contains everything which a user can see on the screen.
+Controller: It helps to connect Model and View and contains all the business logic. 
+
+Seeder : dummy entry through laravel. Example predefined data for testing.
+
+A Seeder is responsible for inserting records into the database. Faker is a library used to generate realistic dummy data. Seeders can work without Faker by inserting fixed values, while Faker is commonly used within Seeders or Factories to generate dynamic test data.
+
+A Factory defines the format of fake data for a model, while a Seeder is responsible for inserting data into the database. Factories are commonly used inside Seeders to generate large amounts of realistic test data automatically.
+Example :  User::factory()->count(50)->create();
+
+Faker is a library that generates fake data such as names, emails, and addresses. A Factory is a Laravel class that uses Faker to define and generate complete model records for testing and database seeding.
+
+Easy Way to Remember
+Seeder = "How data gets inserted"
+Faker = "What data gets inserted"
+Factory creates data; Seeder stores data.
+Faker creates fake values, while Factory organizes those values into model data structures.
+
+Stub is skeleton file.
+Example if we want to create controller file so what content will be there in that file defines by stub.
+We can apply stub everywhere.
+
+Use accessor if you want to modify database data before showing on html form
+
+Mutator modify db content before saving data(opposite of accessor)
+
+Slot will send data from view to component.
+
+Middleware verifies whether the user of the application is authenticated or not.
+Middleware acts as a bridge between an HTTP request and the application. It allows developers to inspect, filter, or modify requests before they reach the controller. It can be applied globally, to specific routes, or to route groups.
+Types of Middleware in Laravel
+1. Global Middleware
+Applied to every request in the application.
+Example: Maintenance mode, request logging.
+2. Route Middleware
+Applied to specific routes.
+Route middleware is assigned to individual routes to control access or perform specific checks.
+3. Middleware Groups
+A collection of multiple middleware applied together.
+Middleware groups allow multiple middleware to be bundled and applied to a set of routes.
+
+Routes are actually the web URLs that you can visit in your web application.
+Laravel routes are used to bind url to controller action.

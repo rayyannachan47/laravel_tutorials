@@ -1,0 +1,214 @@
+Perfect choice 👍
+If you master **these 30 HTML questions**, you’ll handle **90% of real senior interviews** (India + Dubai + Saudi).
+These are **not random** — they’re the **most frequently asked** and **decision-making** questions.
+
+I’ll list them in **priority order**, with **what interviewers are really testing** (this is important).
+
+---
+
+# 🔥 Top 30 MOST-ASKED HTML Interview Questions (Senior / 8 Years)
+
+---
+
+## 1. What are semantic HTML elements and why are they important?
+
+**They test:** Accessibility, SEO, modern standards mindset
+
+---
+
+## 2. Difference between `<div>` and semantic elements?
+
+**They test:** Whether you write meaningful HTML or just structure
+
+---
+
+## 3. Difference between `<section>`, `<article>`, and `<div>`?
+
+**They test:** Content modeling skills
+
+---
+
+## 4. How does browser render an HTML page?
+
+**They test:** Performance & rendering knowledge
+
+---
+
+## 5. What is the DOM and how is it related to HTML?
+
+**They test:** JS + HTML integration understanding
+
+---
+
+## 6. Difference between `async` and `defer`?
+
+**They test:** Render-blocking optimization
+
+---
+
+## 7. What is accessibility (a11y) and how do you implement it in HTML?
+
+**They test:** Real-world inclusive development
+
+---
+
+## 8. What is ARIA and when should you use or avoid it?
+
+**They test:** Senior accessibility judgment
+
+---
+
+## 9. Difference between `<strong>` and `<b>`?
+
+**They test:** Semantic vs visual thinking
+
+---
+
+## 10. Difference between `<em>` and `<i>`?
+
+**They test:** Same as above
+
+---
+
+## 11. What is the purpose of the `alt` attribute?
+
+**They test:** Accessibility + SEO basics
+
+---
+
+## 12. How does HTML form submission work?
+
+**They test:** Frontend–backend integration
+
+---
+
+## 13. Difference between GET and POST?
+
+**They test:** Security & data handling
+
+---
+
+## 14. Difference between `disabled` and `readonly`?
+
+**They test:** Edge-case form behavior
+
+---
+
+## 15. What is the `name` attribute used for?
+
+**They test:** Backend awareness (Laravel, Node, etc.)
+
+---
+
+## 16. How do you handle HTML validation?
+
+**They test:** UX vs security balance
+
+---
+
+## 17. What happens if HTML is not well-formed?
+
+**They test:** Browser parsing tolerance
+
+---
+
+## 18. What is reflow and repaint?
+
+**They test:** Performance optimization
+
+---
+
+## 19. How does HTML structure affect performance?
+
+**They test:** DOM optimization skills
+
+---
+
+## 20. What is progressive enhancement?
+
+**They test:** Resilient design thinking
+
+---
+
+## 21. What are responsive images?
+
+**They test:** Performance + mobile optimization
+
+---
+
+## 22. Difference between `<picture>` and `srcset`?
+
+**They test:** Image delivery knowledge
+
+---
+
+## 23. What is lazy loading and how does it work?
+
+**They test:** Core Web Vitals awareness
+
+---
+
+## 24. How does HTML impact SEO?
+
+**They test:** Content structure understanding
+
+---
+
+## 25. Why semantic HTML matters even in React?
+
+**They test:** Framework-independent fundamentals
+
+---
+
+## 26. How do you structure HTML for SSR apps?
+
+**They test:** Next.js / Nuxt knowledge
+
+---
+
+## 27. What is hydration?
+
+**They test:** Modern frontend architecture
+
+---
+
+## 28. How do you prevent XSS at HTML level?
+
+**They test:** Security awareness
+
+---
+
+## 29. How does HTML support accessibility for keyboard users?
+
+**They test:** Real usability skills
+
+---
+
+## 30. Common HTML mistakes made by senior developers?
+
+**They test:** Self-awareness & experience
+
+---
+
+## 🎯 How to use this list to CRACK interviews
+
+### 3-Step Strategy (Very Effective)
+
+1. **Prepare detailed answers** (like we already did)
+2. Add **1 real project example** per question
+3. End answers with **trade-offs or best practices**
+
+Example ending line:
+
+> “In our production app, this helped improve accessibility and performance.”
+
+---
+
+If you want next, I can:
+
+* ✅ Give **perfect interview answers for these 30 only**
+* ✅ Do a **mock senior interview** (I ask, you answer)
+* ✅ Map these questions to **Dubai / Saudi interview patterns**
+* ✅ Combine **HTML + React / Next.js most-asked questions**
+
+Just tell me — you’re in very strong shape now 💪

@@ -1,0 +1,111 @@
+BASIC HTML (1–20) — fundamentals, but asked smartly
+
+1. What is HTML and how is it different from HTML5?
+2. What are semantic HTML elements and why are they important?
+3. Difference between <div> and <span>?
+4. What is the purpose of <!DOCTYPE html>?
+5. Difference between block-level and inline elements?
+6. What are global attributes in HTML?
+7. What is the data-* attribute and when do you use it?
+8. Difference between id and class?
+9. How does the browser render an HTML page step by step?
+10. What is the difference between <strong> and <b>?
+11. Difference between <em> and <i>?
+12. What is the alt attribute and why is it important?
+13. Difference between <script> in <head> vs <body>?
+14. What are void (self-closing) elements?
+15. Difference between <meta charset="UTF-8"> and other encodings?
+16. What is the purpose of the <title> tag?
+17. Difference between HTML attributes and properties?
+18. What happens if multiple elements have the same id?
+19. How does HTML work with CSS and JavaScript?
+20. What are deprecated HTML tags?
+
+INTERMEDIATE HTML (21–50) — real interview zone
+
+21. What are semantic tags introduced in HTML5?
+22. Difference between <section>, <article>, <div>, and <main>?
+23. When should you use <aside>?
+24. Difference between <figure> and <img>?
+25. What is the role of <nav>?
+26. Explain the HTML content model.
+27. What is the difference between <header> and <head>?
+28. What is the purpose of <footer>?
+29. What is accessibility (a11y) in HTML?
+30. What is ARIA and when should it be avoided?
+31. Difference between aria-label and aria-labelledby?
+32. How does screen reader interpret HTML?
+33. What is tabindex and how does it affect keyboard navigation?
+34. Difference between hidden, display:none, and visibility:hidden?
+35. What are HTML entities?
+36. What is the difference between <iframe> and <embed>?
+37. Security risks of using <iframe>?
+38. What is the sandbox attribute in iframe?
+39. Difference between <button> and <input type="button">?
+40. How does form submission work internally?
+41. Difference between GET and POST in HTML forms?
+42. What is the name attribute used for in forms?
+43. What is form validation at HTML level?
+44. Difference between required, readonly, and disabled?
+45. What is the purpose of <label>?
+46. Difference between <fieldset> and <legend>?
+47. What are HTML input types introduced in HTML5?
+48. What is the pattern attribute?
+49. What is the autocomplete attribute?
+50. What happens if HTML is not well-formed?
+
+ADVANCED HTML (51–80) — senior developer level
+
+51. What is the DOM and how is it related to HTML?
+52. Difference between DOM and BOM?
+53. How does browser handle invalid HTML?
+54. What is reflow and repaint?
+55. How HTML structure affects performance?
+56. What is critical rendering path?
+57. Difference between async and defer in script tags?
+58. When should you use defer over async?
+59. What happens if multiple scripts use async?
+60. What is progressive enhancement?
+61. What is graceful degradation?
+62. What is the purpose of <template> tag?
+63. How does <template> differ from hidden div?
+64. What is the <slot> element?
+65. Explain Shadow DOM in relation to HTML
+66. How does HTML support Web Components?
+67. What is Custom Elements?
+68. How does <picture> tag work?
+69. Difference between <picture> and <img srcset>?
+70. What is responsive images?
+71. What is srcset and sizes?
+72. How does browser choose image from srcset?
+73. What is lazy loading in HTML?
+74. How does loading="lazy" work?
+75. SEO impact of HTML structure?
+76. Difference between semantic HTML and SEO?
+77. How to make HTML SEO-friendly?
+78. How HTML helps in Core Web Vitals?
+79. What is microdata in HTML?
+80. Difference between Microdata, RDFa, and JSON-LD?
+
+EXPERT / ARCHITECT LEVEL (81–100) — 8+ years mindset
+
+81. How do you design HTML structure for a large application?
+82. How HTML decisions impact maintainability?
+83. How do you audit HTML for accessibility?
+84. What common accessibility mistakes developers make?
+85. How would you optimize HTML for performance?
+86. How do you minimize DOM size?
+87. How HTML affects Time to First Paint?
+88. How do you structure HTML for SSR apps?
+89. HTML considerations in React / Next.js?
+90. Why semantic HTML still matters with React?
+91. How hydration works in SSR?
+92. What problems occur due to incorrect HTML nesting?
+93. How do browsers parse HTML internally?
+94. What is the HTML parsing algorithm (high level)?
+95. How HTML impacts internationalization (i18n)?
+96. Purpose of lang attribute?
+97. How do you handle RTL languages in HTML?
+98. Security best practices related to HTML?
+99. How do you prevent XSS at HTML level?
+100. What HTML mistakes expose applications to vulnerabilities?

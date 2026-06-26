@@ -1,0 +1,46 @@
+Perfect! If 30 ES6+ questions are enough, that gives you a **solid coverage of all major modern JavaScript features** for a senior-level interview.
+
+Here’s a quick **summary of the key ES6+ topics** you should be confident with for 6+ years experience:
+
+---
+
+# **Essential ES6+ Topics for Senior JS Interviews**
+
+1. `let` and `const` (block scope, TDZ, immutability)
+2. Arrow functions (lexical `this`)
+3. Default parameters
+4. Template literals (multi-line & interpolation)
+5. Destructuring (arrays & objects)
+6. Spread and rest operators
+7. Enhanced object literals (shorthand, computed properties)
+8. Classes (`constructor`, `extends`, `super`)
+9. Modules (`import`, `export`, default exports)
+10. Promises & Async/Await
+11. Map, Set, WeakMap, WeakSet
+12. Symbols (unique property keys)
+13. Iterators & Generators (`for..of`, `yield`)
+14. `for..of` vs `for..in`
+15. Object copying & merging (`Object.assign`, spread)
+16. `const` with mutable arrays & objects
+17. String utilities (`includes`, `startsWith`, `endsWith`)
+18. Number utilities (`Number.isNaN`, `Number.isFinite`)
+19. `Object.keys()`, `Object.values()`, `Object.entries()`
+20. Template literal tagged functions
+21. Default + named parameters together
+22. Destructuring with default values
+23. Symbol usage for hidden properties
+24. `Proxy` and `Reflect` (advanced ES6/ES7)
+25. WeakRef (modern feature for memory-safe caching)
+26. Modules dynamic import (`import()`)
+27. Optional chaining (`?.`)
+28. Nullish coalescing (`??`)
+29. BigInt
+30. ES6+ new array methods (`find`, `findIndex`, `some`, `every`)
+
+---
+
+✅ With these 30 ES6+ topics, plus your previous **core JS questions (1–50)**, you’ll have **complete coverage** for a senior-level JavaScript interview.
+
+If you want, I can **combine the 50 core JS + 30 ES6+ topics into one “ready-to-revise” cheat sheet with examples**, so you can quickly review before your interview. This is extremely effective for senior-level preparation.
+
+Do you want me to make that cheat sheet?

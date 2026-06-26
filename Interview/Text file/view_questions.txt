@@ -1,0 +1,232 @@
+1. What is a View in Laravel?
+
+A View is a file that contains the presentation logic of an application. It is responsible for displaying data to users and is typically stored in the `resources/views` directory.
+
+Example:
+
+php
+return view('welcome');
+
+2. What is Blade in Laravel?
+
+Blade is Laravel's templating engine. It allows you to write dynamic content using a clean and simple syntax.
+
+Example:
+
+blade
+<h1>{{ $title }}</h1>
+
+3. How do you pass data to a View?
+
+Using the `view()` helper:
+
+php
+return view('profile', ['name' => 'John']);
+
+Or:
+
+php
+return view('profile')->with('name', 'John');
+
+4. What is the difference between `{{ }}` and `{!! !!}`?
+
+* `{{ }}`: Escapes HTML for security.
+* `{!! !!}`: Outputs raw HTML without escaping.
+
+{{ }} → Safe output (escaped)
+Automatically escapes HTML characters
+Prevents XSS (Cross-Site Scripting) attacks
+Used for normal data display
+
+{!! !!} → Raw output (unescaped)
+Does NOT escape HTML
+Renders HTML directly
+Must be used carefully
+
+Example:
+
+blade
+{{ $content }}
+{!! $content !!}
+
+5. How do you create a Blade layout?
+
+layouts/app.blade.php
+
+blade
+<html>
+<body>
+    @yield('content')
+</body>
+</html>
+
+
+home.blade.php
+
+blade
+@extends('layouts.app')
+
+@section('content')
+    <h1>Home Page</h1>
+@endsection
+
+6. What is `@extends`?
+
+`@extends` is used to inherit a parent layout.
+I already have the navbar and everything in the layout. When I use @extends, I only provide the body content, and Laravel places it in the layout
+
+blade
+@extends('layouts.app')
+
+7. What is `@section` and `@yield`?
+
+* `@section`: Defines a content section.
+* `@yield`: Displays the section content in the parent layout.
+@yield defines a placeholder in the layout, and @section provides content for that placeholder in child views, enabling reusable templates in Laravel.
+
+blade
+@section('title', 'Dashboard')
+
+blade
+<title>@yield('title')</title>
+
+8. What is `@include`?
+
+Used to include a partial view.
+
+blade
+@include('partials.header')
+
+9. What are Blade Components?
+
+Reusable UI elements that can accept data.
+
+Component:
+
+blade
+<x-alert type="success" message="Saved successfully!" />
+
+10. How do you loop through data in a View?
+
+blade
+@foreach($users as $user)
+    <p>{{ $user->name }}</p>
+@endforeach
+
+11. How do you write conditional statements in Blade?
+
+blade
+@if($user->isAdmin())
+    Admin
+@elseif($user->isManager())
+    Manager
+@else
+    User
+@endif
+
+12. What is `@forelse`?
+
+Used when you want to handle empty collections.
+
+blade
+@forelse($users as $user)
+    {{ $user->name }}
+@empty
+    No users found.
+@endforelse
+
+13. How do you share data with all views?
+
+Using a View Composer or `View::share()`.
+
+php
+View::share('appName', 'My App');
+
+14. What is a View Composer?
+
+A class or closure that binds data to a view every time it is rendered.
+
+php
+View::composer('dashboard', function ($view) {
+    $view->with('count', 100);
+});
+
+15. How do you check if a view exists?
+
+php
+if (view()->exists('admin.dashboard')) {
+    return view('admin.dashboard');
+}
+
+16. Where are compiled Blade views stored?
+
+Laravel compiles Blade templates and stores them in:
+
+text
+storage/framework/views
+
+17. What is the purpose of `@csrf` in a view?
+
+It generates a CSRF token field for form protection.
+
+blade
+<form method="POST">
+    @csrf
+</form>
+
+18. How do you display old form input values?
+
+blade
+<input type="text" name="name" value="{{ old('name') }}">
+
+19. How do you display validation errors in a view?
+
+blade
+@error('email')
+    <span>{{ $message }}</span>
+@enderror
+
+20. What are Blade directives?
+
+Blade directives are special commands prefixed with `@`.
+
+Examples:
+
+blade
+@if
+@foreach
+@include
+@extends
+@section
+@yield
+@csrf
+@auth
+@guest
+
+
+Advanced Interview Questions
+
+1. What are anonymous components in Blade?
+2. Difference between View Composer and View Creator.
+3. How does Blade compilation work internally?
+4. What is view caching and how can it improve performance?
+5. How do slots work in Blade components?
+6. Difference between `@include`, `@each`, and components.
+7. How would you optimize rendering of large datasets in views?
+8. How do you create custom Blade directives?
+
+Example custom directive:
+
+php
+Blade::directive('datetime', function ($expression) {
+    return "<?php echo ($expression)->format('d/m/Y H:i'); ?>";
+});
+
+
+Usage:
+
+blade
+@datetime($user->created_at)
+
+
+These questions cover most Laravel View and Blade concepts commonly asked in Laravel developer interviews.

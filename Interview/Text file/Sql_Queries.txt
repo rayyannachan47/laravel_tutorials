@@ -1,0 +1,23 @@
+SQL Queries
+
+1. Find total sales amount for each category?
+2. There are 2 tables Order and Customer table. Write a query to find name of customer who placed the order with highest total amount. 
+3. Find average salary for sales department.
+4. Write a query to retrieve all records from Employee table whose age is greater than 30?
+5. How can you sort in Product table by there price in descending order?
+6. Write a query to find counts of orders in Order table?
+7. How to retrieve unique city from Customer table.
+8. Write a query to find all records from Employee table who are in sales department and salary > 50000?
+9. How to find top 2 salary from employee table?
+10. Write a query to fetch common records between table?
+11. If there are 2 tables Hyderabad and Maharashtra. Find out which customers are purchasing from both states?
+12. Second highest salary from department?
+13. Write a query to find quarterly sales?
+14. Write a query to find monthly sales?
+15. How to find 3rd highest salary from employee table?
+16. How to take out difference between 2 dates?
+17. How to create empty structure of table. Suppose i have table with data and i want to make new table witj same structure?
+18. Alter command?
+19. How to delete duplicate records from table?
+20. Display highest and lowest salary from table corresponding to each department?
+21. How to find max salary in group? and max salary greater than 50000.

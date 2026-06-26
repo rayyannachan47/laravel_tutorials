@@ -1,0 +1,102 @@
+Here are the answers to your questions:
+
+### 1. **Candidate Key:**
+   A **Candidate Key** is a set of attributes (columns) in a relational database table that uniquely identify a record. There can be multiple candidate keys, but one of them will be chosen as the **Primary Key**. Each candidate key must be unique, minimal (not contain extra attributes), and non-null.
+
+### 2. **Life Cycle of Laravel Request:**
+   The life cycle of a Laravel request can be summarized as follows:
+   - **Request:** The user sends a request (HTTP request).
+   - **Service Provider Registration:** Service providers are loaded and registered.
+   - **Routing:** The Laravel router matches the URL to a corresponding route.
+   - **Middleware:** Request passes through middleware (like authentication, CORS, etc.).
+   - **Controller:** If a controller is defined for the route, it processes the request.
+   - **Response:** After processing, a response is generated.
+   - **Middleware (Again):** The response goes through middleware (for example, for logging).
+   - **Send Response:** Finally, the response is sent back to the client.
+
+### 3. **In Case of Migration, How You Will Add Column:**
+   In Laravel migration, to add a column to an existing table, you use the `Schema::table` method with the `addColumn` method. Here's an example:
+   ```php
+   Schema::table('users', function (Blueprint $table) {
+       $table->string('phone_number')->nullable();
+   });
+   ```
+   This will add a new column called `phone_number` to the `users` table.
+
+### 4. **Abstraction Example in PHP:**
+   Abstraction allows you to define a class with abstract methods that must be implemented by subclasses. Example:
+   ```php
+   abstract class Animal {
+       abstract public function makeSound();
+   }
+
+   class Dog extends Animal {
+       public function makeSound() {
+           echo "Woof!";
+       }
+   }
+
+   $dog = new Dog();
+   $dog->makeSound(); // Outputs: Woof!
+   ```
+
+### 5. **Inheritance Example in PHP:**
+   Inheritance allows one class to inherit the properties and methods of another class. Example:
+   ```php
+   class Animal {
+       public $name;
+
+       public function __construct($name) {
+           $this->name = $name;
+       }
+
+       public function greet() {
+           echo "Hello, I am " . $this->name;
+       }
+   }
+
+   class Dog extends Animal {
+       public function bark() {
+           echo "Woof! Woof!";
+       }
+   }
+
+   $dog = new Dog("Buddy");
+   $dog->greet(); // Outputs: Hello, I am Buddy
+   $dog->bark();  // Outputs: Woof! Woof!
+   ```
+
+### 6. **PUT vs PATCH:**
+   - **PUT:** Used to update an existing resource or create a new one if it does not exist. The data sent in the body should contain the full representation of the resource (it replaces the current resource).
+   - **PATCH:** Used to apply partial updates to an existing resource. Only the fields that need to be updated are provided in the request body.
+
+   Example:
+   - **PUT**: Updating an entire user record.
+   - **PATCH**: Updating just the user’s email.
+
+### 7. **Traits in PHP:**
+   A **Trait** in PHP is a mechanism for code reuse in single inheritance languages like PHP. A trait allows you to share methods between classes without using inheritance.
+   ```php
+   trait Logger {
+       public function log($message) {
+           echo "Log: " . $message;
+       }
+   }
+
+   class User {
+       use Logger;
+   }
+
+   class Order {
+       use Logger;
+   }
+
+   $user = new User();
+   $user->log("User logged in."); // Outputs: Log: User logged in.
+
+   $order = new Order();
+   $order->log("Order placed."); // Outputs: Log: Order placed.
+   ```
+   Traits help avoid code duplication by allowing multiple classes to share common functionality.
+
+Let me know if you need any further explanations on these topics!

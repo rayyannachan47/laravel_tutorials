@@ -1,0 +1,199 @@
+1.What is the difference between Eloquent and Query Builder?
+
+Eloquent: Eloquent is Laravel's ORM (Object-Relational Mapping) system, which provides an easy and intuitive way to interact with the database using PHP objects. It allows you to work with database records as models, and supports features like relationships (e.g., one-to-many, many-to-many), mutators, accessors, and more.
+Example:
+
+$user = User::where('name', 'John')->first();
+   
+Query Builder: Query Builder is a more flexible way to write database queries directly in Laravel. It’s a lower-level alternative to Eloquent and is better for complex queries. While it doesn’t return models, it returns raw query results, typically arrays.
+Example:
+
+$user = DB::table('users')->where('name', 'John')->first();
+    
+Key Differences:
+Eloquent returns model instances, whereas Query Builder returns raw database results.
+Eloquent provides easier-to-use, higher-level abstractions, while Query Builder is lower-level but more flexible.
+Eloquent supports relationships (e.g., `hasMany`, `belongsTo`), while Query Builder does not.
+
+2.How do you handle database migrations and rollbacks in Laravel?
+
+Migrations: Migrations in Laravel are used to manage your database schema. You can create, modify, and delete database tables using Artisan commands.
+  
+To create a migration:
+    php artisan make:migration create_users_table
+    
+To run migrations:
+    php artisan migrate
+
+To rollback the last batch of migrations:
+    php artisan migrate:rollback
+   
+To reset all migrations (rollback all migrations):
+    php artisan migrate:reset
+    
+To refresh the migrations (rollback and re-run all migrations):
+    php artisan migrate:refresh
+  
+
+3.Explain middleware and how would you use it in a Laravel application?
+
+Middleware: Middleware in Laravel is a way of filtering HTTP requests entering your application. It provides a convenient mechanism for handling tasks such as authentication, logging, CORS, and more.
+
+Creating Middleware:
+    php artisan make:middleware CheckAge
+    
+
+Using Middleware: You can assign middleware to routes or controllers. For example:
+    Route::get('/profile', function () {
+        // Only accessible if the user is authenticated.
+    })->middleware('auth');
+    
+
+  Middleware can also be applied globally by registering it in `app/Http/Kernel.php`.
+
+4.How would you secure user authentication in a Laravel application?
+
+Authentication in Laravel is handled by built-in features like the `Auth` facade,Laravel Breeze,Laravel Jetstream, andLaravel Passport.
+Basic Authentication: You can use Laravel’s built-in authentication scaffolding by running:
+php artisan make:auth
+    
+
+Laravel Passport: For API-based authentication, Laravel Passport can be used to implement OAuth2 authentication.
+  
+Hashing: Laravel usesbcrypt orargon2 to hash passwords securely. You can use the `Hash` facade to hash and verify passwords.
+use Illuminate\Support\Facades\Hash;
+$hashedPassword = Hash::make('password');
+
+5.What is dependency injection, and how is it used in Laravel?
+
+Dependency Injection: Dependency Injection (DI) is a design pattern used to implementInversion of Control (IoC). It allows Laravel to inject dependencies (such as classes or services) into other classes, rather than having the class instantiate them manually.
+
+Example: If you want to inject a `UserRepository` into a controller:
+    php
+    class UserController extends Controller
+    {
+        protected $userRepo;
+        
+        public function __construct(UserRepository $userRepo)
+        {
+            $this->userRepo = $userRepo;
+        }
+    }
+    
+
+ Laravel’s service container handles DI automatically, resolving class dependencies from the container.
+
+6.Can you explain the Laravel service container and how it works?
+
+Service Container: The Laravel service container is a powerful tool for managing class dependencies and performing dependency injection. It’s responsible for resolving classes and injecting their dependencies.
+  
+Binding Services:
+    $this->app->bind('SomeService', function ($app) {
+        return new SomeService();
+    });
+    
+
+Resolving Services: You can resolve services from the container like so:
+$service = app('SomeService');
+    
+The service container is used to manage class dependencies across your application.
+
+7.How does Laravel’s routing work?
+
+Routing: Laravel’s routing allows you to map URLs to specific controllers or actions. Routes are defined in `routes/web.php` for web routes and `routes/api.php` for API routes.
+
+Basic Route:
+    Route::get('/home', function () {
+        return 'Hello, world!';
+    });
+    
+Controller Route:
+    Route::get('/user/{id}', [UserController::class, 'show']);
+    
+
+Route Grouping: You can group routes that share common attributes like middleware:
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'index']);
+    });
+
+8.What is Blade templating, and how does it differ from plain PHP?
+
+Blade Templating: Blade is Laravel’s lightweight templating engine, designed to make it easier to work with HTML in PHP files. Blade syntax allows you to embed PHP directly in your views with simple directives like `@if`, `@foreach`, and `@yield`.
+
+Example:
+    <h1>Welcome, {{ $user->name }}</h1>
+    
+
+Difference from Plain PHP: Blade provides clean syntax, automatic escaping, and enhanced features like template inheritance, which makes it easier to work with dynamic content. Plain PHP requires more complex handling and has no built-in functionality like template inheritance.
+
+9.How do you handle rate limiting in Laravel?
+
+Rate Limiting: Laravel uses the `ThrottleRequests` middleware to limit the number of requests a user can make within a specified time. You can define custom rate limits in `RouteServiceProvider`.
+
+Example:
+  
+    Route::middleware('throttle:60,1')->get('/user', function () {
+        return 'You can only make 60 requests per minute.';
+    });
+    
+Laravel also allows you to create custom rate limiters using the `RateLimiter` facade.
+
+10.What are the advantages of using Laravel’s built-in validation system?
+
+-Built-in Validation: Laravel provides an expressive and fluent validation system. You can define validation rules in controllers or form request classes.
+  
+Advantages:
+  Ease of use: Simple and clear syntax for validation rules.
+  Custom Rules: Ability to define custom validation rules.
+  Form Request Validation: You can encapsulate the validation logic into reusable form request classes.
+  Automatic Error Handling: Automatically handles failed validation and returns error messages.
+
+11.What is a service provider, and how do you register custom services in Laravel?
+
+Service Providers: Service providers are the central place for binding services into Laravel’s service container. You register services, such as database connections, authentication, and custom services.
+
+Registering a Custom Service:
+    1. Create a service provider using:
+       php artisan make:provider CustomServiceProvider
+       
+    2. In the provider’s `register` method, bind a service:
+       public function register()
+       {
+           $this->app->bind(CustomService::class, function ($app) {
+               return new CustomService();
+           });
+       }
+       
+    3. Register the provider in `config/app.php` under `providers`.
+
+12.Explain Laravel’s approach to handling file uploads and storage.
+
+File Uploads: Laravel provides an easy way to handle file uploads through the `Request` object. You can use the `store` or `move` methods to store uploaded files.
+  
+  $request->file('avatar')->store('avatars');
+  
+
+File Storage: Laravel’s `Storage` facade can interact with local, S3, or other cloud file systems. You can configure disk drivers in `config/filesystems.php`.
+
+13.What are Laravel’s queue and job systems, and when would you use them?
+Queues: Queues allow you to defer processing tasks such as sending emails, processing uploads, etc., to run in the background. This helps improve application performance.
+
+Creating a Job:
+    php artisan make:job ProcessOrder
+    
+Dispatching Jobs:
+    ProcessOrder::dispatch($order);
+
+Queues can be used with various drivers like database, Redis, or Amazon SQS.
+
+14.How do you optimize the performance of a Laravel application?
+
+Caching: Use caching strategies (e.g., route, query, view caching) to speed up response times.
+Database Optimization: Use indexing, Eager Loading, and query optimization.
+Queue and Jobs: Offload time-consuming tasks to background jobs.
+Config Caching: Cache your config and routes for faster performance in production.
+  
+
+php artisan config:cache
+php artisan route:cache
+  

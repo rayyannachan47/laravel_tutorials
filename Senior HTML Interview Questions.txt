@@ -1,0 +1,1292 @@
+Perfect! Since you want senior-level HTML answers with examples, I’ll provide detailed interview-style explanations plus examples for the 70 questions I listed. I’ll start with the first batch (questions 1–20) to keep it clear and manageable. Later, we can continue with the remaining ones.
+
+
+
+# Senior HTML Interview Questions & Answers (1–20)
+
+
+
+1. What is HTML and why is it important in web development?
+
+Explanation:
+HTML (HyperText Markup Language) is the backbone of the web. It defines the structure and content of web pages. Without HTML, browsers wouldn’t know how to display text, images, links, forms, or multimedia. Senior developers are expected to understand semantic HTML, accessibility, and maintainable structure.
+
+Example:
+
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Example</title>
+</head>
+<body>
+  <h1>Welcome to My Website</h1>
+  <p>This is structured content using HTML.</p>
+</body>
+</html>
+
+
+
+
+2. Explain the difference between HTML, XHTML, and HTML5
+
+Explanation:
+
+* HTML: Standard markup language, forgiving syntax, supports most browsers.
+* XHTML: Strict XML-based syntax, requires proper closing of tags, stricter parsing.
+* HTML5: Modern HTML standard with semantic elements, multimedia support, offline capabilities, and APIs (canvas, video, audio, localStorage).
+
+Example:
+
+html
+<!-- HTML5 allows semantic tags -->
+<article>
+  <header><h2>Article Title</h2></header>
+  <p>Content goes here.</p>
+</article>
+
+
+
+
+3. What are the new semantic elements introduced in HTML5?
+
+Explanation:
+HTML5 introduced elements that describe page structure, making content more meaningful for browsers, screen readers, and search engines:
+
+* <header>, <footer>, <nav>, <main>, <section>, <article>, <aside>, <figure>, <figcaption>, <mark>.
+
+Example:
+
+html
+<main>
+  <article>
+    <header><h1>Article Title</h1></header>
+    <p>Article content...</p>
+    <footer>Author info</footer>
+  </article>
+</main>
+
+
+
+
+4. Difference between <section>, <article>, <div>, and <main>
+
+Explanation:
+
+* <section>: Groups related content, often with a heading.
+* <article>: Independent, self-contained content like blog posts or news items.
+* <div>: Generic container, no semantic meaning.
+* <main>: The main content of the page, unique per page.
+
+Example:
+
+html
+<main>
+  <section>
+    <h2>Features</h2>
+    <p>Feature descriptions here.</p>
+  </section>
+  <article>
+    <h2>Blog Post</h2>
+    <p>Content of the blog...</p>
+  </article>
+</main>
+
+
+
+
+5. Difference between <span> and <div>
+
+Explanation:
+
+* <div>: Block-level container, creates line breaks.
+* <span>: Inline container, does not create line breaks. Both are used for styling or JS hooks, but <span> is for inline content.
+
+Example:
+
+html
+<p>This is a <span style="color:red;">highlighted</span> word.</p>
+<div style="background:#eee; padding:10px;">Block content here</div>
+
+
+
+
+6. Inline, block, and inline-block elements
+
+Explanation:
+
+* Block: Takes full width, starts on a new line (<div>, <p>).
+* Inline: Flows with text, does not create a new line (<span>, <a>).
+* Inline-block: Behaves like inline but allows width/height (<img>, custom CSS).
+
+Example:
+
+html
+<div style="background:yellow;">Block element</div>
+<span style="color:red;">Inline element</span>
+<img src="logo.png" style="display:inline-block; width:100px;">
+
+
+
+
+7. Difference between <b> vs <strong> and <i> vs <em>
+
+Explanation:
+
+* <b> and <i>: Visual styling only (bold/italic).
+* <strong> and <em>: Semantic meaning (importance or emphasis) and usually styled bold/italic by default. Important for accessibility.
+
+Example:
+
+html
+<p><strong>Warning:</strong> This is important!</p>
+<p><em>Note:</em> Emphasized text.</p>
+
+
+
+
+8. What are data attributes (data-*) and how are they used?
+
+Explanation:
+data-* attributes allow embedding custom data in HTML elements, which can be accessed in JS. Useful for passing dynamic info without cluttering markup.
+
+Example:
+
+html
+<button data-user-id="1234">Click Me</button>
+<script>
+  const button = document.querySelector('button');
+  console.log(button.dataset.userId); // 1234
+</script>
+
+
+
+
+9. Difference between HTML global attributes and specific attributes
+
+Explanation:
+
+* Global attributes: Can be applied to almost any element (id, class, style, title, data-*).
+* Specific attributes: Only apply to certain tags (src for <img>, href for <a>).
+
+Example:
+
+html
+<a href="https://example.com" id="link1" class="btn" data-tracking="home">Visit</a>
+<img src="image.jpg" alt="Sample Image" class="rounded">
+
+
+
+
+10. Difference between <meta> tags: charset, viewport, description, robots
+
+Explanation:
+
+* charset: Character encoding (usually UTF-8).
+* viewport: Controls responsive scaling on mobile.
+* description: Page description for SEO.
+* robots: Instructions for search engine crawlers.
+
+Example:
+
+html
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Senior frontend interview prep">
+<meta name="robots" content="index, follow">
+
+
+
+
+11. Difference between GET and POST methods in forms
+
+Explanation:
+
+* GET: Appends data in URL, visible, limited size, cached, used for retrieval.
+* POST: Sends data in request body, secure, larger data allowed, used for updates/submissions.
+
+Example:
+
+html
+<form action="/submit" method="POST">
+  <input type="text" name="username">
+  <button type="submit">Submit</button>
+</form>
+
+
+
+
+12. How do you validate forms using HTML5 attributes
+
+Explanation:
+HTML5 provides built-in validation using attributes like required, pattern, min, max, type="email". Browser prevents submission if validation fails.
+
+Example:
+
+html
+<form>
+  <input type="email" name="email" required placeholder="Enter email">
+  <input type="number" min="1" max="10" required>
+  <button type="submit">Submit</button>
+</form>
+
+
+
+
+13. New input types in HTML5
+
+Explanation:
+HTML5 added inputs for better UX:
+
+* email, url, tel, date, datetime-local, color, range, number, search, time.
+
+Example:
+
+html
+<input type="date" name="dob">
+<input type="color" name="favColor">
+<input type="range" min="0" max="100">
+
+
+
+
+14. How do you use <datalist> and <fieldset>
+
+Explanation:
+
+* <datalist>: Provides autocomplete options for an <input>.
+* <fieldset>: Groups related inputs together, often with <legend>.
+
+Example:
+
+html
+<fieldset>
+  <legend>Choose your favorite fruit</legend>
+  <input list="fruits" name="fruit">
+  <datalist id="fruits">
+    <option value="Apple">
+    <option value="Banana">
+    <option value="Orange">
+  </datalist>
+</fieldset>
+
+
+
+
+15. required, pattern, min, max, and step
+
+Explanation:
+These attributes provide client-side validation without JS:
+
+* required: Must fill input
+* pattern: Regex validation
+* min/max: Numeric or date limits
+* step: Increment for number/range/date
+
+Example:
+
+html
+<input type="number" min="1" max="10" step="2" required>
+<input type="text" pattern="[A-Za-z]{3,}" placeholder="Enter letters only">
+
+
+
+
+16. Difference between <button type="submit"> and <input type="submit">
+
+Explanation:
+
+* <button>: Can contain HTML, icons, spans, more flexible. Default type="submit".
+* <input>: Void element, only text/value, less flexible.
+
+Example:
+
+html
+<button type="submit"><span>Send</span> 🚀</button>
+<input type="submit" value="Send">
+
+
+
+
+17. How do you prevent browser autocomplete in forms?
+
+Explanation:
+Use autocomplete="off" on <form> or individual <input> fields. Useful for sensitive data.
+
+Example:
+
+html
+<form autocomplete="off">
+  <input type="text" name="username">
+</form>
+
+
+
+
+18. Difference between <label> and aria-label
+
+Explanation:
+
+* <label>: Visible or screen-reader label linked with for attribute.
+* aria-label: Only accessible by assistive tech, not visible.
+
+Example:
+
+html
+<label for="email">Email:</label>
+<input id="email" type="email">
+
+<input type="email" aria-label="Email address">
+
+
+
+
+19. How do you create accessible forms for screen readers?
+
+Explanation:
+
+* Use <label> or aria-label.
+* Group related inputs with <fieldset> and <legend>.
+* Use descriptive placeholders and role attributes.
+
+Example:
+
+html
+<fieldset>
+  <legend>Personal Info</legend>
+  <label for="name">Full Name</label>
+  <input id="name" type="text" required>
+</fieldset>
+
+
+
+
+20. Difference between <audio> and <video> tags
+
+Explanation:
+
+* <audio>: Plays sound only.
+* <video>: Plays video + audio, supports controls, poster, subtitles.
+
+Example:
+
+html
+<audio controls>
+  <source src="audio.mp3" type="audio/mpeg">
+  Your browser does not support audio.
+</audio>
+
+<video width="320" height="240" controls>
+  <source src="video.mp4" type="video/mp4">
+  Your browser does not support video.
+</video>
+
+
+
+
+Perfect! Let’s continue with Senior HTML interview answers for questions 21–40, keeping the same detailed explanation + examples format.
+
+
+
+# Senior HTML Interview Questions & Answers (21–40)
+
+
+
+21. How do you make videos responsive?
+
+Explanation:
+Videos have fixed dimensions by default. To make them responsive, wrap <video> in a container and use CSS to maintain the aspect ratio. This ensures the video scales on different screen sizes.
+
+Example:
+
+html
+<div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+  <video controls style="position:absolute; top:0; left:0; width:100%; height:100%;">
+    <source src="video.mp4" type="video/mp4">
+  </video>
+</div>
+
+
+
+
+22. What are <iframe> security considerations?
+
+Explanation:
+
+* Use sandbox to restrict capabilities (forms, scripts).
+* Use allow to selectively enable features.
+* Set referrerpolicy to protect privacy.
+* Avoid embedding untrusted content.
+
+Example:
+
+html
+<iframe src="https://example.com" sandbox="allow-scripts allow-same-origin" width="600" height="400"></iframe>
+
+
+
+
+23. Difference between <embed> and <object> tags
+
+Explanation:
+
+* <embed>: Self-contained, inserts external content like PDF, media.
+* <object>: More versatile, fallback content possible, can load multiple types.
+
+Example:
+
+html
+<object data="file.pdf" type="application/pdf" width="600" height="400">
+  <p>Fallback: Please download the PDF <a href="file.pdf">here</a>.</p>
+</object>
+
+<embed src="file.pdf" width="600" height="400" type="application/pdf">
+
+
+
+
+24. How do you use <picture> and <source> for responsive images?
+
+Explanation:
+
+* <picture> allows specifying multiple image sources for different screen sizes or resolutions.
+* <source> tags define conditions using media or type.
+
+Example:
+
+html
+<picture>
+  <source media="(min-width: 800px)" srcset="large.jpg">
+  <source media="(min-width: 400px)" srcset="medium.jpg">
+  <img src="small.jpg" alt="Responsive Image">
+</picture>
+
+
+
+
+25. What is the alt attribute and why is it important?
+
+Explanation:
+
+* Provides alternative text for images.
+* Essential for accessibility, SEO, and for users with broken images.
+
+Example:
+
+html
+<img src="logo.png" alt="Company Logo">
+
+
+
+
+26. Difference between <img> srcset and sizes attributes
+
+Explanation:
+
+* srcset: List of image URLs with descriptors for different resolutions.
+* sizes: Instructs the browser how large the image will be displayed.
+
+Example:
+
+html
+<img src="small.jpg"
+     srcset="small.jpg 480w, medium.jpg 800w, large.jpg 1200w"
+     sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1200px"
+     alt="Responsive image">
+
+
+
+
+27. How do you lazy-load images in HTML5?
+
+Explanation:
+
+* Use loading="lazy" to defer offscreen images, improving performance and page load times.
+
+Example:
+
+html
+<img src="large-image.jpg" alt="Lazy loaded image" loading="lazy">
+
+
+
+
+28. What is the role of <canvas> and <svg> in HTML5?
+
+Explanation:
+
+* <canvas>: Draw bitmap graphics dynamically via JS. Good for charts, games, animations.
+* <svg>: Vector graphics defined in XML, scalable without losing quality, can be styled via CSS.
+
+Example:
+
+html
+<canvas id="myCanvas" width="200" height="100"></canvas>
+<script>
+  const ctx = document.getElementById('myCanvas').getContext('2d');
+  ctx.fillStyle = 'red';
+  ctx.fillRect(20, 20, 150, 50);
+</script>
+
+<svg width="100" height="100">
+  <circle cx="50" cy="50" r="40" stroke="green" fill="yellow" stroke-width="4"/>
+</svg>
+
+
+
+
+29. Explain autoplay, controls, muted, and preload attributes for media
+
+Explanation:
+
+* autoplay: Automatically starts playing.
+* controls: Shows default browser controls.
+* muted: Starts muted (required for autoplay in many browsers).
+* preload: auto, metadata, or none for media preloading.
+
+Example:
+
+html
+<video controls autoplay muted preload="metadata">
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+
+
+
+30. What is semantic HTML and why is it important?
+
+Explanation:
+Semantic HTML uses elements that convey meaning, improving accessibility, SEO, and maintainability. Examples: <article>, <nav>, <header>, <section>.
+
+Example:
+
+html
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+
+
+
+31. Difference between <header> vs <nav> vs <footer>
+
+Explanation:
+
+* <header>: Introductory content, logo, title.
+* <nav>: Contains navigation links.
+* <footer>: Bottom content, copyright, related links.
+
+Example:
+
+html
+<header><h1>My Website</h1></header>
+<nav>
+  <a href="/">Home</a>
+  <a href="/blog">Blog</a>
+</nav>
+<footer>&copy; 2026 My Website</footer>
+
+
+
+
+32. How do you make tables accessible?
+
+Explanation:
+
+* Use <th> for headers with scope="col" or scope="row".
+* Use captions <caption> for table description.
+* Avoid empty cells, provide aria-label if necessary.
+
+Example:
+
+html
+<table>
+  <caption>Monthly Sales Report</caption>
+  <tr>
+    <th scope="col">Month</th>
+    <th scope="col">Sales</th>
+  </tr>
+  <tr>
+    <td>January</td>
+    <td>$1000</td>
+  </tr>
+</table>
+
+
+
+
+33. Difference between <th> scope="row" vs scope="col"
+
+Explanation:
+
+* scope="col": Header applies to the column below.
+* scope="row": Header applies to the row next to it. Improves screen reader clarity.
+
+Example:
+
+html
+<tr>
+  <th scope="row">January</th>
+  <td>$1000</td>
+</tr>
+
+
+
+
+34. How do you implement ARIA roles in HTML?
+
+Explanation:
+ARIA attributes enhance accessibility when native HTML is insufficient. Example roles: role="button", role="dialog", aria-hidden="true", aria-label.
+
+Example:
+
+html
+<div role="dialog" aria-labelledby="dialogTitle">
+  <h2 id="dialogTitle">Dialog Header</h2>
+  <p>Dialog content...</p>
+</div>
+
+
+
+
+35. How do you make interactive elements keyboard accessible?
+
+Explanation:
+
+* Use semantic elements (<button>, <a>).
+* Use tabindex="0" for focusable elements.
+* Implement keydown events for keyboard actions.
+
+Example:
+
+html
+<div role="button" tabindex="0" onclick="alert('Clicked')" onkeydown="if(event.key==='Enter'){alert('Clicked')}">
+  Click Me
+</div>
+
+
+
+
+36. Explain the difference between landmark roles and ARIA roles
+
+Explanation:
+
+* Landmark roles (banner, main, contentinfo) are automatically recognized by assistive tech.
+* ARIA roles are additional attributes used when native HTML elements are insufficient.
+
+Example:
+
+html
+<header role="banner">Site Header</header>
+<main role="main">Main content</main>
+
+
+
+
+37. How do you make a skip link for accessibility?
+
+Explanation:
+Skip links allow keyboard users to bypass navigation and go directly to main content.
+
+Example:
+
+html
+<a href="#maincontent" class="skip-link">Skip to main content</a>
+<main id="maincontent">
+  <h1>Page Content</h1>
+</main>
+
+
+
+
+38. Difference between tabindex="0" and tabindex="-1"
+
+Explanation:
+
+* 0: Element is focusable in normal tab order.
+* -1: Element is focusable via JS (element.focus()) but not in tab order.
+
+Example:
+
+html
+<div tabindex="0">Focusable with Tab</div>
+<div tabindex="-1" id="hiddenFocus">Focusable via JS</div>
+<script>document.getElementById('hiddenFocus').focus();</script>
+
+
+
+
+39. How do you make content readable by screen readers only?
+
+Explanation:
+
+* Hide visually but keep accessible using CSS. Common class: .sr-only.
+
+Example:
+
+html
+<style>
+.sr-only { 
+  position: absolute; 
+  width: 1px; 
+  height: 1px; 
+  padding: 0; 
+  margin: -1px; 
+  overflow: hidden; 
+  clip: rect(0,0,0,0); 
+  border: 0; 
+}
+</style>
+
+<p class="sr-only">This text is only for screen readers.</p>
+
+
+
+
+40. Difference between <script> defer vs async
+
+Explanation:
+
+* defer: Downloads script asynchronously but executes after HTML parsing. Preserves order.
+* async: Downloads script asynchronously and executes as soon as ready. Order not guaranteed.
+
+Example:
+
+html
+<script src="script1.js" defer></script>
+<script src="script2.js" defer></script>
+
+<script src="script3.js" async></script>
+<script src="script4.js" async></script>
+
+
+
+
+Perfect! Let’s finish the Senior HTML Interview Answers with questions 41–70. These will cover performance, SEO, modern HTML5 features, integration, and best practices.
+
+
+
+# Senior HTML Interview Questions & Answers (41–70)
+
+
+
+41. Difference between <script> defer vs async (detailed recap)
+
+Explanation:
+
+* Already covered in Q40, but key for performance:
+
+  * defer: Scripts execute after HTML parsing, in order.
+  * async: Scripts execute as soon as loaded, order may differ.
+* Use defer for dependent scripts, async for independent scripts.
+
+Example:
+
+html
+<script src="main.js" defer></script>
+<script src="analytics.js" async></script>
+
+
+
+
+42. Difference between inline, internal, and external scripts and CSS
+
+Explanation:
+
+* Inline: Directly in HTML (style or onclick). Not reusable, bad for performance.
+* Internal: <style> or <script> in <head> or <body>. Good for small pages.
+* External: Separate .css or .js file. Best for caching and maintainability.
+
+Example:
+
+html
+<!-- Inline -->
+<p style="color:red;">Hello</p>
+<!-- Internal -->
+<style>p{color:blue;}</style>
+<!-- External -->
+<link rel="stylesheet" href="styles.css">
+<script src="script.js"></script>
+
+
+
+
+43. How do you optimize HTML for SEO?
+
+Explanation:
+
+* Use semantic elements (<h1>-<h6>, <main>, <article>).
+* Proper meta tags (description, robots).
+* Structured data (JSON-LD, schema.org).
+* Accessible images (alt) and meaningful links.
+
+Example:
+
+html
+<meta name="description" content="Senior HTML interview prep guide">
+<article>
+  <h1>HTML Guide</h1>
+  <p>Content structured for SEO.</p>
+</article>
+
+
+
+
+44. What are meta tags for social sharing (Open Graph/Twitter cards)?
+
+Explanation:
+
+* Open Graph (og:*) and Twitter Card (twitter:*) tags enhance content previews when shared.
+
+Example:
+
+html
+<meta property="og:title" content="My Website">
+<meta property="og:description" content="Learn HTML for interviews">
+<meta property="og:image" content="preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+
+
+
+45. Difference between canonical tags and noindex
+
+Explanation:
+
+* canonical: Tells search engines the preferred URL when content is duplicated.
+* noindex: Prevents page from appearing in search results.
+
+Example:
+
+html
+<link rel="canonical" href="https://example.com/page">
+<meta name="robots" content="noindex">
+
+
+
+
+46. How do you use <link rel="preload"> and <link rel="prefetch">?
+
+Explanation:
+
+* preload: Load critical resources ASAP.
+* prefetch: Load non-critical resources for future navigation.
+
+Example:
+
+html
+<link rel="preload" href="style.css" as="style">
+<link rel="prefetch" href="next-page.html">
+
+
+
+
+47. Difference between <base> and relative URLs
+
+Explanation:
+
+* <base href="..."> sets a base URL for all relative URLs in the document.
+* Without <base>, relative URLs are resolved relative to the current document.
+
+Example:
+
+html
+<base href="https://example.com/">
+<a href="about.html">About</a> <!-- resolves to https://example.com/about.html -->
+
+
+
+
+48. How do you reduce DOM size and improve HTML performance?
+
+Explanation:
+
+* Avoid deep nested elements.
+* Minify HTML.
+* Remove unused elements.
+* Use semantic HTML instead of multiple <div> wrappers.
+
+Example:
+
+html
+<!-- Bad -->
+<div><div><div><p>Hello</p></div></div></div>
+<!-- Good -->
+<p>Hello</p>
+
+
+
+
+49. Difference between <noscript> and <script> tags
+
+Explanation:
+
+* <script>: JS code executed by browser.
+* <noscript>: Fallback content if JS is disabled.
+
+Example:
+
+html
+<noscript>
+  <p>Please enable JavaScript to view this content.</p>
+</noscript>
+<script>
+  console.log('JS running');
+</script>
+
+
+
+
+50. How do you handle progressive enhancement in HTML?
+
+Explanation:
+
+* Start with basic HTML content that works without JS/CSS.
+* Add enhancements with CSS/JS.
+* Ensures functionality for all users, including assistive tech.
+
+Example:
+
+html
+<button>Click me</button>
+<script>
+  document.querySelector('button').addEventListener('click', () => alert('Enhanced!'));
+</script>
+
+
+
+
+51. Difference between local storage, session storage, and cookies
+
+Explanation:
+
+* localStorage: Persistent, key/value, 5–10MB, client-side.
+* sessionStorage: Temporary, cleared on tab close.
+* cookies: Sent to server, smaller (~4KB), can have expiration.
+
+Example:
+
+js
+localStorage.setItem('user','John');
+sessionStorage.setItem('session','123');
+document.cookie = "token=abc; path=/; max-age=3600";
+
+
+
+
+52. What are web components and how are they implemented?
+
+Explanation:
+
+* Reusable, encapsulated custom HTML elements.
+* Use Custom Elements, Shadow DOM, HTML templates.
+
+Example:
+
+html
+<my-card></my-card>
+<script>
+class MyCard extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = <div style="border:1px solid #ccc;padding:10px;">Card Content</div>;
+  }
+}
+customElements.define('my-card', MyCard);
+</script>
+
+
+
+
+53. How do you use <template> and <slot>?
+
+Explanation:
+
+* <template>: HTML block that is not rendered until JS activates it.
+* <slot>: Placeholder in web components for dynamic content.
+
+Example:
+
+html
+<template id="myTemplate">
+  <p>Template content</p>
+</template>
+<script>
+  const template = document.getElementById('myTemplate');
+  document.body.appendChild(template.content.cloneNode(true));
+</script>
+
+
+
+
+54. Difference between <dialog> and traditional modals
+
+Explanation:
+
+* <dialog>: Native HTML modal, accessible, supports show()/showModal().
+* Traditional modals: Div-based, require JS/CSS for accessibility.
+
+Example:
+
+html
+<dialog id="modal">
+  <p>Native modal</p>
+  <button onclick="document.getElementById('modal').close()">Close</button>
+</dialog>
+<script>
+  document.getElementById('modal').showModal();
+</script>
+
+
+
+
+55. How do you implement custom elements using is attribute?
+
+Explanation:
+
+* Extends built-in elements (<button is="fancy-button">) to create custom behavior.
+
+Example:
+
+html
+<button is="fancy-button">Click</button>
+<script>
+class FancyButton extends HTMLButtonElement {
+  connectedCallback() {
+    this.style.background='pink';
+  }
+}
+customElements.define('fancy-button', FancyButton, {extends:'button'});
+</script>
+
+
+
+
+56. Explain HTML drag-and-drop API
+
+Explanation:
+
+* Enables moving elements interactively using JS events: dragstart, dragover, drop.
+
+Example:
+
+html
+<div id="drag" draggable="true">Drag me</div>
+<div id="drop" style="width:100px;height:100px;border:1px solid;">Drop here</div>
+<script>
+const drag = document.getElementById('drag');
+const drop = document.getElementById('drop');
+drag.addEventListener('dragstart', e => e.dataTransfer.setData('text', 'drag'));
+drop.addEventListener('dragover', e => e.preventDefault());
+drop.addEventListener('drop', e => drop.textContent = 'Dropped!');
+</script>
+
+
+
+
+57. How do you use <meter> and <progress> elements?
+
+Explanation:
+
+* <meter>: Represents a scalar value within a known range.
+* <progress>: Represents task completion progress.
+
+Example:
+
+html
+<meter value="0.6" min="0" max="1">60%</meter>
+<progress value="30" max="100">30%</progress>
+
+
+
+
+58. Difference between <mark> and <ins>
+
+Explanation:
+
+* <mark>: Highlights text for reference or search.
+* <ins>: Indicates inserted/added content (for document changes).
+
+Example:
+
+<p>Important: <mark>Read this</mark></p>
+<p>Updated: <ins>New content</ins></p>
+
+59. How do you implement responsive embeds with <iframe>?
+
+Explanation:
+
+* Wrap iframe in a container and use CSS for aspect ratio.
+
+Example:
+
+<div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+  <iframe src="video.html" style="position:absolute; top:0; left:0; width:100%; height:100%;" frameborder="0"></iframe>
+</div>
+
+60. How do you use <details> and <summary> for collapsible content?
+
+Explanation:
+
+* Native collapsible widget. <summary> is visible, <details> content toggles open/close.
+
+Example:
+
+<details>
+  <summary>More info</summary>
+  <p>This content is hidden until clicked.</p>
+</details>
+
+61. How do you combine HTML5 with CSS Grid and Flexbox layouts?
+
+Explanation:
+
+* HTML defines the structure; CSS Grid/Flexbox handles positioning/responsiveness.
+* Semantic HTML + modern CSS improves maintainability.
+
+Example:
+
+<section class="grid">
+  <div>Item 1</div>
+  <div>Item 2</div>
+</section>
+<style>
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+</style>
+
+62. How do you ensure HTML is valid and well-structured?
+
+Explanation:
+
+* Use W3C HTML validator.
+* Close tags properly.
+* Avoid nesting errors.
+* Use semantic elements for clarity.
+
+Example: Valid <ul> list:
+
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ul>
+
+63. How do you debug HTML accessibility issues?
+
+Explanation:
+
+* Use browser dev tools and accessibility panels.
+* Use automated tools (Lighthouse, aXe).
+* Check semantic tags, ARIA roles, labels, tab order, color contrast.
+
+64. Difference between id and class in terms of specificity
+
+Explanation:
+
+* id: Unique, higher CSS specificity, can be used once per page.
+* class: Reusable, lower specificity, for styling multiple elements.
+
+Example:
+
+<div id="header" class="container"></div>
+<style>
+#header { color:red; } /* overrides .container */
+.container { color:blue; }
+</style>
+
+65. Difference between data-* attributes and custom JS properties
+
+Explanation:
+
+* data-*: Embedded in HTML, accessible via element.dataset.
+* JS properties: Stored in memory, not reflected in HTML.
+
+Example:
+
+<div data-user="123"></div>
+<script>
+const el = document.querySelector('div');
+console.log(el.dataset.user); // 123
+el.customProp = '456'; // JS-only
+</script>
+
+66. How do you implement microdata/schema.org in HTML?
+
+Explanation:
+
+* Use itemscope, itemtype, and itemprop to provide structured data for SEO.
+
+Example:
+
+<div itemscope itemtype="http://schema.org/Person">
+  <span itemprop="name">John Doe</span>
+  <span itemprop="jobTitle">Developer</span>
+</div>
+
+67. How do you handle internationalization (lang attribute, dir)?
+
+Explanation:
+
+* lang="en" specifies language.
+* dir="rtl" for right-to-left languages. Helps screen readers and layout.
+
+Example:
+
+html
+<html lang="ar" dir="rtl">
+  <body>مرحبا بالعالم</body>
+</html>
+
+68. Difference between <script type="module"> and classic script
+
+Explanation:
+
+* type="module": Supports ES6 imports/exports, scoped, deferred by default.
+* Classic script: Runs immediately, no module system.
+
+Example:
+
+<script type="module">
+  import { func } from './module.js';
+  func();
+</script>
+
+69. How do you implement HTML forms with progressive enhancement?
+
+Explanation:
+
+* Start with basic HTML form.
+* Add JS enhancements (validation, auto-complete) without breaking basic functionality.
+
+Example:
+
+<form action="/submit" method="POST">
+  <input type="email" name="email" required>
+  <button type="submit">Submit</button>
+</form>
+<script>
+document.querySelector('form').addEventListener('submit', e => {
+  alert('Form submitted!');
+});
+</script>
+
+70. How do you handle browser compatibility for HTML5 features?
+
+Explanation:
+
+* Use feature detection (Modernizr or JS checks).
+* Provide fallbacks for unsupported browsers.
+* Use polyfills for missing APIs.
+
+Example:
+
+<script>
+if ('fetch' in window) {
+  fetch('/api/data');
+} else {
+  console.log('Fallback for older browsers');
+}
+</script>

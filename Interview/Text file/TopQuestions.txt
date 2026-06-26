@@ -1,0 +1,161 @@
+HTML — Most Asked (Top 15)
+
+1. Difference between async and defer
+2. Semantic HTML and why it matters
+3. Inline vs block vs inline-block
+4. How browser renders HTML (basic flow)
+5. Accessibility basics (ARIA, labels)
+6. <section> vs <article>
+7. DOM vs Render Tree
+8. How forms work internally
+9. id vs class
+10. <picture> and responsive images
+11. meta viewport
+12. iframe security concerns
+13. innerHTML vs textContent
+14. SEO mistakes in HTML
+15. What causes layout shift (CLS)
+
+CSS — Most Asked (Top 15)
+
+1. Flexbox vs Grid (real use cases)
+2. CSS specificity rules
+3. display: none vs visibility: hidden
+4. Why z-index sometimes doesn’t work
+5. Reflow vs Repaint
+6. Responsive design approach
+7. position types
+8. em vs rem
+9. Media queries
+10. CSS performance issues
+11. !important problems
+12. How browser calculates width/height
+13. Centering elements (multiple ways)
+14. Overflow issues
+15. CLS caused by CSS
+
+JavaScript — Most Asked (Top 20) ⚠️
+
+1. Event loop (VERY common)
+2. var vs let vs const
+3. Closures (with example)
+4. Promise vs async/await
+5. Hoisting
+6. this keyword
+7. Debounce vs Throttle
+8. Call, apply, bind
+9. Shallow vs Deep copy
+10. Microtask vs Macrotask
+11. Arrow function vs normal function
+12. Event delegation
+13. Memory leaks
+14. == vs ===
+15. Map vs forEach
+16. Error handling
+17. JSON stringify/parse issues
+18. Array methods performance
+19. How JS handles async
+20. Blocking JS & performance
+
+React — Most Asked (Top 20)
+
+1. What triggers re-render
+2. useEffect lifecycle
+3. useMemo vs useCallback
+4. Controlled vs uncontrolled components
+5. Keys in list rendering
+6. Context API and re-renders
+7. State vs props
+8. Why not use index as key
+9. React reconciliation
+10. How React handles events
+11. React performance optimization
+12. Memoization
+13. Lifting state up
+14. Infinite re-render causes
+15. React Strict Mode
+16. useRef use cases
+17. SSR vs CSR (basic)
+18. Error boundaries
+19. Lazy loading
+20. Security issues in React
+
+Next.js — Most Asked (Top 15)
+
+1. SSR vs SSG vs ISR (VERY common)
+2. App Router vs Pages Router
+3. What is hydration
+4. Server Components vs Client Components
+5. use client meaning
+6. SEO benefits of Next.js
+7. Data fetching methods
+8. Dynamic routing
+9. Image optimization
+10. Caching in Next.js
+11. Middleware use cases
+12. API routes
+13. Hydration mismatch errors
+14. Environment variables
+15. Deployment flow (Vercel)
+
+PHP — Most Asked (Top 15)
+
+1. PHP request lifecycle
+2. Include vs require
+3. Sessions vs cookies
+4. Memory management basics
+5. Error handling
+6. Composer & autoloading
+7. Traits vs inheritance
+8. Type juggling
+9. Security issues (XSS, CSRF, SQLi)
+10. Strict typing
+11. File uploads handling
+12. Dependency Injection
+13. Output buffering
+14. PHP-FPM
+15. Performance optimization
+
+Laravel — Most Asked (Top 20) ⚠️
+
+1. Laravel request lifecycle (VERY common)
+2. Service container & DI
+3. Middleware
+4. Eloquent relationships
+5. N+1 problem
+6. Queue & jobs
+7. Caching strategies
+8. Authentication flow
+9. Policies vs Gates
+10. Sanctum vs Passport
+11. API Resources
+12. Validation
+13. CSRF protection
+14. Migrations
+15. Events & listeners
+16. Scheduler
+17. Route caching
+18. Exception handling
+19. Storage & file uploads
+20. Performance optimization
+
+MySQL — Most Asked (Top 15)
+
+1. Indexes (how they work)
+2. When indexes are NOT used
+3. EXPLAIN query
+4. JOIN types
+5. Normalization vs denormalization
+6. ACID properties
+7. Transactions
+8. Deadlocks
+9. Locking types
+10. Pagination optimization
+11. Query performance issues
+12. NULL handling
+13. Foreign keys
+14. InnoDB vs MyISAM
+15. N+1 query problem
+
+
+

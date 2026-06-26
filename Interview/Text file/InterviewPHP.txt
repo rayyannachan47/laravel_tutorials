@@ -1,0 +1,569 @@
+C      - Dennis Ritchie       1972
+C++    - Bjarne Stroustrup   1979
+Python - Van Rossum          implementation(1989) Python 1.0(1994) 2.0(2000) 3.0(2008)
+PHP    - Rasmus Lerdorf      1994
+Java   - James Gosling       1995
+C#     - Anders Hejlsberg    2002(Microsoft)
+
+1) What is PHP?
+PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages.
+PHP is basically used for developing web based software applications.
+PHP stands for HyperText Preprocessor.
+PHP is an interpreted language, i.e. there is no need for compilation.
+
+2) Advantages of using PHP?
+PHP is open sourse.
+PHP is extendible.
+Large amount of databases are supported.(MySql,PostGreSQL, Oracle,SYBASE,IBM-DB2,MongoDB,SQLite)
+PHP is platform independent.(The same program works on any platform without needing any modification.Application can run in different os. C is platform dependent because if u compile .c extension code it gets converted from object file to .exe file which is specific to windows operating system.)
+Compatible with servers like IIS(Internet Information Server) and Apache.
+
+2) What do the initials of PHP stand for?
+PHP means PHP: Hypertext Preprocessor.
+
+3) Which programming language does PHP resemble?
+PHP syntax resembles Perl and C.
+
+4) What does PEAR stand for?
+PEAR means "PHP Extension and Application Repository". It extends PHP and provides a higher level of programming for web developers.
+PEAR is a framework and repository for reusable PHP components.It contains all types of PHP code snippets and libraries.It is a package management system for PHP.
+PEAR allowed developers to:
+install reusable PHP libraries
+manage packages
+share PHP code
+avoid writing everything from scratch
+
+5) What is the actually used PHP version?
+Version 7.1 or 7.2 is the recommended version of PHP.
+
+6) How do you execute a PHP script from the command line?
+Just use the PHP command line interface (CLI) and specify the file name of the script to be executed as follows:
+php script.php
+
+7) How to run the interactive PHP shell from the command line interface?
+Just use the PHP CLI program with the option -a as follows:
+php -a
+
+8) What is the correct and the most two common way to start and finish a PHP block of code?
+The two most common ways to start and finish a PHP script are:
+ <?php [   ---  PHP code---- ] ?> and <? [---  PHP code  ---] ?>
+ 
+9) How can we display the output directly to the browser?
+To be able to display the output directly to the browser, we have to use the special tags <?= and ?>.
+
+10) What is the main difference between PHP 4 and PHP 5?
+PHP 5 presents many additional OOP (Object Oriented Programming) features.
+
+11) Is multiple inheritance supported in PHP?
+PHP supports only single inheritance; it means that a class can be extended from only one single class using the keyword 'extended'.
+
+12) What is the meaning of a final class and a final method?
+'final' is introduced in PHP5. Final class means that this class cannot be extended and a final method cannot be overridden.
+
+13) How is the comparison of objects done in PHP?
+'==' It only checks value.
+'===' It checks value and data type too.
+
+14) How can PHP and HTML interact?
+It is possible to generate HTML through PHP scripts, and it is possible to pass pieces of information from HTML to PHP.
+
+15) How can PHP and Javascript interact?
+PHP and Javascript cannot directly interact since PHP is a server side language and Javascript is a client-side language. However, we can exchange variables since PHP can generate Javascript code to be executed by the browser and it is possible to pass specific variables back to PHP via the URL.
+JavaScript codes are executed by your web browser. While PHP runs on the server, where your webpage is stored.
+
+16) Why do we use Javascript in PHP?
+PHP is a server-side language. Javascript is a client-side language. You can’t do server stuff on the client, and you can’t do all the Client stuff on the Server.
+
+16) What is the use of the function 'imagetypes()'?
+imagetypes() gives the image format and types supported by the current version of GD-PHP.
+
+17) What are the functions to be used to get the image's properties (size, width, and height)?
+To know the Image size use getimagesize () function 
+To know the image width use imagesx () function 
+To know the image height use imagesy() function
+
+46) How to read a file in PHP?
+PHP provides various functions to read data from the file. Different functions allow you to read all file data, read data line by line, and read data character by character.
+PHP file read functions are given below:
+fread()
+fgets()
+fgetc()
+$handle = fopen($filename, "r");//open file in read mode      
+$contents = fread($handle, filesize($filename));//read file      
+echo $contents;//printing data of file  
+fclose($handle);//close file
+ 
+47) How to write in a file in PHP?
+PHP fwrite() and fputs() functions are used to write data into file. To write data into a file, you need to use w, r+, w+, x, x+, c or c+ mode.
+$fp = fopen('F:\\qqq.txt', 'w');//open file in write mode  
+fwrite($fp, 'php file');  
+fclose($fp);
+ 
+48) How to delete file in PHP?
+unlink('F:\\qqq.txt');  
+ 
+50) How to upload file in PHP?
+The move_uploaded_file() function is used to upload file in PHP.
+1.	bool move_uploaded_file ( string $filename , string $destination )    
+ 
+51) How to download file in PHP?
+The readfile() function is used to download the file in PHP.
+1.	int readfile ( string $filename )     
+ 
+52) How can you send email in PHP?
+The mail() function is used to send email in PHP.
+1.	bool mail($to,$subject,$message,$header);    
+ 
+54) How to create connection in PHP?
+The mysqli_connect() function is used to create a connection in PHP.
+$db = mysqli_connect('localhost','root','', 'shop');
+
+18) What is the maximum size of a file that can be uploaded using php and how can we change this?
+You can change maximum size of a file set upload_max_filesize variable in php.ini file.
+
+19) How can we increase the execution time of a php script?
+Set max_execution_time variable in php.ini file to your desired time in second.
+max_execution_time = 0  means no time limit
+
+20) How failures in execution are handled with include() and require() functions?
+If the function require() cannot access the file then it ends with a fatal error. However, the include() function gives a warning, and the PHP script continues to execute.
+
+21) What is the main difference between require() and require_once()?
+require(), and require_once() perform the same task except that the second function checks if the PHP script is already included or not before executing it.
+(same for include_once() and include())
+
+22) What are the ways to include file in PHP?
+PHP allows you to include file so that page content can be reused again. There are two ways to add the file in PHP.
+1.	include
+2.	require
+ 
+37) Differentiate between require and include?
+Require and include both are used to include a file, but if data is not found include sends warning whereas require sends Fatal error.
+
+22) How can I display text with a PHP script?
+Two methods are possible:
+<!--?php echo "Method 1"; print "Method 2"; ?-->
+
+23) How can we display information of a variable and readable by a human with PHP?
+print_r() is used for printing the array in human readable format.
+
+23) What is an array?
+An array stores multiple values in one single variable.
+
+Associative arrays are used to store key value pair.
+
+Arrays with numeric index is indexed arrays.
+
+-->  Functions For Arrays
+
+sort() - sort arrays in ascending order
+rsort() - sort arrays in descending order
+asort() - sort associative arrays in ascending order, according to the value
+ksort() - sort associative arrays in ascending order, according to the key
+arsort() - sort associative arrays in descending order, according to the value
+krsort() - sort associative arrays in descending order, according to the key
+shuffle() - Shuffles an array
+sizeof() - Alias of count()
+pos(),current() - Returns the current element in an array
+array_unique()- Removes duplicate values from an array
+array_values()- Returns all the values of an array
+array_product() - Calculates the product of the values in an array
+array_rand() - Returns one or more random keys from an array
+array_replace() - Replaces the values of the first array with the values from following arrays
+array_reverse() - Returns an array in the reverse order
+array_search() - Searches an array for a given value and returns the key
+array_shift() - Removes the first element from an array, and returns the value of the removed element
+array_unshift() - Adds one or more elements to the beginning of an array
+array_pop() - Deletes the last element of an array
+array_push() - Inserts one or more elements to the end of an array
+array_slice() - Returns selected parts of an array
+array_sum() - Returns the sum of the values in an array
+
+5) Explain the difference b/w static and dynamic websites?
+In static websites, content can't be changed after running the script. You can't change anything on the site. It is predefined.
+In dynamic websites, content of script can be changed at the run time. Its content is regenerated every time a user visit or reload. Google, yahoo and every search engine is the example of dynamic website.
+ 
+6) What is the name of scripting engine in PHP?
+The scripting engine that powers PHP is called Zend Engine 2.(it is used internally by php as a compiler and runtime engine)
+ 
+7) Explain the difference between PHP4 and PHP5.
+PHP4 doesn't support oops concept and uses Zend Engine 1.
+PHP5 supports oops concept and uses Zend Engine 2.
+
+32) How to get the length of string?
+The strlen() function is used to get the length of the string.
+ 
+33) Explain some of the PHP string functions?
+A string is a sequence of characters.
+There are many array functions in PHP:
+strtolower()
+strtoupper()
+strrev()
+strlen()
+str_word_count()
+strpos()
+str_replace()
+
+
+24) How is it possible to set an infinite execution time for PHP script?
+The set_time_limit(0) added at the beginning of a script sets to infinite the time of execution to not have the PHP error 'maximum execution time exceeded.' It is also possible to specify this in the php.ini file.
+
+25) What does the PHP error 'Parse error in PHP - unexpected T_variable at line x' means?
+This is a PHP syntax error expressing that a mistake at the line x stops parsing and executing the program.
+
+27) What is the function file_get_contents() useful for?
+file_get_contents() lets reading a file and storing it in a string variable.
+
+28)What is the difference between echo and print statement?
+Echo has no return value while print has a return value of 1 so it can be used in expressions. echo can take multiple parameters while print can take one argument. echo is marginally faster than print.
+
+28) How can we connect to a MySQL database from a PHP script?
+To be able to connect to a MySQL database, we must use mysqli_connect() function as follows:
+<!--?php $database = mysqli_connect("HOST", "USER_NAME", "PASSWORD"); mysqli_select_db($database,"DATABASE_NAME"); ?-->
+
+29) What is the function mysql_pconnect() useful for?
+mysql_pconnect() ensure a persistent connection to the database, it means that the connection does not close when the PHP script ends.
+This function is not supported in PHP 7.0 and above'.
+
+30) How be the result set of Mysql handled in PHP?
+The result set can be handled using mysqli_fetch_array, mysqli_fetch_assoc, mysqli_fetch_object or mysqli_fetch_row.
+
+31) How is it possible to know the number of rows returned in the result set?
+The 
+ mysqli_num_rows() returns the number of rows in a result set.
+$result = mysql_query($sql, $db_link);
+$num_rows = mysql_num_rows($result);
+echo "$num_rows rows found";
+
+32) Which function gives us the number of affected entries by a query?
+mysqli_affected_rows() return the number of entries affected by an SQL query.
+
+33) What is the difference between mysqli_fetch_object() and mysqli_fetch_array()?
+The mysqli_fetch_object() function collects the first single matching record where mysqli_fetch_array() collects all matching records from the table in an array.
+Returns current row of result set.
+Returns a row as an associative array, numeric array or both.
+
+34) How can we access the data sent through the URL with the GET method?
+To access the data sent via the GET method, we use $_GET array like this:
+www.url.com?var=value
+$variable = $_GET["var"]; this will now contain 'value'
+
+35) How can we access the data sent through the URL with the POST method?
+To access the data sent this way, you use the $_POST array.
+Imagine you have a form field called 'var' on the form when the user clicks submit to the post form, you can then access the value like this:
+$_POST["var"];
+
+36) How can we check the value of a given variable is a number?
+It is possible to use the dedicated function, is_numeric() to check whether it is a number or not.
+
+37) How can we check the value of a given variable is alphanumeric?
+It is possible to use the dedicated function, ctype_alnum to check whether it is an alphanumeric value or not.
+
+38) How do I check if a given variable is empty?
+If we want to check whether a variable has a value or not, it is possible to use the empty() function.
+
+39) What does the unlink() function mean?
+The unlink() function is dedicated for file system handling. It simply deletes the file given as entry.
+
+40) What does the unset() function mean?
+The unset() function is dedicated for variable management. It will make a variable undefined.
+
+41) How do I escape data before storing it in the database?
+The addslashes function enables us to escape data before storage into the database.
+
+42) How is it possible to remove escape characters from a string?
+The stripslashes function enables us to remove the escape characters before apostrophes in a string.
+
+45) Is it possible to remove the HTML tags from data?
+The strip_tags() function enables us to clean a string from the HTML tags.
+
+46) what is the static variable in function useful for?
+A static variable is defined within a function only the first time, and its value can be modified during function calls as follows:
+<!--?php function testFunction() { static $testVariable = 1; echo $testVariable; $testVariable++; } testFunction();        //1 testFunction();        //2 testFunction();        //3 ?-->
+
+47) How can we define a variable accessible in functions of a PHP script?
+This feature is possible using the global keyword.
+
+48) How is it possible to return a value from a function?
+A function returns a value using the instruction 'return $value;'.
+
+49) What is the most convenient hashing method to be used to hash passwords?
+It is preferable to use crypt() which natively supports several hashing algorithms or the function hash() which supports more variants than crypt() rather than using the common hashing algorithms such as md5, sha1 or sha256 because they are conceived to be fast. Hence, hashing passwords with these algorithms can create vulnerability.
+
+50) Which cryptographic extension provide generation and verification of digital signatures?
+The PHP-OpenSSL extension provides several cryptographic operations including generation and verification of digital signatures.
+
+51) How is a constant defined in a PHP script?
+The define() directive lets us defining a constant as follows:
+define ("ACONSTANT", 123);
+
+52) How can you pass a variable by reference?
+To be able to pass a variable by reference, we use an ampersand in front of it, as follows $var1 = &$var2
+
+53) Will a comparison of an integer 12 and a string "13" work in PHP?
+"13" and 12 can be compared in PHP since it casts everything to the integer type.
+
+54) How is it possible to cast types in PHP?
+The name of the output type has to be specified in parentheses before the variable which is to be cast as follows:
+* (int), (integer) - cast to integer
+* (bool), (boolean) - cast to boolean
+* (float), (double), (real) - cast to float
+* (string) - cast to string
+* (array) - cast to array
+* (object) - cast to object
+
+57) What is the function func_num_args() used for?
+The function func_num_args() is used to give the number of parameters passed into a function.
+
+58) If the variable $var1 is set to 10 and the $var2 is set to the character var1, what's the value of $$var2?
+$$var2 contains the value 10.
+
+59) What does accessing a class via :: means?
+:: is used to access static methods that do not require object initialization.
+
+60) In PHP, objects are they passed by value or by reference?
+In PHP, objects passed by value.
+
+62) What's the difference between __sleep and __wakeup?
+__sleep returns the array of all the variables that need to be saved, while __wakeup retrieves them.
+sleep is called when you serialise an object.
+wakeup is called after unserialise it.
+In PHP, serialize() converts a PHP value (array, object, etc.) into a storable string format.
+
+63) What is faster?
+1- Combining two variables as follows:
+$variable1 = 'Hello ';
+
+$variable2 = 'World';
+
+$variable3 = $variable1.$variable2;
+Or
+2- $variable3 = "$variable1$variable2";
+$variable3 will contain "Hello World". The first code is faster than the second code especially for large large sets of data.
+
+64) what is the definition of a session?
+sessions are used to store information.
+sessions get stored on client as well as server.
+A session ends when the user closes the browser or after leaving the site.
+Sessions are more secure than cookies as it is stored in server.
+Cookies can't hold multiple variables, on the other hand, Session can hold multiple variables.
+
+65) How to initiate a session in PHP?
+The use of the function session_start() lets us activating a session.
+
+66) How can you propagate a session id?
+You can propagate a session id via cookies or URL parameters.
+
+67) What is the meaning of a Persistent Cookie?
+A persistent cookie is permanently stored in a cookie file on the browser's computer. By default, cookies are temporary and are erased if we close the browser.
+
+68) When do sessions end?
+Sessions automatically end when the PHP script finishes executing but can be manually ended using the session_write_close().
+
+69) What is the difference between session_unregister() and session_unset()?
+The session_unregister() function unregister a global variable from the current session and the session_unset() function frees all session variables.
+
+99) What is the default session time in PHP?
+The default session time in php is until the closing of the browser.
+
+19) How do you end a session in PHP?
+Session_destroy()
+
+70) What does $GLOBALS mean?
+$GLOBALS is associative array including references to all variables which are currently defined in the global scope of the script.
+$GLOBALS in PHP is a superglobal associative array that contains references to all global variables.
+It allows you to access global variables from anywhere in the script, including inside functions.
+
+71) What does $_SERVER mean?
+$_SERVER is an array including information created by the web server such as paths, headers, and script locations.
+
+72) What does $_FILES means?
+$_FILES is an associative array composed of items sent to the current script via the HTTP POST method.
+It contains all the information of files.
+
+73) What is the difference between $_FILES['userfile']['name'] and $_FILES['userfile']['tmp_name']?
+$_FILES['userfile']['name'] represents the original name of the file on the client machine,
+$_FILES['userfile']['tmp_name'] represents the temporary filename of the file stored on the server.
+
+74) How can we get the error when there is a problem to upload a file?
+$_FILES['userfile']['error'] contains the error code associated with the uploaded file.
+
+75) How can we change the maximum size of the files to be uploaded?
+We can change the maximum size of files to be uploaded by changing upload_max_filesize in php.ini.
+
+76) What does $_ENV mean?
+$_ENV is an associative array of variables sent to the current PHP script via the environment method.
+$_ENV is a superglobal variable in PHP that stores environment variables. It contains an array of all system environment variables that are available to the script at runtime.
+
+77) What does $_COOKIE mean?
+Cookies are used to store information.
+Cookies are only stored on the client side machine 
+
+78) What does the scope of variables mean?
+The scope of a variable is the context within which it is defined. For the most part, all PHP variables only have a single scope. This single scope spans included and required files as well.
+
+80) What are the two main string operators?
+The first is the concatenation operator ('.'), which returns the concatenation of its right and left arguments. The second is ('.='), which appends the argument on the right to the argument on the left.
+
+82) What is the differences between $a != $b and $a !== $b?
+!= means inequality (TRUE if $a is not equal to $b) and !== means non-identity (TRUE if $a is not identical to $b).
+
+83) Is PHP a case sensitive programming language?
+PHP is a partially case sensitive programming language. We can use function names, class names in case insensitive manner.
+
+84) What is the goto statement useful for?
+The goto statement can be placed to enable jumping inside the PHP program. The target is pointed by a label followed by a colon, and the instruction is specified as a goto statement followed by the desired target label.
+
+85) what is the difference between Exception::getMessage and Exception:: getLine?
+Exception::getMessage lets us getting the Exception message and Exception::getLine lets us getting the line in which the exception occurred.
+
+88) How can we determine whether a variable is set?
+The boolean function isset determines if a variable is set and is not NULL.
+
+89) What is the difference between the functions strstr() and stristr()?
+The string function strstr(string allString, string occ) returns part of all String from the first occurrence of occ to the end of allString. This function is case-sensitive. stristr() is identical to strstr() except that it is case insensitive.
+
+90) what is the difference between for and foreach?
+Use forloop when you know how many times to loop. you need an index/counter.need custom increment/decrement.
+However, foreach provides an easy way to iterate over arrays, and it is only used with arrays and objects.
+
+91) Is it possible to submit a form with a dedicated button?
+It is possible to use the document.form.submit() function to submit the form. For example: <input type=button value="SUBMIT" onClick="document.form.submit()">
+
+93) Is it possible to protect special characters in a query string?
+Yes, we use the urlencode() function to be able to protect special characters.
+
+94) What are the different types of errors in PHP?
+There are four types of errors in PHP.
+1.	Warning errors (missing file)
+2.	Notice errors (accessing undefined variables)
+3.	Fatal errors (calling undefined functions)
+4.	Parse errors (syntax error)
+
+95) What is the difference between characters \034 and \x34?
+\034 is octal 34 and \x34 is hex 34.
+
+98) Is it possible to destroy a cookie?
+Yes, it is possible by setting the cookie with a past expiration time.
+
+100) Is it possible to use COM component in PHP?
+Yes, it's possible to integrate (Distributed) Component Object Model components ((D)COM) in PHP scripts 
+
+(101) Difference between null and empty?
+The main difference between null and empty is that the null is used to refer to nothing while empty is used to refer to a unique string with zero length.
+var abc=null;
+var abc; --undefined
+var abc=""; --empty
+
+3) Why PHP was called as personal home page?
+PHP was written in the C programmming language by Rasmus Lerdorf in 1994 for use in monitoring his online resume and related personal information. For this reason PHP originally stood for Personal Home Page.
+It is a recursive acronym. PHP is an HTML-embedded Web scripting language. This means PHP code can be inserted into HTML of web page. The PHP code is transformed into HTML before the page is loaded, users cannot view the PHP code on a page.
+
+27) What is the difference between interpreted and compiled languages?
+Java (interpreted) and C (or C++) (compiled) might have been a better example. 
+Basically, compiled code can be executed directly by the computer’s CPU. 
+The code of interpreted languages however must be translated at run-time from any format to CPU machine instructions. 
+This translation is done by an interpreter.
+
+38) What is Var_dump?
+The var_dump function displays structured information about variables/expressions including its type and value.
+Example:
+$marks = [85, 90, 78];
+var_dump($marks);
+Output:
+array(3) {
+  [0]=>int(85)
+  [1]=>int(90)
+  [2]=>int(78)
+}
+ 
+39) What is the difference between null and undefined?
+undefined means a variable has been declared but has not yet been assigned a value. On the other hand, null is an assignment value. It can be assigned to a variable as a representation of no value. Also, undefined and null are two distinct types: undefined is a type itself (undefined) while null is an object.
+
+50) What is the use of die in PHP?
+The die() function prints a message and exits the current script. This function is an alias of the exit() function.
+
+51) What is the difference between $message and $$message?
+$message stores variable data while $$message is used to store variable of variables.
+$message stores fixed data whereas the data stored in $$message may be changed dynamically.
+
+69) What is LAMP in PHP?
+LAMP is a combination of Linux, Apache, MySQL and PHP.
+
+70) What is the maximum size of a database in mysql?
+Operating System                     File-size Limit
+Win32 w/ FAT/FAT32                       2GB/4GB
+Win32 w/ NTFS                            2TB (possibly larger)
+Linux 2.2-Intel 32-bit                   2GB (LFS: 4GB)
+Linux 2.4+(using ext3 file system)       4TB
+Solaris 9/10                             16TB
+MacOS X w/ HFS+                          2TB
+NetWare w/NSS file system                8TB
+
+71) What is the maximum size of a table in MySQL?
+256TB by default, but this limit can be changed up to the maximum permissible size of 65,536TB (2567 − 1 bytes).
+ 
+72) What is the capacity of MySQL database?
+it can handle (between 4Gb and 256Tb depending on the O/S).
+
+77) Why triggers are used in mysql?
+The trigger can be executed when you run one of the following MySQL statements on the table: INSERT, UPDATE and DELETE and it can be invoked before or after the event.
+
+96) How to get IP address of a server in PHP?
+$_SERVER[‘SERVER_ADDR’]. You can use DNS functions (e.g., gethostbyaddr() ) to get the host name.
+
+99)  When do you use define() and when do you use const. What are the main differences between those two?
+PHP 5.3 there are two ways to define constants: Either using the const keyword or using the  define() function:
+const FOO = ‘BAR’;
+define(‘FOO’, ‘BAR’);
+The fundamental difference between those two ways is that const defines constants at compile time, whereas define() defines them at runtime. As const are language constructs and defined at compile time they are a bit faster than define().
+
+102) When to use self over $this?
+Use $this to refer to the current object. Use self to refer to the current class.
+ 
+103) What is the difference between Apache and Tomcat?
+Apache is an HTTP Server, serving HTTP. Tomcat is a Servlet and JSP Server serving Java technologies.
+
+112) What is PHP artisan?
+Artisan is the name of the command-line interface included with Laravel. 
+
+111) What is a composer in PHP?
+Composer is an application-level package manager for the PHP programming language
+
+115) What is SQL injection?
+SQL injection (or a SQL injection attack) occurs when a user provides SQL code as user input for a Web page, and the SQL code is then executed in the database.
+
+116) Why does SQL injection happen?
+SQL injection is an attack technique that exploits a security vulnerability occurring in the database layer of an application . Hackers use injections to obtain unauthorized access to the underlying data, structure, and DBMS. It is one of the most common web application vulnerabilities.
+
+117) What is Mysql_real_escape_string used for?
+It escapes special characters in a string.
+
+123) What is the use of isset in PHP?
+isset() function. The isset () function is used to check whether a variable is set or not. If a variable is already unset with unset() function, it will no longer be set. The isset() function return false if testing variable contains a NULL value.
+
+125) What is the use of trim in PHP?
+The trim() function removes whitespace and other predefined characters from both sides of a string.
+Related functions: ltrim() – Removes whitespace or other predefined characters from the left side of a string.
+rtrim() – Removes whitespace or other predefined characters from the right side of a string.
+
+135) Explain about getters and setters in PHP?
+A 'getter' allows to you to retrieve or 'get' a given property. A 'setter' allows you to 'set' the value of a given property.
+
+136) Get() and POST()
+Information sent using 'get' method is visible in the browser. So security is poor but speed of processing is faster. It should not be used with values more than 2000 characters.
+GET requests can be cached by the browser, proxy servers, or any other intermediate servers. 
+Post --> unlimited characters, good security but speed of processing is slower.
+POST requests are typically not cached by browsers or intermediary servers.
+Making the same GET request multiple times will have the same result and won’t change any data on the server.
+Submitting the same POST request multiple times may change data or perform an action (like creating a new record).
+
+137) Who is the father of php ?
+Rasmus Lerdorf
+ 
+138) How can we submit from without a submit button? 
+In the JavaScript code, we can call the document.form.submit() function to submit the form.
+
+139)What is the difference between the functions unlink and unset? 
+Unlink() deletes the given file from the file system. 
+unset() makes a variable undefined.

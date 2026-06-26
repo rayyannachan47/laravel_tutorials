@@ -1,0 +1,268 @@
+1. Insert new item in array on any position
+
+<?php
+$original_array = ['1', '2', '3', '4', '5']; 
+$position = 2;
+$value = 10;
+$new_array = [];
+foreach($original_array as $key=>$array){
+	if($key == $position){
+    	$new_array[$key] = $value;
+    }
+    $new_array[] = $array;
+}
+print_r($new_array);
+?> 
+
+2. Second Occurence
+
+<?php
+$array = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4];
+echo second_occurence($array);
+
+function second_occurence($array){
+	$array1 = [];
+    foreach($array as $arr){
+    	if(isset($array1[$arr])){
+        	$array1[$arr]++;
+        }else{
+        	$array1[$arr] = 1;
+        }
+    }
+    $firstFrequent = 0;
+    $secondFrequent = 0;
+    $max = 0;
+    $second_max = 0;
+    foreach($array1 as $key=>$value){
+    	if($value > $max){
+        	$secondFrequent = $firstFrequent;
+            $firstFrequent = $key;
+            $second_max = $max;
+            $max = $value;
+        }else if($value > $second_max && $value != $max){
+        	$second_max = $value;
+            $secondFrequent = $key;            
+        }
+    }
+    return $secondFrequent;
+}
+?> 
+
+3. Closest Number
+
+<?php
+function closestNumber($arr, $target) {
+    $closest = $arr[0];
+    $minDiff = abs($target - $arr[0]);
+    foreach ($arr as $num) {
+        $diff = abs($target - $num);       
+        if ($diff < $minDiff) {
+            $closest = $num;
+            $minDiff = $diff;
+        }elseif ($diff == $minDiff && $num > $closest) {
+            $closest = $num;
+        }
+    }
+
+    return $closest;
+}
+
+$array = [1, 4, 8, 10, 15];
+$target = 9;
+echo "Closest number to $target is: " . closestNumber($array, $target);
+?>
+
+4. Split by new line
+
+<?php
+$str = "Ankit Mishra\nRam Singh\nShyam Pandey";
+$str = str_replace("\n", '\n', $str);
+$val = explode('\n',$str);
+print_r($val);
+?>
+
+5. Merge (by index) the following two arrays.
+
+<?php
+$array1 = array(array(77, 87), array(23, 45));
+$array2 = array("w3resource", "com");
+
+$result = array();
+for ($i = 0; $i < count($array2); $i++) {
+    $temp = array();
+    $temp[] = $array2[$i];
+    for ($j = 0; $j < count($array1[$i]); $j++) {
+        $temp[] = $array1[$i][$j];
+    }
+    $result[] = $temp;
+}
+print_r($result);
+?>
+
+6. Chess Board
+
+<table width="300" cellspacing="0" cellpadding="0" border="1">  
+<?php
+for ($rows=1; $rows < 8 ; $rows++) { 
+    echo '<tr>';
+    for ($colum=1; $colum < 8; $colum++) { 
+        $total = $rows + $colum;
+        if($total % 2 ==0)
+        {
+            echo "<td width='40' height='40' bgcolor='#FFFFF'></td>";
+        }
+        else
+        {
+            echo "<td width='40' height='40' bgcolor='#00000'></td>";
+        }
+    }
+    echo '</tr>';
+ } 
+?>
+</table> 
+
+7. Combines two lists
+
+<?php
+    $arr = array(1,2,3);
+    $arr1 = array(a,b,c);
+    $new_array = array();
+
+    for ($i=0; $i < count($arr); $i++)
+    { 
+        $new_array[] = $arr1[$i];
+        $new_array[] = $arr[$i];
+
+    }
+   print_r($new_array);
+?>
+
+8. Common divisors
+
+<?php
+function commonDivisors($num1, $num2) {
+    $divisors1 = [];
+    for ($i = 1; $i <= $num1; $i++) {
+        if ($num1 % $i == 0) {
+            $divisors1[] = $i;
+        }
+    }
+    $divisors2 = [];
+    for ($i = 1; $i <= $num2; $i++) {
+        if ($num2 % $i == 0) {
+            $divisors2[] = $i;
+        }
+    }
+    $commonDivisors = [];
+    foreach ($divisors1 as $div1) {
+        foreach ($divisors2 as $div2) {
+            if ($div1 == $div2) {
+                $commonDivisors[] = $div1;
+            }
+        }
+    }
+    return $commonDivisors;
+}
+$num1 = 24;
+$num2 = 36;
+$result = commonDivisors($num1, $num2);
+echo "Common divisors of $num1 and $num2 are: " . implode(", ", $result);
+?>
+
+9. Reverse word in senetence
+
+<?php
+$name = "Hello there";
+$expode = explode(" ", $name);
+$new = "";
+foreach ($expode as $nam) {
+    $len = strlen($nam);
+    for ($i = $len - 1; $i >= 0; $i--) {
+        $new .= $nam[$i];
+    }
+    $new .= " ";
+}
+$new = rtrim($new);
+
+echo $new;
+?>
+
+10. Upper case without strtoupper
+
+<?php
+function stringToUppercase($str) {
+    $result = "";
+    for ($i = 0; $i < strlen($str); $i++) {
+        $char = $str[$i];
+        if ($char >= 'a' && $char <= 'z') {
+            $char = chr(ord($char) - 32);
+        }
+        $result .= $char;
+    }
+    return $result;
+}
+$name = "Hello there";
+$uppercaseName = stringToUppercase($name);
+echo $uppercaseName;
+?>
+
+11. Anagrams
+
+<?php
+function areAnagrams($str1, $str2) {
+    $str1 = "";
+    for ($i = 0; $i < strlen($str1_input); $i++) {
+        $char = $str1_input[$i];
+        if ($char != ' ') {            
+            if ($char >= 'A' && $char <= 'Z') {
+                $char = chr(ord($char) + 32);
+            }
+            $str1 .= $char;
+        }
+    }
+    
+    $str2 = "";
+    for ($i = 0; $i < strlen($str2_input); $i++) {
+        $char = $str2_input[$i];
+        if ($char != ' ') {
+            if ($char >= 'A' && $char <= 'Z') {
+                $char = chr(ord($char) + 32); 
+            }
+            $str2 .= $char;
+        }
+    }
+  
+    if (strlen($str1) !== strlen($str2)) {
+        return false;
+    }
+   
+    $charCount1 = [];
+    $charCount2 = [];
+    
+    for ($i = 0; $i < strlen($str1); $i++) {      
+        $charCount1[$str1[$i]] = isset($charCount1[$str1[$i]]) ? $charCount1[$str1[$i]] + 1 : 1;
+               
+        $charCount2[$str2[$i]] = isset($charCount2[$str2[$i]]) ? $charCount2[$str2[$i]] + 1 : 1;
+    }
+
+    foreach ($charCount1 as $char => $count) {
+        if (!isset($charCount2[$char]) || $charCount2[$char] != $count) {
+            return false;
+        }
+    }
+
+    return true;
+}
+$string1 = "listen";
+$string2 = "silent";
+
+if (areAnagrams($string1, $string2)) {
+    echo "$string1 and $string2 are anagrams.";
+} else {
+    echo "$string1 and $string2 are not anagrams.";
+}
+?>
+
+
+
+

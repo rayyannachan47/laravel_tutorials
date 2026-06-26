@@ -1,0 +1,71 @@
+Perfect! Let’s move on to **Senior JavaScript interview questions**. Since you want **senior-level content**, I’ll cover **core JS, ES6+, asynchronous programming, DOM, performance, and advanced concepts**. I’ll provide **detailed explanations + examples** for each question, like we did for HTML.
+
+Here’s a **list of 50+ senior-level JS interview questions** first (just the questions, so you can focus):
+
+---
+
+# **Senior JavaScript Interview Questions (50+)**
+
+1. What are the differences between `var`, `let`, and `const`?
+2. Explain hoisting in JavaScript with examples.
+3. What is the difference between function declarations and function expressions?
+4. What are arrow functions and how do they handle `this` differently?
+5. Explain closures and provide a use case.
+6. What is the difference between `==` and `===`?
+7. Explain JavaScript’s event loop and call stack.
+8. What is the difference between synchronous and asynchronous code?
+9. What are Promises and how do they work?
+10. Explain `async/await` with an example.
+11. Difference between `null` and `undefined`.
+12. What is the difference between `call`, `apply`, and `bind`?
+13. Explain the concept of prototypal inheritance.
+14. Difference between classical inheritance and prototypal inheritance in JS.
+15. What are JavaScript modules and how do ES6 modules differ from CommonJS?
+16. Explain the difference between shallow copy and deep copy.
+17. How do you clone objects and arrays in JavaScript?
+18. What is the difference between `Object.freeze()` and `Object.seal()`?
+19. How does `this` work in different contexts?
+20. Difference between `window`, `global`, and `this` in JS.
+21. What are IIFEs and why are they used?
+22. Explain the difference between `map`, `forEach`, `filter`, `reduce`.
+23. Difference between `setTimeout` and `setInterval`.
+24. Explain the difference between `undefined` and undeclared variables.
+25. What is the difference between `symbol` and `string`?
+26. Explain template literals and tagged templates.
+27. What are JavaScript generators and how are they used?
+28. Difference between synchronous iteration and asynchronous iteration.
+29. Explain WeakMap and WeakSet.
+30. What are JS decorators (proposal stage)?
+31. What is event delegation and why is it useful?
+32. Explain debouncing and throttling in JavaScript.
+33. Difference between deep equality and shallow equality in JS objects.
+34. What is the difference between `for..in` and `for..of` loops?
+35. Explain the difference between `Object.keys`, `Object.values`, and `Object.entries`.
+36. What is the difference between `localStorage`, `sessionStorage`, and cookies in JS?
+37. Difference between `fetch` and `XMLHttpRequest`.
+38. How does JSON.stringify handle circular references?
+39. Explain the concept of memory leaks in JavaScript.
+40. What is the difference between `new Function()` and function expressions?
+41. How do you handle errors in asynchronous code?
+42. Difference between synchronous and asynchronous iterators.
+43. How do you implement a custom event system in JS?
+44. Explain the difference between microtasks and macrotasks.
+45. How do you polyfill features in older browsers?
+46. Explain the difference between `import * as`, `import {}`, and `export default`.
+47. How do you implement currying and partial application in JavaScript?
+48. Explain memoization and provide an example.
+49. Difference between mutable and immutable objects in JS.
+50. Explain the difference between `Object.create()` and class-based objects.
+51. What are Proxy and Reflect in JavaScript?
+52. Explain how WeakRef works in modern JavaScript.
+53. Difference between event bubbling and event capturing.
+54. Explain JavaScript’s `new.target` meta-property.
+55. How do you handle concurrency in JavaScript?
+
+---
+
+This is a **solid set of 50+ senior-level JS questions** for interviews.
+
+I can now provide **detailed answers with examples** for each question, just like we did for HTML, so you can **answer confidently in an interview**.
+
+Do you want me to start **answering all 55 questions with examples**?

@@ -1,0 +1,307 @@
+In simple terms, a database is like a digital filing cabinet where you can store and organize information in a structured way.
+
+What are different types of statements supported by SQL?
+
+statements supported by SQL
+
+There are 3 types of SQL statements
+
+1) DDL (Data Definition Language): It is used to define the database structure such as tables. It includes three statements such as Create, Alter, and Drop.
+
+2) DML (Data Manipulation Language): These statements are used to manipulate the data in records. Commonly used DML statements are Insert, Update, and Delete.
+
+3) DCL (Data Control Language): These statements are used to set privileges such as Grant and Revoke database access permission to the specific user.
+
+What do you mean by DBMS? What are its different types?
+
+A Database Management System (DBMS) is a  software application that interacts with the user, applications and the database itself to capture and analyze data.
+
+A DBMS allows a user to interact with the database. The data stored in the database can be modified, retrieved and deleted and can be of any type like strings, numbers, images etc.
+
+There are two types of DBMS:
+
+
+Relational Database Management System: The data is stored in relations (tables). Example – MySQL.
+
+Non-Relational Database Management System: There is no concept of relations, tuples and attributes.  Example – Mongo
+
+What is CTE?
+
+Answer: A CTE or common table expression is an expression which contains temporary result set which is defined in a SQL statement.
+
+What is schema?
+
+Answer: A schema is a collection of database objects of a User.
+
+Explain the difference between Rename and Alias?
+
+Answer: Rename is a permanent name given to a table or column whereas Alias is a temporary name given to a table or column.
+
+What do you mean by ROWID?
+
+Answer: It’s an 18 character long pseudo column attached with each row of a table.
+
+--Where and Having
+
+where clause is used for filtering rows and having clause is used to filter groups.
+having clause is added because where keyword cannot be used with group by.
+
+What are transactions and their controls?
+
+Answer:
+
+A transaction can be defined as the sequence task that is performed on databases in a logical manner to gain certain results. Operations performed like Creating, updating, deleting records in the database come from transactions.
+
+In simple words, we can say that a transaction means a group of SQL queries executed on database records.
+
+There are 4 transaction controls such as
+
+COMMIT: It is used to save all changes made through the transaction
+ROLLBACK: It is used to roll back the transaction such as all changes made by the transaction are reverted back and database remains as before
+SET TRANSACTION: Set the name of transaction
+SAVEPOINT: It is used to set the point from where the transaction is to be rolled back
+
+What are properties of the transaction?
+
+Properties of the transaction are known as ACID properties, such as
+
+Atomicity: Ensures the completeness of all transactions performed. Checks whether every transaction is completed successfully if not then transaction is aborted at the failure point and the previous transaction is rolled back to its initial state as changes undone.
+Example: If you're transferring money between two bank accounts, both the debit from one account and the credit to another must succeed together. If either of these operations fails, the transaction is aborted, and no money is transferred.
+
+Consistency: Ensures that all changes made through successful transaction are reflected properly on database.
+It guarantees that a transaction never leaves your database in a half finished state.
+It ensures that the database is always in a consistent and correct state before and after the execution of any transaction.
+Example: If, for some reason, Account A does not have enough balance (say only $50 left), and the transaction tries to debit $100:
+Account A will end up with a negative balance, which violates the consistency rule.
+The transaction will be rolled back, ensuring that no negative balances exist, and the database remains in a consistent state.
+
+Isolation: Ensures that all transactions are performed independently and changes made by one transaction are not reflected on other
+Example: If two users are transferring money from the same account at the same time, isolation ensures that one transaction will be completed before the other starts, or both transactions will be managed so that data inconsistency doesn't occur.
+
+Durability: Ensures that the changes made in the database with committed transactions persist as it is even after a system failure.
+committed data is never lost.
+Example: After successfully completing a money transfer transaction, the changes to the account balances should remain in the database, even if the server crashes immediately after the commit.
+
+What is the difference between SQL and MySQL?
+
+SQL is a structured query language and can be used to utilize rdms, on the other hand, MySQL itself is a relational database that utilizes SQL command.
+SQL purpose- To query and operate database system.
+MYSQL - Allows data handling, storing, modifying, deleting in a tabular format. it is database software.
+
+What is the difference between Nested Subquery and Correlated Subquery?
+
+Subquery within another subquery is called as Nested Subquery.  If the output of a subquery is depending on column values of the parent query table then the query is called Correlated Subquery.
+
+What is Normalization? How many Normalization forms are there?
+
+Normalization is used to organize the data in such a manner that data redundancy will never occur in the database and avoid insert, update and delete anomalies.
+
+35) What is a Cursor?
+
+A cursor is a temporary work area created in a system memory when an SQL statement is executed.
+A cursor can hold more than one row, but can process only one row at a time.
+Implicit cursor is implicitly declared by Oracle and return only one row.
+Explicit cursor is created for queries returning multiple rows.
+
+Cursor follows steps as given below
+
+Declare Cursor
+Open Cursor
+Retrieve row from the Cursor
+Process the row
+Close Cursor
+Deallocate Cursor
+
+What is a Relationship and what are they?
+
+Relation or links are between entities that have something to do with each other. Relationships are defined as the connection between the tables in a database.
+
+What is the main difference between ‘BETWEEN’ and ‘IN’ condition operators?
+
+BETWEEN operator is used to display rows based on a range of values in a row whereas the IN condition operator is used to check for values contained in a specific set of values.
+
+List some advantages and disadvantages of Stored Procedure?
+Advantages:
+A Stored Procedure can be used as a modular programming which means create once, store and call for several times whenever it is required. This supports faster execution. It also reduces network traffic and provides better security to the data.
+
+Disadvantage:
+The only disadvantage of Stored Procedure is that it can be executed only in the database and utilizes more memory in the database server.
+
+What is the purpose of using PL/SQL?
+PL/SQL is an extension of SQL. While SQL is non-procedural, PL/SQL is a procedural language designed by Oracle. It is invented to overcome the limitations of SQL.
+
+How exception is different from error?
+Whenever an Error occurs Exception arises. Error is a bug whereas exception is a warning or error condition.
+
+What are PL/SQL exceptions? Tell me any three.
+Too_many_rows
+No_Data_Found
+Value_error
+Zero_error etc.
+
+What are the different schemas objects that can be created using PL/SQL?
+Stored procedures and functions
+Packages
+Triggers
+Cursors
+
+What will you get by the cursor attribute SQL%ROWCOUNT?
+The cursor attribute SQL%ROWCOUNT will return the number of rows that are processed by a SQL statement.
+
+What will you get by the cursor attribute SQL%FOUND?
+It returns the Boolean value TRUE if at least one row was processed.
+
+What will you get by the cursor attribute SQL%NOTFOUND?
+It returns the Boolean value TRUE if no rows were processed.
+
+What are the advantages of stored procedure?
+Modularity, extensibility, reusability, Maintainability and one time compilation.
+
+What are the cursor attributes used in PL/SQL?
+%ISOPEN: it checks whether the cursor is open or not.
+%ROWCOUNT: returns the number of rows affected by DML operations: INSERT,DELETE,UPDATE,SELECT.
+%FOUND: it checks whether cursor has fetched any row. If yes - TRUE.
+%NOTFOUND: it checks whether cursor has fetched any row. If no - TRUE.
+
+What is the difference between syntax error and runtime error?
+A syntax error can be easily detected by a PL/SQL compiler. 
+For example: incorrect spelling etc. while, a runtime error is handled with the help of exception-handling section in a PL/SQL block. For example: SELECT INTO statement, which does not return any rows.
+
+What is the difference between BETWEEN and IN condition operators?
+The BETWEEN operator is used to display rows based on a range of values. The IN condition operator is used to check for values contained in a specific set of values.
+
+Which are the different types of indexes in SQL?
+
+There are three types of Indexes in SQL:
+1) Unique Index
+
+This indexing does not allow the field to have duplicate values if the column is unique indexed. Unique index can be applied automatically when primary key is defined.
+
+2) Clustered Index
+
+The clustered index is used to reorder the physical order of the table and search based on the key values. 
+Each table can have only one clustered index.
+Reading from a clustered index is much faster than reading from non clustered index from the same table.
+
+3) NonClustered Index:
+
+NonClustered Index does not alter the physical order of the table and maintains logical order of data. 
+Each table can have 999 non-clustered indexes.
+
+What is a trigger in PL/SQL?
+A trigger is a PL/SQL program which is stored in the database. It is executed immediately before or after the execution of INSERT, UPDATE, and DELETE commands.
+
+What is the maximum number of triggers, you can apply on a single table?
+12 triggers.
+
+-> Disadvantages of Indexing in Databases
+
+While indexes greatly improve query performance by reducing the amount of data the database needs to scan, they come with some disadvantages that you should consider when designing your database.
+
+1. Increased Storage Requirements
+Index storage consumes additional disk space. Every index requires additional memory to store the index structure (typically B-trees or hash indexes).
+Disadvantage: For large databases, maintaining multiple indexes can significantly increase storage costs.
+
+2. Slower Data Modifications (INSERT, UPDATE, DELETE)
+Indexes need to be updated whenever data is inserted, updated, or deleted from the table.
+INSERT: When a new row is inserted, all relevant indexes must be updated.
+UPDATE: If the indexed column is updated, the index must be modified or rebuilt.
+DELETE: When a row is deleted, the indexes must be updated or cleaned up.
+Disadvantage: This results in slower performance for write-heavy operations, as the database must keep the indexes in sync with the data changes.
+
+3. Maintenance Overhead
+Index maintenance can become expensive as the database grows.
+Periodically, indexes may need to be rebuilt or re-organized to keep them efficient, especially in databases with frequent updates.
+Disadvantage: The process of rebuilding or reorganizing indexes can consume significant resources and affect performance.
+
+4. Over-indexing
+Having too many indexes on a table can negatively impact the database's overall performance.
+Excessive indexes increase the time taken to perform insertions, updates, and deletions.
+Each index adds an overhead, so having too many indexes can make the database inefficient.
+Disadvantage: Careful selection of which columns to index is important to avoid performance degradation.
+
+5. Complex Query Planning
+The database's query optimizer decides which index to use when executing a query. Sometimes, non-optimal indexes can cause the database to choose an inefficient query plan.
+Disadvantage: In some cases, even though indexes exist, the optimizer might not use them correctly, leading to slower query performance.
+
+6. Can Affect Performance for Small Tables
+For small tables with a limited number of rows, indexes can actually slow down query performance because the overhead of reading the index structure might outweigh the benefit of direct table access.
+Disadvantage: For small datasets, an index may not offer significant improvements and may even be counterproductive.
+
+7. Non-Optimal Index Types
+Not all types of indexes are suitable for all queries. For example:
+  B-tree indexes are great for range queries but might not perform well on full-text searches.
+  Full-text indexes are optimized for searching text but may not be efficient for range-based numeric queries.
+Disadvantage: Choosing the wrong type of index for specific queries can lead to suboptimal performance.
+
+8. Security Risks
+Exposing sensitive data through indexes is possible. If sensitive columns are indexed (e.g., passwords, personal information), attackers might be able to deduce information more easily from the index itself.
+Disadvantage: Careful consideration should be given to which columns are indexed to avoid potential security issues.
+
+Conclusion
+Indexes are great for improving query performance in large datasets or complex queries.
+Indexes can slow down write-heavy operations and require maintenance.
+
+Secondary Key
+Uniqueness: A secondary key is a key that can be used for searching or indexing purposes but is not necessarily unique. It may allow duplicate values.
+
+Nullability: A secondary key can have null values and does not need to be unique.
+
+Number of Keys: A table can have multiple secondary keys (also known as non-primary keys or alternate keys).
+
+Purpose: The secondary key is used to speed up searches for records based on columns that are not the primary key. Secondary keys are often indexed for fast retrieval, but they do not enforce uniqueness.
+
+UNION and UNION ALL Clauses
+UNION: Combines the result sets of two or more SELECT queries and removes duplicate rows.
+UNION ALL: Combines the result sets of two or more SELECT queries but does not remove duplicates.
+
+To find duplicates in a table without using `GROUP BY`, you can use a `JOIN` or a `SELF JOIN` technique. Here's a general approach:
+
+SELECT e1.email
+FROM employees e1
+JOIN employees e2
+  ON e1.email = e2.email
+WHERE e1.id != e2.id
+
+SELECT DISTINCT email
+FROM employees e1
+WHERE EXISTS (
+    SELECT 1
+    FROM employees e2
+    WHERE e1.email = e2.email AND e1.id != e2.id
+)
+
+If you want the top 10% based on a specific column (for example, salary), you can order the data and limit the number of rows returned.
+
+SELECT *
+FROM employees
+ORDER BY salary DESC
+LIMIT (SELECT FLOOR(COUNT(*) * 0.1) FROM employees);
+
+you want to calculate the difference between the amount of the current row and the amount of the next row.
+
+SELECT id,
+       sale_date,
+       amount,
+       LEAD(amount) OVER (ORDER BY sale_date) AS next_amount,
+       (LEAD(amount) OVER (ORDER BY sale_date) - amount) AS diff_from_next
+FROM sales;
+
+Here's how you can find the departments that have more than one employee:
+
+SELECT department_id
+FROM employees
+GROUP BY department_id
+HAVING COUNT(employee_id) > 1;
+
+Visualizing the Flow:
+Here’s a step-by-step breakdown of the logical query processing flow:
+
+FROM (identify tables and joins)
+WHERE (filter rows)
+GROUP BY (group rows)
+HAVING (filter groups)
+SELECT (select columns)
+DISTINCT (remove duplicates if specified)
+ORDER BY (sort rows)
+LIMIT/OFFSET (restrict number of rows)

@@ -1,0 +1,133 @@
+1) What is PHP?
+2) Advantages of using PHP?
+3) What do the initials of PHP stand for?
+4)Which programming language does PHP resemble?
+4) What does PEAR stand for?
+5) What is the actually used PHP version?
+6) How do you execute a PHP script from the command line?
+7) How to run the interactive PHP shell from the command line interface?
+8) What is the correct and the most two common way to start and finish a PHP block of code?
+9) How can we display the output directly to the browser?
+10) What is the main difference between PHP 4 and PHP 5?
+11) Is multiple inheritance supported in PHP?
+12) What is the meaning of a final class and a final method?
+13) How is the comparison of objects done in PHP?
+14) How can PHP and HTML interact?
+15) How can PHP and Javascript interact?
+16) Why do we use Javascript in PHP?
+16) What is the use of the function 'imagetypes()'?
+17) What are the functions to be used to get the image's properties (size, width, and height)?
+46) How to read a file in PHP?
+47) How to write in a file in PHP?
+48) How to delete file in PHP?
+50) How to upload file in PHP?
+51) How to download file in PHP?
+52) How can you send email in PHP?
+54) How to create connection in PHP?
+18) What is the maximum size of a file that can be uploaded using php and how can we change this?
+19) How can we increase the execution time of a php script?
+20) How failures in execution are handled with include() and require() functions?
+21) What is the main difference between require() and require_once()?
+22) What are the ways to include file in PHP?
+37) Differentiate between require and include?
+22) How can I display text with a PHP script?
+23) How can we display information of a variable and readable by a human with PHP?
+23) What is an array?
+5) Explain the difference b/w static and dynamic websites?
+6) What is the name of scripting engine in PHP?
+7) Explain the difference between PHP4 and PHP5.
+32) How to get the length of string?
+33) Explain some of the PHP string functions?
+24) How is it possible to set an infinite execution time for PHP script?
+25) What does the PHP error 'Parse error in PHP - unexpected T_variable at line x' means?
+27) What is the function file_get_contents() useful for?
+28)What is the difference between echo and print statement?
+28) How can we connect to a MySQL database from a PHP script?
+29) What is the function mysql_pconnect() useful for?
+30) How be the result set of Mysql handled in PHP?
+31) How is it possible to know the number of rows returned in the result set?
+32) Which function gives us the number of affected entries by a query?
+33) What is the difference between mysqli_fetch_object() and mysqli_fetch_array()?
+34) How can we access the data sent through the URL with the GET method?
+35) How can we access the data sent through the URL with the POST method?
+36) How can we check the value of a given variable is a number?
+37) How can we check the value of a given variable is alphanumeric?
+38) How do I check if a given variable is empty?
+39) What does the unlink() function mean?
+40) What does the unset() function mean?
+41) How do I escape data before storing it in the database?
+42) How is it possible to remove escape characters from a string?
+45) Is it possible to remove the HTML tags from data?
+46) what is the static variable in function useful for?
+47) How can we define a variable accessible in functions of a PHP script?
+48) How is it possible to return a value from a function?
+49) What is the most convenient hashing method to be used to hash passwords?
+50) Which cryptographic extension provide generation and verification of digital signatures?
+51) How is a constant defined in a PHP script?
+52) How can you pass a variable by reference?
+53) Will a comparison of an integer 12 and a string "13" work in PHP?
+54) How is it possible to cast types in PHP?
+57) What is the function func_num_args() used for?
+58) If the variable $var1 is set to 10 and the $var2 is set to the character var1, what's the value of $$var2?
+59) What does accessing a class via :: means?
+60) In PHP, objects are they passed by value or by reference?
+62) What's the difference between __sleep and __wakeup?
+63) What is faster?
+64) what is the definition of a session?
+65) How to initiate a session in PHP?
+66) How can you propagate a session id?
+67) What is the meaning of a Persistent Cookie?
+68) When do sessions end?
+69) What is the difference between session_unregister() and session_unset()?
+99) What is the default session time in PHP?
+19) How do you end a session in PHP?
+70) What does $GLOBALS mean?
+71) What does $_SERVER mean?
+72) What does $_FILES means?
+73) What is the difference between $_FILES['userfile']['name'] and $_FILES['userfile']['tmp_name']?
+74) How can we get the error when there is a problem to upload a file?
+75) How can we change the maximum size of the files to be uploaded?
+76) What does $_ENV mean?
+77) What does $_COOKIE mean?
+78) What does the scope of variables mean?
+80) What are the two main string operators?
+82) What is the differences between $a != $b and $a !== $b?
+83) Is PHP a case sensitive programming language?
+84) What is the goto statement useful for?
+85) what is the difference between Exception::getMessage and Exception:: getLine?
+88) How can we determine whether a variable is set?
+89) What is the difference between the functions strstr() and stristr()?
+90) what is the difference between for and foreach?
+91) Is it possible to submit a form with a dedicated button?
+93) Is it possible to protect special characters in a query string?
+94) What are the different types of errors in PHP?
+95) What is the difference between characters \034 and \x34?
+98) Is it possible to destroy a cookie?
+100) Is it possible to use COM component in PHP?
+(101) Difference between null and empty?
+3) Why PHP was called as personal home page?
+27) What is the difference between interpreted and compiled languages?
+38) What is Var_dump?
+39) What is the difference between null and undefined?
+50) What is the use of die in PHP?
+51) What is the difference between $message and $$message?
+69) What is LAMP in PHP?
+71) What is the maximum size of a table in MySQL?
+72) What is the capacity of MySQL database?
+77) Why triggers are used in mysql?
+96) How to get IP address of a server in PHP?
+99)  When do you use define() and when do you use const. What are the main differences between those two?
+102) When to use self over $this?
+103) What is the difference between Apache and Tomcat?
+112) What is PHP artisan?
+111) What is a composer in PHP?
+115) What is SQL injection?
+116) Why does SQL injection happen?
+117) What is Mysql_real_escape_string used for?
+123) What is the use of isset in PHP?
+125) What is the use of trim in PHP?
+135) Explain about getters and setters in PHP?
+136) Get() and POST()
+137) Who is the father of php ?
+138) How can we submit from without a submit button? 
+139)What is the difference between the functions unlink and unset? 

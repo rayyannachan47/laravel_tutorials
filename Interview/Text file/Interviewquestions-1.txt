@@ -1,0 +1,848 @@
+Interview Questions(javatpoint and pankaj kumar):
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Project>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Java FileOutputStream is an output stream used for writing data to a file.
+
+Java FileInputStream  is an input stream used for reading data.
+
+for reading streams of characters, it is recommended to use FileReader class.
+
+FileReader class is used to read data from the file.
+
+FileWriter class is used to write character-oriented data to a file
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<JDK,JRE and JVM>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+JDK is software development environment which is used to developed java apps and applets. it is physically exists. It contains JRE + development tools. 
+
+JRE is a combination of JVM and Java API classes. it is used to provide run time environment.It is the implementation of JVM.
+
+JVM is the heart of java program. it is a virtual machine that enables computer to run java program.JVMs are available for many hardware and software platforms (so JVM is platform dependent).
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Inheritance>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+The class which acquires the properties of another class is called Inheritance.
+
+Types:
+
+(1)Single level:
+
+class data
+{
+ values=a,b
+}
+class sum extends data
+{
+  sum=a+b
+}
+class Main
+{
+  call
+}
+
+class person and class trainer extends person
+
+(2) Multi level
+
+class data
+{
+ values: a,b,c
+}
+class Sum extends data
+{
+sum=a+b+c;
+}
+class Avg extends sum
+{
+ avg=(float)sum/n
+}
+
+class person and class trainer extends person and class headtrainer extends trainer
+
+(3)Hierarchical 
+
+class grandfather
+{
+
+}
+class son extends grandfather
+{
+
+}
+class grandson extends son
+{
+
+}
+
+(4)Multiple interface inheritance(If A class implement multiple interfaces)
+
+Multiple inheritance not allowed because it leads to deadly diamond problem.
+it is an ambiguity that arises when 2 class B and C inherit from super class Avg
+and another class D inherit from both B and C
+
+Example
+
+interface CanFly {
+    public function fly();
+}
+
+interface CanSwim {
+    public function swim();
+}
+
+class Duck implements CanFly, CanSwim {
+    public function fly() {
+        echo "Flying...\n";
+    }
+
+    public function swim() {
+        echo "Swimming...\n";
+    }
+}
+
+$duck = new Duck();
+$duck->fly();   // Flying...
+$duck->swim();  // Swimming...
+
+
+Superclass: the class from which the other class is derived
+
+Sub class: the class which is derived from superclass. it is extended version of superclass.
+
+Why inheritance?
+
+Reuse code so it save time in coding
+To use polymorphism.
+
+IS-a relationship: Student class is a subclass of person class
+
+has-a relationship: STudent has address.
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Polymorphism>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+It means many forms.
+
+// Base class
+class Animal {
+    public function sound() {
+        echo "Animal makes a sound\n";
+    }
+}
+
+// Derived class
+class Dog extends Animal {
+    // Overriding the sound() method of Animal class
+    public function sound() {
+        echo "Dog barks\n";
+    }
+}
+
+// Derived class
+class Cat extends Animal {
+    // Overriding the sound() method of Animal class
+    public function sound() {
+        echo "Cat meows\n";
+    }
+}
+
+// Creating objects
+$animal = new Animal();
+$dog = new Dog();
+$cat = new Cat();
+
+// Call overridden methods
+$animal->sound(); // Output: Animal makes a sound
+$dog->sound();    // Output: Dog barks
+$cat->sound();    // Output: Cat meows
+
+
+for example
+
+my behaviour towards you will be different
+my behaviour towards my friend will be different
+my behaviour towards relatives will be different
+but i am one and many forms.
+
+It can be static or dynamic.
+Static means early binding because binding performed at compile time(Method overloading)
+Dynamic means late binding because binding performed at run time(Method overriding)
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Method overloading>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Same name but different parameters
+
+Example: Student
+
+Student(EXTC)
+Student(IT)
+Student(COMPS)
+
+why overloading?
+
+cleanliness of code, increase readibility of program, flexibility.
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Method overriding>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+same name and same parameters
+
+This is helpful when child has several child classes.
+if a child needs to use parent class method so it can use it.
+
+Example:
+
+class vehicle
+{
+run()
+}
+class bike extends vehicle
+{
+run()
+}
+
+Difference:
+
+(1)Method overloading is an example of compile time polymorphism
+(1)Method overriding is an example of run time polymorphism
+
+(2)parameters must be different 
+(2)parameters must be same
+
+(3)a method can be overloaded in same class or in sub class
+(3)a method can be overriden only in sub class
+
+(4)We must change type, number,sequence.
+(4)we must not change.
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Static Method>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Static method cannot be ovveridden because they are not part of object state as it belong to class.
+static belongs to class area and an instance belongs to heap area.
+Static variable retains its value between multiple function call.
+Static method invoked without the need for creating an instance class.
+Static method can access static data member and can change the value of it.
+Program execution begins from there without an object created.
+
+The static keyword is used in java mainly for memory management.
+
+It is used with variables, methods, blocks and nested class.
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Abstract class>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+A class which is declared with the abstract keyword. 
+it is mostly used to provide a base for subclass to extend and implement abstract method.
+we must override the abstract method else get CTE.
+It helps to reduce program complexity and efforts.
+
+Example:
+
+abstract class Shape
+{
+abstract void area()
+}
+class square extends shape
+{
+void area();
+}
+class rect extends shape
+{
+void area();
+}
+class main
+{
+
+}
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Interfaces>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+it is class that contains method which are all abstract.
+it is not possible to create an object to an interface.
+it is used to achieve loose coupling
+Advantsge is that it enables multiple inheritance.
+
+Example:
+
+interface Database
+{
+connect();
+disconnect();
+}
+class MYsql implements Database
+{
+connect();
+disconnect();
+}
+
+class Oracle implements Database
+{
+connect();
+disconnect();
+}
+class main
+{
+call
+}
+
+Difference:
+
+(1) Abstract class can contain instance variables.
+(1)It contains only constants.
+
+(2)Abstract class can have constructors.
+(2)It doesnt have constructor.
+
+(3)it doesn't support multiple inheritance
+(3)It support.
+
+(4)Abstract keyword is used to declare abstract class
+(4)Interface keyword is used to declare interface.
+
+(5)it can be extended by using extends keyword.
+(5)It can be implemented by using implements keyword.
+
+(6)If a new method is added to abstract class then there is an option of providing implementation.
+(6)It is required to track down all implementation of interface and define it.
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Encapsulation>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+It is a process of wrapping code and data together into a single unit.
+
+public class A
+{
+private int age;
+public int getAge(){ return age;}
+public void setAge(int newAge) {age=newAge;}
+}
+public class Main
+{
+A a = new A();
+a.setAge(20);
+print(a.getAge());
+}
+
+<?php
+
+class Person {
+    // Private properties (cannot be accessed directly outside the class)
+    private $name;
+    private $age;
+
+    // Constructor to initialize the object with values
+    public function __construct($name, $age) {
+        $this->name = $name;
+        $this->age = $age;
+    }
+
+    // Public getter method to access private property $name
+    public function getName() {
+        return $this->name;
+    }
+
+    // Public setter method to modify private property $name
+    public function setName($name) {
+        $this->name = $name;
+    }
+
+    // Public getter method to access private property $age
+    public function getAge() {
+        return $this->age;
+    }
+
+    // Public setter method to modify private property $age
+    public function setAge($age) {
+        if ($age >= 0) {  // Add validation for age
+            $this->age = $age;
+        } else {
+            echo "Age cannot be negative.\n";
+        }
+    }
+
+    // Public method to display the person's details
+    public function displayPerson() {
+        echo "Name: " . $this->getName() . "\n";
+        echo "Age: " . $this->getAge() . "\n";
+    }
+}
+
+// Creating an object of the Person class
+$person = new Person("John", 30);
+
+// Accessing and modifying properties using getter and setter methods
+echo $person->getName(); // Output: John
+echo "\n";
+
+// Modifying the name
+$person->setName("David");
+
+// Accessing the updated name
+echo $person->getName(); // Output: David
+echo "\n";
+
+// Accessing and modifying age
+$person->setAge(35);
+echo $person->getAge(); // Output: 35
+echo "\n";
+
+// Trying to set a negative age (this will be blocked)
+$person->setAge(-5); // Output: Age cannot be negative.
+echo "\n";
+
+// Displaying person details using the public method
+$person->displayPerson();
+// Output:
+// Name: David
+// Age: 35
+
+?>
+
+
+Example: Cupboard
+
+Advantages:
+
+Data hiding(other class will not able to access data through private members), 
+increased flexibility, Reusability, 
+testing code is easy(so it is better for unit testing.
+the field of class can be made read only or write only.
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<How is abstraction differ from encapsulation?>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Encapsulation is use for hiding data.
+abstraction shows only necessary details to the intended users.
+
+For Example: 
+Encapsulation is Television which contains internal ckts leds etc that are wrapped in a single unit.
+Abstraction is on/off, channel setting and other operators provided to operate it.
+
+<?php
+
+// Abstract class (cannot be instantiated directly)
+abstract class Animal {
+    // Abstract method (no implementation)
+    abstract public function makeSound();
+
+    // Concrete method (can be used as is)
+    public function sleep() {
+        echo "Sleeping...\n";
+    }
+}
+
+// Subclass (must implement abstract method)
+class Dog extends Animal {
+    public function makeSound() {
+        echo "Woof!\n";
+    }
+}
+
+// Subclass (must implement abstract method)
+class Cat extends Animal {
+    public function makeSound() {
+        echo "Meow!\n";
+    }
+}
+
+// Creating objects of subclasses
+$dog = new Dog();
+$cat = new Cat();
+
+// Calling methods
+$dog->makeSound();  // Output: Woof!
+$dog->sleep();      // Output: Sleeping...
+
+$cat->makeSound();  // Output: Meow!
+$cat->sleep();      // Output: Sleeping...
+
+?>
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<What is public static void main>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+public: it is access modifier, from everywhere we can access.
+static: we can call this method directly using class name without creating an object of it.
+void: a method must have return type so its the return type.
+main: method name
+String[] args: java accepts only string type of argument and store it in a string.
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<why to use main method>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+when a program starts running, it has to start execution from somewhere. that somewhere is called main.
+You can compile any java class without a main method but standalone application can't run without a main method.
+
+Why main() method special in java program?
+
+This is necessary because main() is called by jvm before any objects are made.since it is static so it can be directly invoked by class.
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<final finally finalize>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+final
+
+final class cannot be instantiated.
+final method cannot be overriden.
+final variable cannot be reassigned
+it is a keyword.
+
+Finally
+
+It is used to create a block of code that follows a try block.
+A finally block always execute whether exception occured or not.
+It is a block.
+
+Finalize
+
+it is used just before object is destroyed. it is used to perform cleanup in system.
+It is a method.
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Exception handling>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+An exception is a problem and abnormal condition that arises during the execution of a program.
+
+Types of Errors:
+
+(1)Compile time error: syntax mistakes. detected by javac
+(2)Run time error: detected by jvm only at runtime
+(3)Logical error: flows in the logic of program.
+
+Types of exception:
+
+Checked exception: exceptions are checked at compilation time by java compiler.
+such exceptions cannot be ignored by programmer.
+Examples: IOException, ClassNotFoundException, NoSuchFieldException, NoSuchMethodException.
+
+Unchecked Exception: the exceptions that are checked by jvm are called unchecked exceptions.
+programmer can ignore unchecked exception.
+Examples: Arithmetic Exception, NullPointer Exception, NumberFormat Exception(invalid conversion of string to numeric), NegativeArraySize Exception(Array created with -ve size)
+
+StackOverflow Error:
+It is seen in improper coded recursive program. application recurses too deeply.
+
+Throw and Throws. 
+
+(1)throw exception explicitly by using throw keyword.
+(1)throws keyword is used to declare exception.
+
+(2)checked exception cannot be propagated using throw only
+(2)checked exception can be propagated using throws
+
+(3)you cannot throw multiple exceptions
+(3)you can throw multiple exceptions
+
+(4)Throw is used within method
+(4)Throw is used with method signature.
+
+Assertion error: It can be used to test your assumption about program(java -ea/-da assertionex)
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<String Buffer vs String Builder>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+(1)Methods are thread safe
+(2)Methods are not thread safe
+
+(2)Methods are synchronized and hence slow
+(2)Methods are not synchronized and hence fast
+
+(3)It can be used in both single thread and multithread model
+(3)It can be used in single thread model
+
+(4)It is available from v1.0
+(4)It is available from v3.0
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Access Specifiers>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+(1)Public: everyone can access
+
+(2)Private: Only those members can access where it is declared.
+
+(3)Default: It can be access by any class that belongs to same package.
+
+{4}Protected: It can be access by the class that extends current class in same package or different package.
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Life cycle of thread>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+A thread is a light weight sub- process, the smallest unit of processing.
+
+(1)New: when we create a new thread object using new operator, thread state is a new thread, At this point thread is not alive.
+
+(2)Runnable: when we call start() function on thread object so its state is changed to runnable.
+
+(3)Running: when thread is executing, its state change to running. a thread can change state to runnable,dead or blocked from running state depends on time slicing or waiting for resources.
+
+(4)Blocked/Waiting: it can be waiting for some resources to available.
+
+(5)Dead: a thread is in dead state when its run() method exits.
+
+A multithreading is a process of executing multiple threads simultaneously.
+
+Advantages:
+(1)It doesn't block the user because threads are independent and you can perform multiple operations at the same time.
+(2)you can perform many operations together so it saves time.
+(3)Threads are independent so it doesnt affect other threads if an exception occurs in a single thread.
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<difference between hash map and hash set>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+(1)Hash map is an implementation of map interface.
+(1)Hash set is an implementation of set interface.
+
+(2)It stores data in form of key_value pair.
+(2)It stores only object.
+
+(3)Put method is used to add element in a map.
+(3)Add method is used to add element in a set.
+
+(4)It is faster than handset because unique key is used to access object.
+(4)it is slower than hashmap.
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<difference between hash map and hash table>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+(1)It is non synchronized
+(1)It is synchronized
+
+(2)It is not thread safe
+(2)It is thread safe
+
+(3)It can't be shared between many threads without proper synchronization code.
+(3)It can be shared between many threads.
+
+(4)It allows one null key and multiple null value.
+(4)It doesn't allow any null key or value.
+
+(5)It is fast
+(5)It is slow
+
+(6)it inherits Abstractmap class
+(6)it inherits dictionary class.
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Swing>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Java AWT(Abstract WIndowing Toolkit) and Swing
+
+(1) AWT components are platform independent.
+(1)Java swing components are platform independent.
+
+(2)AWT components are heavyweight
+(2)They are light weight
+
+(3)It doesnt support pluggable look and feel
+(3)It support pluggable look and feel
+
+(4)it provides less components than swing.
+(4)It provides more powerful components such as table,list,colorchooser etc
+
+(5)It doesn't follows MVC(Model View Controller) where model represents data, view-presentation,controller-interface between model and view.
+(5)It follows MVC
+
+Layout Manager are used to arrange components in a particular nanner.
+It is an interface that is implemented by all classes of layout managers.
+Classes represent layout manager:
+java.awt.BorderLayout
+java.awt.flowLayout
+java.awt.GridLayout 
+javax.swing.GroupLayout etc
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<collection>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+A collection represents a single unit of object.
+The collection framework represents a unified architecture for storing and manipulating a group of objects.
+It has interfaces and its implementation ie classes and algorithm
+
+Advantages
+Reduces programming effort.
+Increases progrsm speed and quality
+Reusability.
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Servlet>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Life cycle of servlet:
+
+1) Servlet class is loaded
+The classloader is responsible to load the servlet class. The servlet class is loaded when the first request for the servlet is received by the web container. 
+
+2) Servlet instance is created
+The web container creates the instance of a servlet after loading the servlet class. The servlet instance is created only once in the servlet life cycle. 
+
+3) init method is invoked
+The web container calls the init method only once after creating the servlet instance. The init method is used to initialize the servlet. It is the life cycle method of the javax.servlet.Servlet interface. Syntax of the init method is given below: 
+
+public void init(ServletConfig config) throws ServletException  
+
+4) service method is invoked
+The web container calls the service method each time when request for the servlet is received. 
+If servlet is not initialized, it follows the first three steps as described above then calls the service method. 
+If servlet is initialized, it calls the service method. Notice that servlet is initialized only once. The syntax of the service method of the Servlet interface is given below: 
+
+public void service(ServletRequest request, ServletResponse response)   throws ServletException, IOException  
+
+5) destroy method is invoked
+The web container calls the destroy method before removing the servlet instance from the service. 
+It gives the servlet an opportunity to clean up any resource for example memory, thread etc. 
+The syntax of the destroy method of the Servlet interface is given below: 
+
+public void destroy()  
+
+-->What is web application?
+
+A web application is an application accessible from the web. A web application is composed of web components like Servlet, JSP, Filter etc. and other components such as HTML.
+
+The basic benefits of servlet are as follows:
+
+Better performance: because it creates a thread for each request not process.
+Portability: because it uses java language.
+Robust: Servlets are managed by JVM so we don't need to worry about memory leak, garbage collection etc.
+Secure: because it uses java language
+
+CGI(Commmon Gateway Interface)
+CGI technology enables the web server to call an external program and pass HTTP request information to the external program to process the request. 
+For each request, it starts a new process.
+
+Disadvantages of CGI
+There are many problems in CGI technology:
+If number of clients increases, it takes more time for sending response.
+For each request, it starts a process and Web server is limited to start processes.
+It uses platform dependent language e.g. C, C++, perl.
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<JSP>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+JSP technology is used to create web application just like Servlet technology. 
+It can be thought of as an extension to servlet because it provides more functionality than servlet such as expression language, jstl etc. 
+A JSP page consists of HTML tags and JSP tags
+
+A scriptlet tag is used to execute java source code in JSP. Syntax is as follows:
+
+<%  java source code %> 
+
+JSP expression tag
+
+It is mainly used to print the values of variable or method. 
+
+<%= "welcome to jsp" %>  
+
+JSP declaration tag
+
+The JSP declaration tag is used to declare fields and methods.
+
+<%! int data=50; %>  
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<SQL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+What is optimization and performance of a query?
+
+Optimization is needed to speed up long running SQL query
+Avoid unnecessary column in select clause
+avoid using wildcard(%) because it cause full table scan.
+distinct and union should be used only if necessary because it slows down sql execution
+use inner join instead of outer join if possible.
+
+The goal of database performance is to minimize respose time of queries.
+Avoid multiple joins in a single query.
+eliminate cursors from query
+creation and use of indexes.
+
+What is stored procedure? 
+
+It is a block which performs one or more specific function.
+it is stored as schema object
+it can be nested invoked and parameterized.
+you can create sp once store in db and call it n number of times in program
+(different schema objects: SP and functions, packages triggers cursor)
+Benefits:
+They allow modular programming and faster execution.
+They can reduce network traffic
+
+What is the difference between stored procedure and function?
+
+The function return a value but in SP it is optional
+Function can have only i/p paramenters but in SP both i/p and o/p parameters.
+Functions can be called from procedure but procedures cannot be called from procedure.
+we cannot use SP in sql stmt like select insert but can use in function
+we can use try catch exception handling in sp but cannot do in function
+we can use transaction in SP but not in function
+
+Why we can’t use SP inside function?
+
+function is not allowed to modify database state but stored procedure does.
+database state(the set of stored data)
+
+How SQL query actually executes in various SQL engines?
+
+It happens in 3 phases: Parsing, binding and optimization.
+Parsing: it will check the syntax whether it is written correctly or not
+
+binding: it is done by algebrizer. it checks whether query semantics are correct or not.
+for example if suppose you are specifing that these are 2 tables so it will check whether that tables really exist or not.
+
+optimization: it generates query execution plan.
+it always try to find way to execute query in minimum amount of time.
+
+How to remove duplicate records in a result set?
+
+use distinct keyword
+
+How to execute stored procedure in debug mode?
+
+select sp you need to debug
+set its paramenters
+then click execute.
+
+What are materialized views? 
+
+A materialized view is a database object that contains the results of a query.
+
+How to remove NULL from a result set? Explain various methods of same?
+
+NVL: converts null value to actual value. (for ex: NVL(comm_pct,0)
+
+NVL2 : if expr1 is not null so returns expr2 else returns expr3
+
+Nullif : compare two expression and return null if they are equal or 1st expr if they are not equal
+
+coalesce : it return first non null expression 
+
+Explain the use of coalesce function?
+
+it return first non null expression 
+
+What is Root Cause Analysis?
+
+It is a method of problem solving used for identifying the root causes of faults ot problems.
+5 why of root cause:
+Define, measure, analyze, improve, control.(DMAIC)
+
+What qualities make you to assign new task/ project?
+
+Communication, Team Management, Leadership.
+
+What are types of temporary tables? Explain in details.
+
+Global TT: the data in a gtt is private such that data inserted by a session can only be accessed by that session.
+Private TT: it is a memory based temporary table that is dropped at the end of session or transaction depend on setup.
+
+Multicasting in networking?
+
+It is a communication between single sender and multiple recievers on a network.
+
+What is SQL server profiler?
+
+It is a Graphical user interface.
+It is a tool for tracing, recreating and troubleshooting problems in MS SQL Server
+It is a great tool that allow you to see whats going on inside sql server.
+It is use to monitor performance of various stored procedure. it is used to debug queries and procedure. based on performance it identifies slow executing salaries.
+Users create traces to capture data and monitor error and other problems
+Then they use profiler to store retrieve and view the results of many traces graphically for purpose of troubleshooting and repair.
+
+--How will you check if the query is taking longer time to execute 
+
+SQL server management studio
+right click on your database instance and select properties
+click on memory table
+check the memory settings
+
+How to swap two no. without using third variable?
+
+x=x+y
+y=x-y
+x=x-y
+
+What is the difference between group by and having clause? Can we use both clauses in single query and where are they used?
+
+where clause is used for filtering rows and having clause is used to filter groups.
+having clause is added because where keyword cannot be used with group by.

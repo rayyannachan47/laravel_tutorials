@@ -1,0 +1,1111 @@
+Wama Technology - Software Development Company
+SPAY FINTECH PRIVATE LIMITED
+
+----------------------
+
+Candidate key
+life cycle of laravel request
+in case of migration how you will add column 
+abstraction example in php
+inheritance example in php
+put vs patch
+traits
+Eager Loading  and lazy
+
+----------------------
+
+trait CanFly {
+    public function fly() {
+        echo "Flying...\n";
+    }
+}
+
+trait CanSwim {
+    public function swim() {
+        echo "Swimming...\n";
+    }
+}
+
+class Duck {
+    use CanFly, CanSwim; // Multiple traits can be used
+
+    public function quack() {
+        echo "Quacking...\n";
+    }
+}
+
+$duck = new Duck();
+$duck->fly();  // Flying...
+$duck->swim(); // Swimming...
+$duck->quack(); // Quacking...
+
+----------------------
+
+$array1 = [2,3,5,7,8];
+$array2 = [3,5,6,7,9];
+Output : 2,3,5,6,7,8,9
+
+<?php
+$array1 = [2,3,5,7,8,2];
+$array2 = [3,5,6,7,9];
+// Output : 2,3,5,6,7,8,9
+$count1 = count($array1);
+$count2 = count($array2);
+$text = '';
+for($i=0;$i<$count1;$i++){
+	$duplicate = false;
+	for($j=0;$j<$i;$j++){
+		if($array1[$i] == $array1[$j]){
+        	$duplicate = true;
+            break;
+        }
+	}
+    if(!$duplicate){
+    	$text .= $array1[$i].",";
+    }
+}
+
+for($i=0;$i<$count2;$i++){
+	$duplicate = false;
+	for($j=0;$j<$count1;$j++){
+		if($array2[$i] == $array1[$j]){
+        	$duplicate = true;
+            break;
+        }
+	}
+    if(!$duplicate){
+    	$text .= $array2[$i].",";
+    }
+}
+echo trim($text,",");
+?> 
+
+
+$temp = array(111,222,333,444);
+WAP to generate the below output using above array
+output = 111-1.2.3,222-4.5.6,333-7.8.9,444-10.11.12
+
+<?php
+$temp = array(111,222,333,444);
+$k = 1;
+$val = "";
+foreach($temp as $arr){
+	 $val .= ",".$arr."-";
+    for($j = 1; $j<= strlen($arr);$j++){
+    	$val .= $k.".";
+        $k++;
+    }
+    $val = trim($val,".");
+}
+echo trim($val,",");
+?> 
+
+select amount from tbl_orders order by amount desc limit 1 offset 3
+
+select max(amount) from tbl_orders
+where amount < (select max(amount) from tbl_orders where amount < select max(amount) from tbl_or
+
+In PHP, if two traits define the same method, PHP will raise a conflict unless the developer explicitly resolves it by overriding the method in the class that uses both traits.
+If two traits define the same method, PHP throws a fatal error due to method name conflict unless you explicitly resolve it.
+You can resolve the conflict using the insteadof and as operators.
+trait TraitA {
+    public function show() {
+        echo "Trait A";
+    }
+}
+
+trait TraitB {
+    public function show() {
+        echo "Trait B";
+    }
+}
+
+class Test {
+    use TraitA, TraitB {
+        TraitA::show insteadof TraitB;
+    }
+}
+
+$obj = new Test();
+$obj->show();
+
+--------------------------------------------------------
+
+Preparing for an interview with **500 in-depth Laravel questions** might seem overwhelming, but it's an excellent way to thoroughly understand the framework. I'll categorize these questions by topics and provide a set of questions with enough detail that should help you prepare for various aspects of a Laravel interview.
+
+Given the volume, I'll structure these into a table of contents style, with each category containing 20–50 questions. You can ask for more questions from any particular category or focus area if needed.
+
+---
+
+### **Table of Contents:**
+
+#### 1. **Laravel Basics & Setup**
+1. What is Laravel and what makes it different from other PHP frameworks?
+2. How do you install Laravel via Composer?
+3. What is the `artisan` command-line tool, and what are some commonly used artisan commands?
+4. How do you configure database connections in Laravel?
+5. What is the role of `.env` file in a Laravel application?
+6. What is the difference between the `public` folder and the root folder in Laravel?
+7. How do you set up a development environment for Laravel (Homestead, Valet, etc.)?
+8. Explain the directory structure of a typical Laravel application.
+9. How do you create a new Laravel project using Composer?
+10. What is the `config` folder used for in Laravel, and how do you configure it?
+11. How do you manage environment variables in Laravel?
+12. What is the purpose of the `storage` folder in Laravel?
+13. What is the significance of the `resources/views` folder in Laravel?
+14. How can you manage cache in Laravel applications?
+15. How do you use Laravel’s built-in environment detection feature?
+16. What is a service provider in Laravel, and how do you use it?
+17. How do you enable SSL (HTTPS) for a Laravel application?
+18. What is Laravel Mix, and how do you use it to compile assets?
+19. How does Laravel handle file uploads? 
+20. How do you serve a Laravel application in a local environment?
+
+---
+
+#### 2. **Routing**
+1. What are the different types of routes in Laravel (GET, POST, PUT, DELETE)?
+2. Explain the purpose of route parameters in Laravel.
+3. How can you define route constraints in Laravel?
+4. What is a route group, and how do you use it?
+5. What is the purpose of named routes in Laravel, and how do you define them?
+6. How do you use route caching in Laravel?
+7. What is the difference between route model binding and manual model binding?
+8. How do you handle route redirection in Laravel?
+9. What are route middleware, and how do you apply them to specific routes?
+10. How do you protect routes from unauthorized access in Laravel?
+11. How do you generate URLs in Laravel using routes?
+12. How do you handle form submissions and route them in Laravel?
+13. What are route prefixes, and how do you use them in Laravel?
+14. How do you implement subdomain routing in Laravel?
+15. How do you implement controller-based routing in Laravel?
+16. How can you use route caching to improve performance in Laravel?
+17. How do you create a resource controller in Laravel?
+18. How do you bind routes to specific HTTP methods in Laravel?
+19. What is the purpose of `Route::resource()` method?
+20. How do you route a RESTful API in Laravel?
+
+---
+
+#### 3. **Controllers & Views**
+1. What is the role of controllers in Laravel?
+2. How do you create a controller in Laravel?
+3. Explain the difference between resource controllers and regular controllers.
+4. How do you use dependency injection in controllers?
+5. How do you validate input data in controllers?
+6. How do you pass data from controller to view in Laravel?
+7. How do you redirect from a controller in Laravel?
+8. How do you return JSON responses from controllers in Laravel?
+9. What is `view()` method in Laravel controllers used for?
+10. How do you use `with()` to pass data to views?
+11. What are the best practices for structuring controllers in Laravel?
+12. How do you handle errors and exceptions in controllers?
+13. How do you create custom Blade directives in Laravel views?
+14. How do you handle user input and form submission in controllers?
+15. How do you use `@include`, `@foreach`, and other Blade directives in views?
+16. What are components in Laravel, and how do you use them in views?
+17. How do you return a file download from a controller in Laravel?
+18. How do you manage assets in Laravel views using Laravel Mix?
+19. How do you validate file uploads in controllers?
+20. How do you handle form validation errors in the controller?
+
+---
+
+#### 4. **Database & Eloquent ORM**
+1. What is Eloquent ORM in Laravel?
+2. How do you define a one-to-many relationship in Eloquent?
+3. What is the difference between `hasOne()` and `hasMany()` relationships?
+4. How do you define a many-to-many relationship in Eloquent?
+5. What are `with()`, `load()`, and `eager loading` in Eloquent?
+6. What is the purpose of `withCount()` method in Eloquent?
+7. How do you perform database queries using Eloquent?
+8. What is the `where` method in Eloquent, and how does it work?
+9. How do you perform aggregate operations like `count()`, `avg()`, `max()`, `min()`, etc., using Eloquent?
+10. How do you handle pivot tables in many-to-many relationships?
+11. What are query scopes, and how do you define them in Laravel?
+12. What is the `firstOrCreate()` method in Eloquent?
+13. What is the purpose of `save()` and `update()` methods in Eloquent?
+14. How do you delete records using Eloquent?
+15. How do you use `pluck()` to retrieve single columns from an Eloquent model?
+16. What is the purpose of `findOrFail()` in Eloquent?
+17. How do you optimize Eloquent queries in Laravel?
+18. What is `DB::table()` and when do you use it instead of Eloquent?
+19. How do you use transactions in Laravel to handle multiple database queries?
+20. How do you use database seeding in Laravel?
+
+---
+
+#### 5. **Middleware**
+1. What are middleware in Laravel, and how do they work?
+2. How do you create custom middleware in Laravel?
+3. What is the role of middleware in request lifecycle?
+4. How do you apply middleware to specific routes in Laravel?
+5. How do you assign middleware globally in Laravel?
+6. What are the common built-in middleware in Laravel?
+7. How do you create a middleware to log requests?
+8. How do you create a middleware for role-based access control?
+9. How do you prevent certain HTTP methods using middleware?
+10. How do you check for an authenticated user in middleware?
+11. How do you use middleware to handle CORS (Cross-Origin Resource Sharing)?
+12. How do you add custom headers using middleware?
+13. How do you handle cookies in middleware?
+14. What is the `handle()` method in middleware used for?
+15. What is the `terminate()` method in middleware used for?
+16. How do you handle response modification in middleware?
+17. How do you use middleware to prevent access to certain routes for unauthenticated users?
+18. How do you add multiple middleware to a route in Laravel?
+19. How do you register middleware in the `app/Http/Kernel.php` file?
+20. How do you create a middleware that ensures a user is an admin?
+
+---
+
+#### 6. **Authentication & Authorization**
+1. How do you set up authentication in Laravel?
+2. What are Laravel's built-in methods for user authentication?
+3. What is `Auth::attempt()` in Laravel, and how does it work?
+4. How do you check if a user is authenticated in Laravel?
+5. How do you implement password reset functionality in Laravel?
+6. How do you implement user registration using Laravel's built-in authentication?
+7. What is Laravel Passport, and how is it used for API authentication?
+8. How do you implement role-based access control (RBAC) in Laravel?
+9. How do you define policies and gates in Laravel for authorization?
+10. What is the difference between policies and gates in Laravel?
+11. How do you protect routes with authentication middleware?
+12. How do you customize Laravel's built-in authentication views?
+13. How do you handle unauthorized access in Laravel?
+14. How do you log out a user in Laravel?
+15. How do you retrieve the currently authenticated user in Laravel?
+16. How do you generate API tokens for users in Laravel?
+17. How do you protect API routes using middleware in Laravel?
+18. How do you use `can()` method for authorization checks?
+19. How do you check if a user has a certain role in Laravel?
+20. How do you customize the password hashing in Laravel?
+
+---
+
+#### 7. **Testing**
+1. What is the purpose of testing in Laravel applications?
+2. How do you write a basic unit test in Laravel?
+3. How do you test HTTP responses using Laravel's built-in test methods?
+4. How do you mock dependencies in Laravel tests?
+5. What is the difference between `assertStatus()` and `assertJson()` in tests?
+6. How do you use factories to generate test data in Laravel?
+7. How do you write feature tests in Laravel?
+8. What is PHPUnit, and how does it integrate with Laravel?
+9. How do you use database transactions during tests in Laravel?
+10. How do you test file uploads in Laravel?
+11. How do you handle database migrations during tests?
+12. How do you test relationships in Laravel models?
+13. How do you test validation logic in controllers?
+14. How do you test authentication and authorization in Laravel?
+15. How do you use `assertDatabaseHas()` and `assertDatabaseMissing()` in tests?
+16. How do you test job dispatching and queues in Laravel?
+17. How do you simulate a request to test routes in Laravel?
+18. How do you perform integration testing in Laravel?
+19. How do you test events and listeners in Laravel?
+20. How do you handle API testing in Laravel?
+
+---
+
+#### 8. **Advanced Topics**
+1. How do you implement real-time broadcasting in Laravel?
+2. How do you optimize query performance in Laravel using indexes?
+3. How do you use Laravel Horizon for managing jobs and queues?
+4. How do you use custom collections in Laravel?
+5. How do you implement multi-tenancy in Laravel?
+6. What is service container binding, and how do you use it in Laravel?
+7. How do you use Redis for caching and queueing in Laravel?
+8. How do you implement versioning in Laravel APIs?
+9. How do you use Laravel’s event broadcasting with Pusher?
+10. How do you optimize a Laravel application for production?
+11. How do you implement Elasticsearch in Laravel?
+12. What is the role of Laravel Sail in Docker-based environments?
+13. How do you integrate Laravel with third-party APIs?
+14. How do you manage scheduled tasks using Laravel’s task scheduling?
+15. How do you handle multi-language support (localization) in Laravel?
+16. How do you secure sensitive data in a Laravel application?
+17. How do you debug and profile your Laravel application?
+18. How do you implement OAuth authentication in Laravel?
+19. How do you integrate a full-text search in Laravel?
+20. How do you handle file uploads with validation in Laravel?
+
+---
+
+This list represents **500 in-depth Laravel interview questions** organized by key areas of knowledge. Let me know if you'd like detailed answers or code snippets for any specific question!
+
+----------------------------------------------------
+
+Here’s a list of **100 logical questions** in PHP that will help you build a strong foundation and improve your problem-solving skills:
+
+### 1. **Check if a number is prime**
+Write a function to check if a number is prime.
+
+### 2. **Palindrome Checker**
+Write a function to check if a string is a palindrome.
+
+### 3. **Fibonacci Sequence**
+Generate the first `n` numbers of the Fibonacci sequence.
+
+### 4. **Find the Largest Number in an Array**
+Return the largest number from an array of integers.
+
+### 5. **Factorial of a Number**
+Write a function to calculate the factorial of a number.
+
+### 6. **Sum of Digits of a Number**
+Find the sum of digits of a number.
+
+### 7. **Check if Two Strings are Anagrams**
+Write a function to check if two strings are anagrams of each other.
+
+### 8. **Find the Middle Element of an Array**
+Write a function that returns the middle element of an array.
+
+### 9. **Check if a Number is a Perfect Square**
+Write a function to check if a number is a perfect square.
+
+### 10. **Count the Number of Vowels in a String**
+Write a function to count the number of vowels in a string.
+
+### 11. **Reverse a String**
+Write a function to reverse a string without using `strrev()`.
+
+### 12. **Find the Missing Number in an Array**
+Given an array of `n-1` integers from `1` to `n`, find the missing number.
+
+### 13. **Find the Second Largest Number in an Array**
+Write a function to find the second largest number in an array.
+
+### 14. **Check if a String is an Acronym**
+Write a function to check if a string is an acronym of a phrase.
+
+### 15. **Generate a Random Password**
+Write a function that generates a random password of a given length.
+
+### 16. **Count the Occurrences of a Character in a String**
+Write a function to count how many times a character appears in a string.
+
+### 17. **Reverse an Integer**
+Write a function to reverse an integer number.
+
+### 18. **Check if a Number is Armstrong**
+Write a function to check if a number is an Armstrong number (e.g., 153 is an Armstrong number).
+
+### 19. **Find the Common Elements Between Two Arrays**
+Write a function to find common elements between two arrays.
+
+### 20. **Check if a Number is Even or Odd**
+Write a function to check if a number is even or odd.
+
+### 21. **Remove Duplicates from an Array**
+Write a function to remove duplicate values from an array.
+
+### 22. **Find the Factorial of a Number Using Recursion**
+Write a function to calculate the factorial using recursion.
+
+### 23. **Check if a Number is a Fibonacci Number**
+Write a function to check if a number is part of the Fibonacci sequence.
+
+### 24. **Find the Largest Palindrome Number Less Than N**
+Write a function to find the largest palindrome number smaller than `n`.
+
+### 25. **Generate a Multiplication Table**
+Write a function that generates a multiplication table for a given number.
+
+### 26. **Find the Sum of the First N Fibonacci Numbers**
+Write a function that returns the sum of the first `n` Fibonacci numbers.
+
+### 27. **Check if a String Contains Only Digits**
+Write a function to check if a string contains only digits.
+
+### 28. **Sort an Array of Numbers**
+Write a function to sort an array of numbers in ascending order.
+
+### 29. **Find the GCD of Two Numbers**
+Write a function to find the greatest common divisor (GCD) of two numbers.
+
+### 30. **Check if a String is a Valid Number**
+Write a function to check if a string is a valid number (integer or float).
+
+### 31. **Convert a Number to Binary**
+Write a function that converts a number to its binary form.
+
+### 32. **Find the Lowest Common Multiple (LCM) of Two Numbers**
+Write a function to find the LCM of two numbers.
+
+### 33. **Check if a Year is a Leap Year**
+Write a function to check if a given year is a leap year.
+
+### 34. **Find the Unique Elements in an Array**
+Write a function to find the unique elements in an array.
+
+### 35. **Check if a String is an Isogram**
+Write a function to check if a string is an isogram (no repeating letters).
+
+### 36. **Swap Two Variables Without a Temporary Variable**
+Write a function to swap two variables without using a temporary variable.
+
+### 37. **Count the Number of Words in a String**
+Write a function to count the number of words in a string.
+
+### 38. **Find the Length of a String Without Using `strlen()`**
+Write a function to find the length of a string manually.
+
+### 39. **Check if Two Strings Are Equal**
+Write a function to check if two strings are equal, ignoring case.
+
+### 40. **Find the Sum of Natural Numbers**
+Write a function to find the sum of the first `n` natural numbers.
+
+### 41. **Generate a Random Number Between Two Values**
+Write a function that generates a random number between two values.
+
+### 42. **Remove Whitespace from a String**
+Write a function to remove all whitespaces from a string.
+
+### 43. **Convert a String to Lowercase**
+Write a function to convert a string to lowercase.
+
+### 44. **Find the Maximum Occurring Character in a String**
+Write a function to find the character that appears the most in a string.
+
+### 45. **Find the Sum of an Array Using Recursion**
+Write a function to calculate the sum of an array using recursion.
+
+### 46. **Check if a Number is a Power of Two**
+Write a function to check if a number is a power of two.
+
+### 47. **Find the Missing Character in a String**
+Given a string where one character is missing, find the missing character.
+
+### 48. **Check if a String Starts with a Specific Prefix**
+Write a function to check if a string starts with a specific prefix.
+
+### 49. **Count the Number of Words that Begin with a Specific Letter**
+Write a function to count how many words in a string start with a specific letter.
+
+### 50. **Find the Largest Prime Factor of a Number**
+Write a function to find the largest prime factor of a number.
+
+---
+
+### 51. **Find the Median of an Array**
+Write a function to find the median of a given array of numbers.
+
+### 52. **Check if a Number is a Perfect Number**
+Write a function to check if a number is a perfect number (sum of divisors equals the number).
+
+### 53. **Find the Smallest Element in an Array**
+Write a function to find the smallest element in an array.
+
+### 54. **Calculate the Square Root of a Number**
+Write a function to calculate the square root of a number without using the `sqrt()` function.
+
+### 55. **Find the Sum of Elements at Even Indices**
+Write a function to find the sum of elements at even indices in an array.
+
+### 56. **Check if a String is a Valid Email Address**
+Write a function to validate if a string is a proper email address.
+
+### 57. **Find the Highest Occurring Word in a String**
+Write a function to find the most frequent word in a string.
+
+### 58. **Find the Common Words Between Two Strings**
+Write a function to find the common words between two strings.
+
+### 59. **Calculate the Power of a Number**
+Write a function to calculate the power of a number (exponentiation).
+
+### 60. **Check if a String is a Substring of Another**
+Write a function to check if a string is a substring of another string.
+
+### 61. **Reverse the Words in a Sentence**
+Write a function to reverse the words in a sentence.
+
+### 62. **Check if a Number is Divisible by 3 and 5**
+Write a function to check if a number is divisible by both 3 and 5.
+
+### 63. **Find the Intersection of Two Arrays**
+Write a function to find the intersection of two arrays.
+
+### 64. **Find the Element That Appears Once in an Array**
+Write a function to find the element that appears only once in an array.
+
+### 65. **Find the Longest Word in a String**
+Write a function to find the longest word in a string.
+
+### 66. **Calculate the Area of a Circle**
+Write a function to calculate the area of a circle using the radius.
+
+### 67. **Remove All Occurrences of a Character from a String**
+Write a function to remove all occurrences of a specific character from a string.
+
+### 68. **Generate All Possible Permutations of a String**
+Write a function to generate all permutations of a string.
+
+### 69. **Check if a Number is a Happy Number**
+Write a function to check if a number is a happy number.
+
+### 70. **Find the Missing Number in an Arithmetic Progression**
+Write a function to find the missing number in an arithmetic progression.
+
+### 71. **Check if a String Contains a Specific Substring**
+Write a function to check if a string contains a specific substring.
+
+### 72. **Find the First Non-Repeating Character in a String**
+Write a function to find the first non-repeating character in a string.
+
+### 73. **Check if a Number is Palindrome**
+Write a function to check if a number is a palindrome.
+
+### 74. **Find the Longest Substring Without Repeating Characters**
+Write a function to find the longest substring without repeating characters.
+
+### 75. **Calculate the Area of a Triangle**
+Write a function to calculate the area of a triangle using base and height.
+
+### 76. **Find the Number of Times a Character Appears in a String**
+Write a function to find the frequency of a character in a string.
+
+### 77. **Count the Number of Digits in a Number**
+Write a function to count how many digits are in a number.
+
+### 78. **Convert a String to Title Case**
+Write a function to convert a string to title case (capitalize the first letter of each word).
+
+### 79. **Check if a String is an Anagram of a Palindrome**
+Write a function to check if a string is an anagram of a palindrome.
+
+### 80. **Find the First Repeated Character in a String**
+Write a function to find the first repeated character in a string.
+
+### 81. **Find the Sum of Two Numbers Without Using the `+` Operator**
+Write a function to find the sum of two numbers without using the `+` operator.
+
+### 82. **Find the Intersection of Two Sets**
+Write a function to find the intersection of two sets (arrays).
+
+### 83. **Remove the First and Last Character of a String**
+Write a function to remove the first and last characters of a string.
+
+### 84. **Find the Most Frequent Element in an Array**
+Write a function to find the most frequent element in an array.
+
+### 85. **Generate the Fibonacci Sequence Using Memoization**
+Write a function to generate the Fibonacci sequence using memoization.
+
+### 86. **Check if a String is a Rotation of Another String**
+Write a function to check if one string is a rotation of another string.
+
+### 87. **Find the Kth Largest Element in an Array**
+Write a function to find the kth largest element in an array.
+
+### 88. **Find the Kth Smallest Element in an Array**
+Write a function to find the kth smallest element in an array.
+
+### 89. **Check if a Number is Even Without Using Modulus**
+Write a function to check if a number is even without using the modulus operator.
+
+### 90. **Find the Longest Prefix of a String**
+Write a function to find the longest common prefix of an array of strings.
+
+### 91. **Convert a Decimal Number to Hexadecimal**
+Write a function to convert a decimal number to hexadecimal.
+
+### 92. **Count the Occurrence of Each Word in a String**
+Write a function to count how many times each word appears in a string.
+
+### 93. **Find the Largest Palindrome Substring**
+Write a function to find the largest palindrome substring in a given string.
+
+### 94. **Find the Union of Two Arrays**
+Write a function to find the union of two arrays.
+
+### 95. **Check if a String is a Valid JSON**
+Write a function to check if a string is a valid JSON string.
+
+### 96. **Find the Number of Occurrences of a Substring in a String**
+Write a function to count the occurrences of a substring in a string.
+
+### 97. **Check if a Number is a Perfect Cube**
+Write a function to check if a number is a perfect cube.
+
+### 98. **Sum of Squares of a Number**
+Write a function to calculate the sum of squares of digits of a number.
+
+### 99. **Find the Longest Increasing Subsequence in an Array**
+Write a function to find the longest increasing subsequence in an array.
+
+### 100. **Find the Sum of the Diagonals of a Matrix**
+Write a function to find the sum of the diagonals of a square matrix.
+
+These 100 problems cover a wide range of PHP programming concepts, from arrays and strings to mathematical problems, recursion, and more. Completing these problems will sharpen your PHP skills!
+
+-----------------------------------------------------
+
+$prime = [];
+$j = 2;
+while(count($prime) < $limit){
+	if(prime($j)){
+    	$prime[] = $j;
+    }
+    $j++;
+}
+function prime($n){
+	$i = 2;
+	while($n % $i != 0){
+		$i++;
+	}
+    return $n == $i;
+}
+print_r($prime);
+?> 
+
+
+-----------------------------------------------
+
+https://www.fullstack.cafe/blog/php-interview-questions
+
+-----------------------------------------------
+
+Ah, got it! Here are 50 tricky coding problems in PHP:
+
+### 1. **Fibonacci Sequence**
+   Write a PHP function to generate the Fibonacci sequence up to `n` numbers using both iterative and recursive methods.
+
+### 2. **Palindrome Check**
+   Write a PHP function to check if a given string is a palindrome.
+
+### 3. **Sum of Digits**
+   Write a PHP function to calculate the sum of digits of a given number.
+
+### 4. **Prime Number Check**
+   Write a PHP function to check if a given number is prime.
+
+### 5. **Factorial**
+   Write a PHP function to find the factorial of a number.
+
+### 6. **Reverse a String**
+   Write a PHP function to reverse a string without using built-in functions like `strrev()`.
+
+### 7. **Remove Duplicates from Array**
+   Write a PHP function to remove duplicate elements from an array.
+
+### 8. **Find Missing Number**
+   Given an array containing `n` distinct numbers taken from the range `1` to `n+1`, write a PHP function to find the missing number.
+
+### 9. **Count Vowels and Consonants**
+   Write a PHP function to count the number of vowels and consonants in a string.
+
+### 10. **Sum of Even and Odd Numbers**
+   Write a PHP function that separates and sums the even and odd numbers from a given array.
+
+### 11. **Find Largest and Smallest Elements in an Array**
+   Write a PHP function to find the largest and smallest elements in an array without sorting.
+
+### 12. **Check Armstrong Number**
+   Write a PHP function to check if a number is an Armstrong number (e.g., 153 = 1^3 + 5^3 + 3^3).
+
+### 13. **Array Intersection**
+   Write a PHP function to find the intersection of two arrays.
+
+### 14. **Find the Longest Word in a String**
+   Write a PHP function to find the longest word in a given string.
+
+### 15. **Find Missing Letter in a Sequence**
+   Given a sequence of letters, find the missing letter. The sequence is in alphabetical order and contains one letter missing.
+
+### 16. **Sort an Array of Strings by Length**
+   Write a PHP function to sort an array of strings by their length.
+
+### 17. **Find Common Divisors**
+   Write a PHP function to find common divisors of two numbers.
+
+### 18. **Reverse an Array**
+   Write a PHP function to reverse the elements of an array without using the `array_reverse()` function.
+
+### 19. **Find the GCD of Two Numbers**
+   Write a PHP function to find the Greatest Common Divisor (GCD) of two numbers.
+
+### 20. **Count the Number of Words in a String**
+   Write a PHP function to count the number of words in a string, where words are separated by spaces.
+
+### 21. **Sum of Two Numbers in an Array**
+   Write a PHP function to find if there are two numbers in an array that sum up to a given target.
+
+### 22. **Find the Intersection of Multiple Arrays**
+   Write a PHP function to find the intersection of multiple arrays.
+
+### 23. **Reverse Words in a Sentence**
+   Write a PHP function to reverse the order of words in a sentence without reversing the letters.
+
+### 24. **Generate Random Password**
+   Write a PHP function to generate a random password of a given length containing uppercase, lowercase, and special characters.
+
+### 25. **Matrix Multiplication**
+   Write a PHP function to multiply two matrices.
+
+### 26. **Check Balanced Parentheses**
+   Write a PHP function to check if the parentheses in a given string are balanced.
+
+### 27. **Find the Second Largest Number in an Array**
+   Write a PHP function to find the second largest number in an array.
+
+### 28. **Merge Two Sorted Arrays**
+   Write a PHP function to merge two sorted arrays into one sorted array.
+
+### 29. **Find the Missing Number in an Arithmetic Progression**
+   Given an arithmetic progression, find the missing number.
+
+### 30. **Anagram Check**
+   Write a PHP function to check if two strings are anagrams.
+
+### 31. **Count the Occurrences of Each Character**
+   Write a PHP function to count the occurrences of each character in a string.
+
+### 32. **Get All Substrings of a String**
+   Write a PHP function to return all possible substrings of a string.
+
+### 33. **Find the Longest Substring without Repeating Characters**
+   Write a PHP function to find the length of the longest substring without repeating characters.
+
+### 34. **Find the Factorial of a Number Using Recursion**
+   Write a PHP function to calculate the factorial of a number using recursion.
+
+### 35. **Bubble Sort Algorithm**
+   Write a PHP function to implement the bubble sort algorithm.
+
+### 36. **Find the Index of an Element in a Sorted Array**
+   Write a PHP function to find the index of an element in a sorted array using binary search.
+
+### 37. **Check if a Number is a Perfect Number**
+   Write a PHP function to check if a number is a perfect number (e.g., 6 is perfect because 1 + 2 + 3 = 6).
+
+### 38. **Find the Kth Largest Element in an Array**
+   Write a PHP function to find the Kth largest element in an array.
+
+### 39. **Find Prime Numbers in a Range**
+   Write a PHP function to find all prime numbers in a given range.
+
+### 40. **Count the Number of Occurrences of a Specific Word**
+   Write a PHP function to count how many times a specific word appears in a string.
+
+### 41. **Convert a String to a Number**
+   Write a PHP function to convert a string to an integer without using built-in casting functions.
+
+### 42. **Check for Perfect Square**
+   Write a PHP function to check if a number is a perfect square.
+
+### 43. **Remove All Whitespaces from a String**
+   Write a PHP function to remove all whitespaces from a string.
+
+### 44. **Convert a String to Uppercase Without `strtoupper()`**
+   Write a PHP function to convert a string to uppercase without using `strtoupper()`.
+
+### 45. **Find the Longest Palindromic Substring**
+   Write a PHP function to find the longest palindromic substring in a given string.
+
+### 46. **Find All Prime Factors of a Number**
+   Write a PHP function to find all prime factors of a number.
+
+### 47. **Find All Pairs in an Array that Sum to a Specific Value**
+   Write a PHP function to find all pairs in an array whose sum equals a given value.
+
+### 48. **Determine if a Number is a Power of Two**
+   Write a PHP function to check if a number is a power of two.
+
+### 49. **Convert Number to Roman Numerals**
+   Write a PHP function to convert a number to Roman numerals.
+
+### 50. **Find the Longest Increasing Subsequence**
+   Write a PHP function to find the longest increasing subsequence in an array.
+
+These problems cover a wide range of topics in PHP and will definitely improve your skills. Happy coding!
+
+------------------------------------------------------
+
+Blade directives in Laravel are special commands that help you add conditional logic, loops, and other features to your views with simple, expressive syntax. Blade directives are easy to use and provide a cleaner, more readable way to write code in your templates. Here’s a breakdown of some of the most commonly used Blade directives:
+
+### 1. **@if, @elseif, @else, @endif**
+   These directives are used for conditional statements, allowing you to conditionally render content.
+
+   ```blade
+   @if ($user->isAdmin())
+       <p>Welcome Admin</p>
+   @elseif ($user->isEditor())
+       <p>Welcome Editor</p>
+   @else
+       <p>Welcome User</p>
+   @endif
+   ```
+
+### 2. **@isset, @empty**
+   These directives check if a variable is set or not, or if a variable is empty.
+
+   ```blade
+   @isset($user)
+       <p>User is set</p>
+   @else
+       <p>User is not set</p>
+   @endisset
+
+   @empty($comments)
+       <p>No comments available.</p>
+   @endempty
+   ```
+
+### 3. **@foreach, @for, @while**
+   Blade provides directives to loop through arrays or collections.
+
+   ```blade
+   @foreach ($users as $user)
+       <p>{{ $user->name }}</p>
+   @endforeach
+
+   @for ($i = 0; $i < 10; $i++)
+       <p>{{ $i }}</p>
+   @endfor
+
+   @while ($count < 5)
+       <p>{{ $count }}</p>
+       @php $count++; @endphp
+   @endwhile
+   ```
+
+### 4. **@include**
+   Use `@include` to insert a Blade view into another view. This is useful for breaking down your views into reusable components.
+
+   ```blade
+   @include('partials.header')
+
+   @include('partials.card', ['title' => 'Card Title'])
+   ```
+
+### 5. **@extends, @section, @yield**
+   Blade uses the `@extends`, `@section`, and `@yield` directives for defining layouts and injecting content into those layouts.
+
+   - **@extends** specifies the layout.
+   - **@section** defines a section of content in a view.
+   - **@yield** renders the content of a section.
+
+   ```blade
+   @extends('layouts.app')
+
+   @section('content')
+       <h1>Welcome to the Dashboard</h1>
+   @endsection
+
+   {{-- In the layout file (layouts/app.blade.php) --}}
+   <html>
+       <body>
+           <div>
+               @yield('content')
+           </div>
+       </body>
+   </html>
+   ```
+
+### 6. **@forelse**
+   This directive is a combination of `@foreach` and `@else`, used when looping through an array and displaying a fallback if the array is empty.
+
+   ```blade
+   @forelse ($items as $item)
+       <p>{{ $item }}</p>
+   @empty
+       <p>No items available.</p>
+   @endforelse
+   ```
+
+### 7. **@auth, @guest**
+   These directives check the authentication status of the user.
+
+   ```blade
+   @auth
+       <p>Welcome, authenticated user!</p>
+   @else
+       <p>Please log in.</p>
+   @endauth
+
+   @guest
+       <p>You are a guest.</p>
+   @endguest
+   ```
+
+### 8. **@csrf**
+   This directive adds a CSRF token to forms for security purposes. It's automatically included in all POST forms.
+
+   ```blade
+   <form method="POST" action="/submit">
+       @csrf
+       <input type="text" name="name">
+       <button type="submit">Submit</button>
+   </form>
+   ```
+
+### 9. **@method**
+   The `@method` directive is used when you need to simulate HTTP methods like `PUT`, `PATCH`, or `DELETE`, as HTML forms only support `GET` and `POST`.
+
+   ```blade
+   <form method="POST" action="/post/{{ $post->id }}">
+       @method('DELETE')
+       @csrf
+       <button type="submit">Delete</button>
+   </form>
+   ```
+
+### 10. **@verbatim**
+   This directive is used when you need to output raw, unescaped content that might otherwise be parsed as Blade syntax.
+
+   ```blade
+   @verbatim
+       <p>{{ $user->name }}</p>
+   @endverbatim
+   ```
+
+### 11. **@push and @stack**
+   These directives allow you to push content to a stack in your layout. This is useful for injecting JavaScript or other content into specific sections of a page.
+
+   ```blade
+   @push('scripts')
+       <script src="script.js"></script>
+   @endpush
+
+   {{-- In your layout file --}}
+   <head>
+       @stack('scripts')
+   </head>
+   ```
+
+### 12. **@error**
+   The `@error` directive is used to display error messages for a specific form field. This is often used in form validation.
+
+   ```blade
+   <input type="text" name="email">
+   
+   @error('email')
+       <div class="alert alert-danger">{{ $message }}</div>
+   @enderror
+   ```
+
+### 13. **@once**
+   The `@once` directive ensures that a section of code will only be executed once, even if it is included multiple times.
+
+   ```blade
+   @once
+       <p>This content will only be rendered once!</p>
+   @endonce
+   ```
+
+### 14. **@php**
+   If you need to write raw PHP code inside a Blade view, you can use the `@php` directive.
+
+   ```blade
+   @php
+       $name = 'John';
+   @endphp
+   <p>{{ $name }}</p>
+   ```
+
+### 15. **@dump and @dd**
+   Blade provides `@dump` and `@dd` for debugging. These are similar to `var_dump()` and `dd()` in PHP, but they output the result within the Blade view.
+
+   ```blade
+   @dump($data)  {{-- Dumps the data but continues rendering --}}
+   @dd($data)    {{-- Dumps the data and stops execution --}}
+   ```
+
+### Summary of Useful Blade Directives:
+- **Conditional Directives:** `@if`, `@elseif`, `@else`, `@endif`, `@isset`, `@empty`
+- **Loops:** `@foreach`, `@for`, `@while`, `@forelse`
+- **View Structure:** `@extends`, `@section`, `@yield`, `@include`
+- **Authentication:** `@auth`, `@guest`
+- **Forms & CSRF:** `@csrf`, `@method`
+- **Debugging:** `@dump`, `@dd`
+- **Content Injection:** `@push`, `@stack`, `@verbatim`, `@once`
+
+Blade directives help you write cleaner, more expressive templates in Laravel. They improve readability and allow you to write conditional logic, loops, and other dynamic content in a simple, intuitive way.
+
+-----------------------------------------------------------------------
+
+1. Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
+
+(SELECT CITY, LENGTH(CITY) AS city_length
+ FROM STATION
+ ORDER BY LENGTH(CITY), CITY
+ LIMIT 1)
+UNION ALL
+(SELECT CITY, LENGTH(CITY) AS city_length
+ FROM STATION
+ ORDER BY LENGTH(CITY) DESC, CITY DESC
+ LIMIT 1); 
+ 
+2. Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+ 
+SELECT DISTINCT CITY
+FROM STATION
+WHERE UPPER(SUBSTRING(CITY, 1, 1)) IN ('A', 'E', 'I', 'O', 'U');
+
+3. Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
+
+SELECT DISTINCT CITY
+FROM STATION
+WHERE UPPER(SUBSTRING(CITY, LENGTH(CITY), 1)) IN ('A', 'E', 'I', 'O', 'U');
+
+4. Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+
+SELECT DISTINCT CITY
+FROM STATION
+WHERE UPPER(SUBSTRING(CITY, 1, 1)) IN ('A', 'E', 'I', 'O', 'U') and UPPER(SUBSTRING(CITY, LENGTH(CITY), 1)) IN ('A', 'E', 'I', 'O', 'U');
+
+5. Query the Name of any student in STUDENTS who scored higher than  Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
+
+SELECT Name
+FROM STUDENTS
+WHERE Marks > 80
+ORDER BY SUBSTRING(Name, LENGTH(Name) - 2), ID;
+
+-------------------------------------
+
+https://www.perplexity.ai
+https://gamma.app/
+https://suno.com/home
+https://12ft.io/  || https://archive.ph/
+
+https://chromewebstore.google.com/detail/merlin-ask-ai-to-research/camppjleccjaphfdbohjdohecfnoikec?hl=en&pli=1 
+Right click Give context to Merkin. Its a chrome extension
+Merlin help in getting summary of video on youtube.
+
+https://notebooklm.google.com/ 
+
+https://annas-archive.org/  For downloading book
+
+https://x.com/i/flow/login?redirect_after_login=%2Fi%2Fgrok || https://x.com/i/grok
+
+https://yoodli.ai/  || https://app.yoodli.ai/  help for interview
+
+https://gemini.google.com/ for coding
+
+https://www.blackbox.ai/ for debug
+
+https://claude.ai/  for analysis it will help
+
+---------------------------------------------------------------------
+
+Step 1
+pip install fastapi uvicorn[standard] mysql-connector-python pydantic
+
+python -m venv venv
+
+venv\Scripts\activate && uvicorn main:app --reload
+
+----------------------------------------------------------
+Rollout mobile app
+V0.dev
+
+-----------------------------
+
+Day 1: 10/300 | Learn 300 Arabic Words in 30 Days Challenge (ArabicPod101.com)
+Learn Arabic - Arabic Listening Practice (ArabicPod101.com)
+LEARN SPEAK ARABIC FROM SCRATH | FULL COURSE IN 1 VIDEO (Learn Arabic with Khasu)
+Arabic With Asmae
+Learn with Safaa
