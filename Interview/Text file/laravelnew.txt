@@ -154,6 +154,10 @@ call
 
 Use an interface when you want to define a capability or contract that can be implemented by unrelated classes.
 
+-> Difference between interface and abstract class?
+Interface defines only method signatures.
+Abstract class can have both methods and implementation.
+
 -> What is Tight Coupling?
 
 Tight coupling means a class is strongly dependent on another class and creates or controls it directly.
@@ -449,6 +453,11 @@ Constructor can accept parameters to set initial values for object properties wh
 The client (browser) knows about the session through a session ID, which is stored in a cookie or passed in the URL. The server uses this session ID to retrieve session data.
 By Default: In a cookie (PHPSESSID in PHP, laravel_session in Laravel).
 Alternative: Passed in the URL (?session_id=abc123), but this is less secure.
+-> Why Laravel Does Not Use PHPSESSID
+Better security
+Framework-level control
+Supports multiple session drivers (file, DB, Redis)
+Avoids conflicts with other PHP apps on same domain
 
 -> What Happens When You Hit google.com?  
 
@@ -504,6 +513,23 @@ TCP meaning Transmission Control Protocol, is a communications standard for deli
 SSL (Secure Sockets Layer) is an older security protocol for encrypting internet traffic, now largely replaced by its successor, TLS (Transport Layer Security), but the term "SSL" is still commonly used; it secures data between a browser and server (HTTPS), authenticates the server, and protects sensitive info like passwords by using certificates and public/private keys, creating a secure, trusted connection. 
 
 When I enter google.com, the browser first checks caches for the IP address. If not found, it performs DNS resolution to get Google's IP. Then it establishes a TCP connection using a three-way handshake and performs a TLS handshake for HTTPS security. The browser sends an HTTP request, which reaches Google's load balancer and then a web server. The server processes the request and returns HTML, CSS, and JavaScript. Finally, the browser parses these resources, builds the DOM and render tree, and renders the page on the screen.
+
+Steps three-way handshake
+
+Step 1: SYN (Synchronize)
+The client sends a SYN packet to the server.
+This indicates that the client wants to establish a connection.
+Client  -------- SYN -------->  Server
+
+Step 2: SYN-ACK (Synchronize-Acknowledge)
+The server responds with a SYN-ACK packet.
+It acknowledges the client's request and sends its own synchronization request.
+Client  <------ SYN-ACK ------  Server
+
+Step 3: ACK (Acknowledge)
+The client sends an ACK packet.
+The connection is now established, and both sides can start exchanging data.
+Client  -------- ACK -------->  Server
 
 -> What is an OPTIONS Request?
 An OPTIONS request is an HTTP method used by clients (e.g., browsers) to determine the communication options available for a resource on a server. It is mainly used in CORS (Cross-Origin Resource Sharing) and API interactions.
@@ -619,7 +645,7 @@ Multiple interface inheritance(If A class implement multiple interfaces)
 Multiple inheritance not allowed because it leads to deadly diamond problem.
 it is an ambiguity that arises when 2 class B and C inherit from super class Avg
 and another class D inherit from both B and C
-
-Difference between interface and abstract class?
-Interface defines only method signatures.
-Abstract class can have both methods and implementation.
+No, PHP does not support multiple inheritance. A class in PHP cannot extend more than one class. PHP allows a class to extend only one parent class. PHP provides Traits and Interfaces for this.
+Multiple inheritance can lead to problems such as:
+Method name conflicts (when two parent classes have the same method name)
+Increased complexity, including the "diamond problem"

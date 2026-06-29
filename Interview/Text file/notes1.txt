@@ -28,6 +28,41 @@ Seeder = "How data gets inserted"
 Faker = "What data gets inserted"
 Factory creates data; Seeder stores data.
 Faker creates fake values, while Factory organizes those values into model data structures.
+Factory  → Defines what data looks like
+        ↓
+Faker    → Generates realistic fake values
+        ↓
+Seeder   → Inserts the generated data into the database
+
+public function run()
+{
+    User::factory()->count(50)->create();
+}
+
+Here:
+Factory defines the fields.
+Faker fills those fields with fake data.
+Seeder inserts 50 records into the database.
+
+A Seeder is used to populate the database with initial or sample data.
+User::create([
+    'name' => 'Admin',
+    'email' => 'admin@example.com',
+]);
+
+A Factory defines the blueprint for generating model data.
+public function definition()
+{
+    return [
+        'name' => fake()->name(),
+        'email' => fake()->unique()->safeEmail(),
+        'password' => bcrypt('password'),
+    ];
+}
+
+Faker is the library that generates fake but realistic data.
+fake()->name()
+fake()->email()
 
 Stub is skeleton file.
 Example if we want to create controller file so what content will be there in that file defines by stub.

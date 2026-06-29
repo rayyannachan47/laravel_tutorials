@@ -14,9 +14,14 @@ var_dump("1" == true);   // true
 var_dump("" == false);   // true
 Interviewers often follow up: "What about null == false?" — answer: true. Always use === unless intentional coercion is needed.
 
+== is a loose comparison operator that compares only values and performs automatic type conversion if the operands have different types. === is a strict comparison operator that compares both the value and the data type. I prefer using === because it avoids unexpected behavior caused by PHP's type juggling. Loose comparison (==) can introduce bugs, for example when comparing false with 0, "5" with 5, or checking the result of array_search(), where a valid index of 0 can be mistaken for false if strict comparison is not used.
+
 What are PHP generators? How do they differ from arrays and when should you use them?
-AdvancedPHP
-Generators use yield to produce values lazily — one at a time, without loading all data into memory. Ideal for processing large CSV files, database cursors, or log streams. A 1M-row dataset as an array uses ~500MB RAM; a generator uses ~1KB.
+A generator is a special type of function that produces one value at a time instead of returning all values at once.
+Generators use the yield keyword instead of return.
+Instead of creating a huge array in memory, a generator generates values lazily.
+ 
+Ideal for processing large CSV files, database cursors, or log streams. A 1M-row dataset as an array uses ~500MB RAM; a generator uses ~1KB.
 function readLargeCSV(string $path): Generator {
     $handle = fopen($path, 'r');
     while (($row = fgetcsv($handle)) !== false) {
@@ -29,3 +34,30 @@ foreach (readLargeCSV('million_rows.csv') as $row) {
     processRow($row); // only one row in memory at a time
 }
 
+Advantages of Generators
+Very low memory consumption.
+Ideal for large datasets.
+Faster startup because data is produced as needed.
+
+Limitations
+No random access (you can't do $generator[5]).
+Values are produced sequentially.
+Once fully consumed, a generator can't be rewound and reused; create a new generator if you need another pass.
+Not suitable if you need all values available at once for sorting, counting, or repeated iteration.
+
+When Should You Use Generators?
+
+Use generators when:
+
+Reading large log files.
+Processing millions of database records.
+Streaming API responses.
+Importing/exporting CSV files.
+Working with data that can be processed one item at a time.
+
+Use arrays when:
+
+The dataset is small.
+You need random access by index.
+You need to iterate over the data multiple times.
+You need array-specific operations like sort(), array_filter(), or array_map().

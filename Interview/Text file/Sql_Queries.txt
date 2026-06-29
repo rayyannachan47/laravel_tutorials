@@ -21,3 +21,307 @@ SQL Queries
 19. How to delete duplicate records from table?
 20. Display highest and lowest salary from table corresponding to each department?
 21. How to find max salary in group? and max salary greater than 50000.
+
+1. Find total sales amount for each category
+
+SELECT category, SUM(sales_amount) AS total_sales
+FROM Sales
+GROUP BY category;
+
+2. Customer who placed the order with the highest total amount
+
+Customer Table
+
+| customer_id | name |
+|     --      |   -  |
+
+Orders Table
+
+| order_id | customer_id | total_amount |
+
+SELECT c.name, o.total_amount
+FROM Orders o
+JOIN Customer c
+ON o.customer_id = c.customer_id
+ORDER BY o.total_amount DESC
+LIMIT 1;
+
+3. Find average salary for Sales department
+
+SELECT AVG(salary) AS average_salary
+FROM Employee
+WHERE department = 'Sales';
+
+4. Employees whose age is greater than 30
+
+SELECT * FROM Employee WHERE age > 30;
+
+5. Sort Product table by price descending
+
+SELECT * FROM Product ORDER BY price DESC;
+
+6. Count total orders
+
+SELECT COUNT(*) AS total_orders FROM Orders;
+
+7. Retrieve unique cities
+
+SELECT DISTINCT city FROM Customer;
+
+8. Employees in Sales department with salary > 50000
+
+SELECT *
+FROM Employee
+WHERE department = 'Sales'
+AND salary > 50000;
+
+9. Find Top 2 Salaries
+
+SELECT DISTINCT salary FROM Employee
+ORDER BY salary DESC
+LIMIT 2;
+
+10. Fetch common records between two tables
+
+Suppose Employee2024 and Employee2025
+
+SELECT * FROM Employee2024
+INTERSECT
+SELECT * FROM Employee2025;
+
+If `INTERSECT` is unavailable:
+
+SELECT a.* FROM Employee2024 a
+INNER JOIN Employee2025 b
+ON a.emp_id = b.emp_id;
+
+11. Customers purchasing from both Hyderabad and Maharashtra
+
+SELECT customer_id
+FROM Orders
+WHERE state IN ('Hyderabad', 'Maharashtra')
+GROUP BY customer_id
+HAVING COUNT(DISTINCT state) = 2;
+
+12. Second highest salary in each department
+
+Using Dense Rank
+
+SELECT department, salary
+FROM
+(
+    SELECT department,salary,
+    DENSE_RANK() OVER (PARTITION BY department ORDER BY salary DESC) AS rnk
+    FROM Employee
+) t
+WHERE rnk = 2;
+
+WITH FirstHighest AS (
+    SELECT department,
+           MAX(salary) AS first_salary
+    FROM Employee
+    GROUP BY department
+),
+SecondHighest AS (
+    SELECT e.department,
+           MAX(e.salary) AS second_salary
+    FROM Employee e
+    JOIN FirstHighest f
+      ON e.department = f.department
+    WHERE e.salary < f.first_salary
+    GROUP BY e.department
+),
+ThirdHighest AS (
+    SELECT e.department,
+           MAX(e.salary) AS third_salary
+    FROM Employee e
+    JOIN SecondHighest s
+      ON e.department = s.department
+    WHERE e.salary < s.second_salary
+    GROUP BY e.department
+)
+
+SELECT department,
+       third_salary AS third_highest_salary
+FROM ThirdHighest;
+
+13. Quarterly Sales
+
+SELECT
+YEAR(order_date) AS year,
+QUARTER(order_date) AS quarter,
+SUM(sales_amount) AS total_sales
+FROM Sales
+GROUP BY YEAR(order_date), QUARTER(order_date);
+
+14. Monthly Sales
+
+SELECT
+YEAR(order_date),
+MONTH(order_date),
+SUM(sales_amount)
+FROM Sales
+GROUP BY YEAR(order_date),
+MONTH(order_date);
+
+15. Third highest salary
+
+Using Dense Rank
+SELECT salary FROM
+(   
+    SELECT salary,
+    DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk
+    FROM Employee
+) t
+WHERE rnk = 3;
+
+Alternative
+SELECT DISTINCT salary
+FROM Employee
+ORDER BY salary DESC
+LIMIT 1 OFFSET 2;
+
+Alternative
+WITH FirstHighest AS (
+    SELECT MAX(salary) AS first_salary
+    FROM Employee
+),
+SecondHighest AS (
+    SELECT MAX(salary) AS second_salary
+    FROM Employee
+    WHERE salary < (SELECT first_salary FROM FirstHighest)
+),
+ThirdHighest AS (
+    SELECT MAX(salary) AS third_salary
+    FROM Employee
+    WHERE salary < (SELECT second_salary FROM SecondHighest)
+)
+
+SELECT third_salary AS third_highest_salary
+FROM ThirdHighest;
+
+16. Difference between two dates
+
+SELECT DATEDIFF('2025-12-31', '2025-12-01');
+
+17. Create empty table with same structure
+
+CREATE TABLE Employee_Copy
+LIKE Employee;
+
+Alternative
+
+CREATE TABLE Employee_Copy
+AS
+SELECT *
+FROM Employee
+WHERE 1 = 0;
+
+18. ALTER Command
+
+#Add Column
+ALTER TABLE Employee
+ADD email VARCHAR(100);
+
+#Modify Column
+ALTER TABLE Employee
+MODIFY salary DECIMAL(10,2);
+
+#Rename Column
+ALTER TABLE Employee
+RENAME COLUMN salary TO monthly_salary;
+
+#Drop Column
+ALTER TABLE Employee
+DROP COLUMN email;
+
+19. Delete Duplicate Records
+
+Assume duplicate emails
+
+DELETE e1
+FROM Employee e1
+JOIN Employee e2
+ON e1.email = e2.email
+AND e1.id > e2.id;
+
+Using Row Number
+
+WITH CTE AS
+(
+SELECT *,
+ROW_NUMBER() OVER
+(PARTITION BY email ORDER BY id) rn
+FROM Employee
+)
+
+DELETE FROM CTE
+WHERE rn > 1;
+
+20. Highest and Lowest salary in each department
+
+SELECT
+department,
+MAX(salary) AS highest_salary,
+MIN(salary) AS lowest_salary
+FROM Employee
+GROUP BY department;
+
+21. Max salary in each group and max salary > 50000
+
+SELECT
+department,
+MAX(salary) AS max_salary
+FROM Employee
+GROUP BY department
+HAVING MAX(salary) > 50000;
+
+Bonus (Very Frequently Asked)
+
+Find Duplicate Records
+
+SELECT email,
+COUNT(*)
+FROM Employee
+GROUP BY email
+HAVING COUNT(*) > 1;
+
+Nth Highest Salary
+
+SELECT salary
+FROM
+(
+SELECT salary,
+DENSE_RANK() OVER (ORDER BY salary DESC) rnk
+FROM Employee
+) t
+WHERE rnk = N; -- Replace `N` with `2`, `3`, `4`, etc.
+
+Employees earning more than average salary
+
+SELECT *
+FROM Employee
+WHERE salary >
+(
+SELECT AVG(salary)
+FROM Employee
+);
+
+Department-wise employee count
+
+SELECT department,
+COUNT(*) AS total_employees
+FROM Employee
+GROUP BY department;
+
+Highest-paid employee in each department
+
+SELECT *
+FROM
+(
+SELECT *,
+DENSE_RANK() OVER
+(PARTITION BY department ORDER BY salary DESC) rnk
+FROM Employee
+) t
+WHERE rnk = 1;

@@ -105,6 +105,24 @@ select amount from tbl_orders order by amount desc limit 1 offset 3
 select max(amount) from tbl_orders
 where amount < (select max(amount) from tbl_orders where amount < select max(amount) from tbl_or
 
+WITH FirstHighest AS (
+    SELECT MAX(salary) AS first_salary
+    FROM Employee
+),
+SecondHighest AS (
+    SELECT MAX(salary) AS second_salary
+    FROM Employee
+    WHERE salary < (SELECT first_salary FROM FirstHighest)
+),
+ThirdHighest AS (
+    SELECT MAX(salary) AS third_salary
+    FROM Employee
+    WHERE salary < (SELECT second_salary FROM SecondHighest)
+)
+
+SELECT third_salary AS third_highest_salary
+FROM ThirdHighest;
+
 In PHP, if two traits define the same method, PHP will raise a conflict unless the developer explicitly resolves it by overriding the method in the class that uses both traits.
 If two traits define the same method, PHP throws a fatal error due to method name conflict unless you explicitly resolve it.
 You can resolve the conflict using the insteadof and as operators.

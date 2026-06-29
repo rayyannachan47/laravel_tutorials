@@ -17,9 +17,10 @@ What do you mean by DBMS? What are its different types?
 A Database Management System (DBMS) is a  software application that interacts with the user, applications and the database itself to capture and analyze data.
 
 A DBMS allows a user to interact with the database. The data stored in the database can be modified, retrieved and deleted and can be of any type like strings, numbers, images etc.
+It acts as an interface between the user/application and the database.
+The four traditional types of DBMS are Hierarchical DBMS, Network DBMS, Relational DBMS (RDBMS), and Object-Oriented DBMS (OODBMS). Among these, RDBMS is the most widely used because it stores data in related tables
 
 There are two types of DBMS:
-
 
 Relational Database Management System: The data is stored in relations (tables). Example – MySQL.
 
@@ -28,6 +29,7 @@ Non-Relational Database Management System: There is no concept of relations, tup
 What is CTE?
 
 Answer: A CTE or common table expression is an expression which contains temporary result set which is defined in a SQL statement.
+It makes complex SQL queries easier to read, write, and maintain by breaking them into smaller logical parts.
 
 What is schema?
 
@@ -95,8 +97,25 @@ Subquery within another subquery is called as Nested Subquery.  If the output of
 What is Normalization? How many Normalization forms are there?
 
 Normalization is used to organize the data in such a manner that data redundancy will never occur in the database and avoid insert, update and delete anomalies.
+There are several normal forms, but the most commonly discussed are:
+First Normal Form (1NF)
+Second Normal Form (2NF)
+Third Normal Form (3NF)
+Boyce-Codd Normal Form (BCNF)
+Fourth Normal Form (4NF)
+Fifth Normal Form (5NF)
 
-35) What is a Cursor?
+In practice, most OLTP databases are designed up to 3NF or BCNF.
+OLTP (online transaction processing) and OLAP (online analytical processing).
+Postgres, MySQL, and Oracle are OLTP; ClickHouse is OLAP, alongside batch warehouses like Snowflake and BigQuery.
+
+What is Denormalization?
+
+Denormalization is the process of adding redundant (duplicate) data to a normalized database to improve read/query performance.
+Normalization reduces duplicate data. Denormalization intentionally introduces some duplicate data to reduce joins and make queries faster.
+It is commonly used in reporting systems, dashboards, and data warehouses where read speed is more important than storage efficiency.
+
+What is a Cursor?
 
 A cursor is a temporary work area created in a system memory when an SQL statement is executed.
 A cursor can hold more than one row, but can process only one row at a time.
@@ -188,6 +207,8 @@ Reading from a clustered index is much faster than reading from non clustered in
 NonClustered Index does not alter the physical order of the table and maintains logical order of data. 
 Each table can have 999 non-clustered indexes.
 
+MySQL supports several types of indexes: Primary, Unique, Normal (non-unique), Composite, Full-Text, and Spatial indexes. In the InnoDB storage engine, the Primary Key acts as the clustered index, while all other indexes are secondary indexes. Indexes improve query performance by reducing full table scans
+
 What is a trigger in PL/SQL?
 A trigger is a PL/SQL program which is stored in the database. It is executed immediately before or after the execution of INSERT, UPDATE, and DELETE commands.
 
@@ -254,6 +275,7 @@ Purpose: The secondary key is used to speed up searches for records based on col
 UNION and UNION ALL Clauses
 UNION: Combines the result sets of two or more SELECT queries and removes duplicate rows.
 UNION ALL: Combines the result sets of two or more SELECT queries but does not remove duplicates.
+No duplicate checking is performed, so less processing is needed. Thats why faster.
 
 To find duplicates in a table without using `GROUP BY`, you can use a `JOIN` or a `SELF JOIN` technique. Here's a general approach:
 
@@ -280,12 +302,20 @@ LIMIT (SELECT FLOOR(COUNT(*) * 0.1) FROM employees);
 
 you want to calculate the difference between the amount of the current row and the amount of the next row.
 
-SELECT id,
-       sale_date,
-       amount,
-       LEAD(amount) OVER (ORDER BY sale_date) AS next_amount,
-       (LEAD(amount) OVER (ORDER BY sale_date) - amount) AS diff_from_next
-FROM sales;
+SELECT
+    month,
+    amount,
+    LEAD(amount) OVER (ORDER BY id) AS next_amount,
+    LEAD(amount) OVER (ORDER BY id) - amount AS difference
+FROM Sales;
+
+Current Amount - Next Amount
+
+SELECT
+    month,
+    amount,
+    amount - LEAD(amount) OVER (ORDER BY id) AS difference
+FROM Sales;
 
 Here's how you can find the departments that have more than one employee:
 
