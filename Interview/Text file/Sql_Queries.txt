@@ -250,8 +250,7 @@ Using Row Number
 WITH CTE AS
 (
 SELECT *,
-ROW_NUMBER() OVER
-(PARTITION BY email ORDER BY id) rn
+ROW_NUMBER() OVER (PARTITION BY email ORDER BY id) rn
 FROM Employee
 )
 
@@ -299,8 +298,7 @@ WHERE rnk = N; -- Replace `N` with `2`, `3`, `4`, etc.
 
 Employees earning more than average salary
 
-SELECT *
-FROM Employee
+SELECT * FROM Employee
 WHERE salary >
 (
 SELECT AVG(salary)
@@ -309,19 +307,16 @@ FROM Employee
 
 Department-wise employee count
 
-SELECT department,
-COUNT(*) AS total_employees
+SELECT department,COUNT(*) AS total_employees
 FROM Employee
 GROUP BY department;
 
 Highest-paid employee in each department
 
-SELECT *
-FROM
+SELECT * FROM
 (
 SELECT *,
-DENSE_RANK() OVER
-(PARTITION BY department ORDER BY salary DESC) rnk
+DENSE_RANK() OVER (PARTITION BY department ORDER BY salary DESC) rnk
 FROM Employee
 ) t
 WHERE rnk = 1;

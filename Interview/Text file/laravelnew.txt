@@ -649,3 +649,15 @@ No, PHP does not support multiple inheritance. A class in PHP cannot extend more
 Multiple inheritance can lead to problems such as:
 Method name conflicts (when two parent classes have the same method name)
 Increased complexity, including the "diamond problem"
+
+Laravel Request Lifecycle
+Laravel Request Lifecycle is the process that starts when a client sends an HTTP request to the application. The request first reaches public/index.php, which bootstraps the framework. The request is then handled by the HTTP Kernel, passes through global middleware, is matched to a route, executes any route middleware, and reaches the appropriate controller or closure. The controller performs the required business logic, interacts with models or services if needed, and returns a response. Finally, the response passes through any response middleware and is sent back to the client's browser.
+
+Service
+A Service in Laravel is a class that contains business logic. It helps keep your controllers thin by moving complex operations into reusable classes.
+Without a service, controllers can become large and difficult to maintain.
+Easier to test.
+Separates business logic from HTTP request handling.
+
+What is the difference between interpreted and compiled languages?
+A compiled language translates the entire source code into machine code before execution, producing an executable file. This usually results in faster execution and earlier error detection. An interpreted language translates and executes code at runtime, typically line by line, which makes it easier to run across platforms but generally slower because translation happens during execution. Examples of compiled languages include C and C++, while Python, JavaScript, and PHP are commonly considered interpreted languages, though PHP internally compiles code to bytecode before execution.
