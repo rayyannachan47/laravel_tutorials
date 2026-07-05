@@ -199,6 +199,30 @@ You want “mixins”
 (A mixin in Laravel is a class that contains reusable methods which can be “mixed into” another class at runtime using:
 ClassName::mixin(new SomeMixin);)
 
+In PHP, if two traits define the same method, PHP will raise a conflict unless the developer explicitly resolves it by overriding the method in the class that uses both traits.
+If two traits define the same method, PHP throws a fatal error due to method name conflict unless you explicitly resolve it.
+You can resolve the conflict using the insteadof and as operators.
+trait TraitA {
+    public function show() {
+        echo "Trait A";
+    }
+}
+
+trait TraitB {
+    public function show() {
+        echo "Trait B";
+    }
+}
+
+class Test {
+    use TraitA, TraitB {
+        TraitA::show insteadof TraitB;
+    }
+}
+
+$obj = new Test();
+$obj->show();
+
 -> Primary and Unique keyword
 
 There can be only one primary key defined for a table.

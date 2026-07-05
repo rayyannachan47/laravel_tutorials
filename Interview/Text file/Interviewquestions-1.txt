@@ -846,3 +846,13 @@ What is the difference between group by and having clause? Can we use both claus
 
 where clause is used for filtering rows and having clause is used to filter groups.
 having clause is added because where keyword cannot be used with group by.
+
+-------------------------------------------------------------------------------------
+
+Difference between Python and Java?
+Java and Python are both object-oriented programming languages, but they differ in several ways. 
+Java is a statically typed language, so variable types are declared at compile time, whereas Python is dynamically typed and determines types at runtime. 
+Java has a more verbose syntax, while Python is concise and easier to read. 
+Java generally offers better performance because it runs on the JVM with JIT compilation, whereas Python is typically slower because it is interpreted. 
+Java is widely used for enterprise applications, banking systems, and large-scale backend development, while Python is popular for AI, machine learning, data science, automation, and rapid application development. 
+If performance and type safety are priorities, Java is often preferred. If fast development and readability are more important, Python is usually the better choice.

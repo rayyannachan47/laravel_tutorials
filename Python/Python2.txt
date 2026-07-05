@@ -1,0 +1,328 @@
+1. Tell me about yourself.
+
+How to answer:
+
+Your education
+Python skills
+Projects
+Interest in automation
+
+Sample Answer:
+
+"I'm a Computer Science graduate with a strong interest in Python development and automation. I've worked on projects involving Python, SQL, and REST APIs. I enjoy writing scripts that automate repetitive tasks and improve efficiency. I'm looking for an opportunity where I can apply my programming skills in real-world IT operations, and Dynacons' focus on infrastructure automation and managed services makes this role a great fit."
+
+=> What Does Dynacons Do?
+Dynacons provides complete IT infrastructure solutions from planning to implementation and long-term support.
+
+Their major services include:
+
+1. System Integration
+	Designing and implementing complete IT infrastructure
+	Server installation
+	Storage solutions
+	Enterprise hardware deployment
+2. Data Center Solutions
+	Data center setup
+	Virtualization
+	Hyper-Converged Infrastructure (HCI)
+	Backup and disaster recovery
+3. Cloud Services
+	Private Cloud
+	Public Cloud
+	Hybrid Cloud
+	Cloud migration
+4. Networking Solutions
+	LAN/WAN
+	Wi-Fi
+	SD-WAN
+	Network security
+	Enterprise routing and switching
+5. Cybersecurity
+	Security Operations Center (SOC)
+	Firewall implementation
+	Endpoint security
+	Identity and access management
+	Surveillance solutions
+6. Managed Services
+	Infrastructure monitoring
+	Service desk support
+	IT asset management
+	Cloud management
+	Remote infrastructure management
+7. Workplace Solutions
+	Laptops
+	Desktops
+	Printers
+	Collaboration tools
+	Microsoft infrastructure
+	Unified communication
+8. Project Management
+	Planning
+	Deployment
+	Migration
+	Maintenance
+	IT consulting 
+
+2. What do you know about Dynacons?
+
+From my research, Dynacons Systems & Solutions Ltd. is one of India's leading IT infrastructure and managed services companies, established in 1995 and headquartered in Mumbai. The company provides end-to-end IT solutions including system integration, cloud computing, networking, cybersecurity, data center solutions, workplace solutions, and managed IT services. It has a strong presence across more than 300 locations in India and serves clients in banking, government, healthcare, education, and other industries. Dynacons partners with global technology leaders like Microsoft, Cisco, IBM, HPE, Lenovo, Dell, and Oracle to deliver enterprise-grade solutions. I also appreciate the company's focus on quality, customer satisfaction, innovation, and long-term relationships. That's one of the reasons I'm excited about the opportunity to work here and contribute to its growth
+
+3. Why do you want to join Dynacons?
+
+Sample Answer
+
+"Dynacons is a well-established IT infrastructure and managed services company. The Software Engineer role aligns well with my Python programming and automation interests. I want to work on real enterprise automation projects, gain experience with cloud and infrastructure technologies, and grow as a software engineer."
+
+4. Explain Python Data Types.
+
+Expected answer:
+
+int
+float
+string
+list
+tuple
+dictionary
+set
+boolean
+5. Difference between List and Tuple?
+List	Tuple
+Mutable	Immutable
+Uses []	Uses ()
+Slower	Faster
+Can modify	Cannot modify
+6. What are Python decorators?
+7. What are generators?
+8. Difference between *args and **kwargs?
+9. Explain OOP concepts.
+
+Interviewer may ask:
+
+Class
+Object
+Inheritance
+Polymorphism
+Abstraction
+Encapsulation
+10. Explain Exception Handling.
+
+Example:
+
+try:
+    x = 10/0
+except ZeroDivisionError:
+    print("Cannot divide")
+finally:
+    print("Done")
+
+11. What modules have you used?
+
+Examples:
+
+os
+shutil
+json
+csv
+datetime
+requests
+subprocess
+logging
+pathlib
+12. Have you written automation scripts?
+
+Example answer:
+
+"Yes. I have written Python scripts for renaming files, reading Excel/CSV files, sending emails, generating reports, and automating repetitive tasks."
+
+13. How would you automate user creation?
+
+Expected discussion:
+
+Read CSV
+Loop through users
+Execute command/API
+Log success/failure
+14. What is REST API?
+
+Possible follow-up:
+
+How do you call an API in Python?
+
+import requests
+
+response = requests.get(url)
+print(response.json())
+
+15. Explain JSON.
+16. Difference between GET and POST.
+
+GET
+
+Retrieve data
+
+POST
+
+Send data
+17. Have you used SQL?
+
+Possible questions:
+
+SELECT
+UPDATE
+DELETE
+JOIN
+GROUP BY
+18. Write a query to find duplicate employees.
+SELECT name, COUNT(*)
+FROM employee
+GROUP BY name
+HAVING COUNT(*) > 1;
+
+19. Difference between INNER JOIN and LEFT JOIN.
+20. What is Git?
+
+Commands:
+
+git clone
+
+git add
+
+git commit
+
+git push
+
+git pull
+
+21. Linux Commands
+
+Expect:
+
+ls
+
+pwd
+
+cd
+
+mkdir
+
+cp
+
+mv
+
+rm
+
+grep
+
+find
+
+chmod
+
+ps
+
+top
+
+tail
+
+22. What is Cron Job?
+
+Used for scheduling automation scripts.
+
+23. Difference between Process and Thread?
+24. Explain Logging.
+
+Python module:
+
+import logging
+
+25. How would you generate a daily report automatically?
+
+Expected flow:
+
+Python Script
+
+↓
+
+Database/API
+
+↓
+
+Generate CSV/Excel
+
+↓
+
+Email report automatically
+
+26. Explain File Handling.
+with open("file.txt") as f:
+    print(f.read())
+
+27. Have you used Pandas?
+
+Common functions:
+
+read_csv()
+
+head()
+
+groupby()
+
+merge()
+
+fillna()
+
+28. Explain Virtual Environment.
+python -m venv env
+
+29. What is Automation?
+
+Possible answer:
+
+Automation means using scripts or software to perform repetitive tasks automatically with minimal human intervention.
+
+30. What projects have you done?
+
+Be ready to explain:
+
+Problem
+Technologies
+Your contribution
+Challenges
+Outcome
+31. Scenario Question
+
+Suppose there are 1000 log files. Find all ERROR messages.
+
+Expected approach:
+
+Use os.walk()
+Open each file
+Search line by line
+Save results to another file
+32. Write a Python program to count words.
+33. Reverse a string.
+34. Check if a string is a palindrome.
+35. Find duplicate elements in a list.
+36. Remove duplicates.
+37. Find the second largest number.
+38. Difference between == and is.
+39. What is List Comprehension?
+numbers = [x*x for x in range(10)]
+
+40. Questions You Can Ask the Interviewer
+
+At the end of the interview, you could ask:
+
+"What kind of automation projects does the team currently work on?"
+"Which Python libraries and frameworks are used most frequently?"
+"Will I be working with cloud platforms or infrastructure automation tools?"
+"What does success look like for someone in this role during the first six months?"
+Final interview tip
+
+Since the job description emphasizes Python scripting for IT operations, expect a practical coding round. Practice writing scripts for:
+
+Reading/writing CSV and JSON files.
+Parsing log files and generating reports.
+Making REST API calls with requests.
+Basic SQL queries.
+File handling and exception handling.
+Using modules like os, pathlib, subprocess, logging, and datetime.

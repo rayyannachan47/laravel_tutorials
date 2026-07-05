@@ -1,0 +1,110 @@
+Python (Advanced + Practical)
+1. What is the difference between deep copy and shallow copy?
+2. How does Python memory management work?
+3. What are lambda functions? Where should you avoid using them?
+4. Explain map(), filter(), and reduce() with examples.
+5. What is multithreading in Python? When is it useful in automation?
+6. Difference between multiprocessing and multithreading?
+7. What is GIL (Global Interpreter Lock)?
+8. How do you handle large files efficiently in Python?
+9. What are context managers?
+10. What is init.py used for?
+
+Automation & Scripting (VERY IMPORTANT for this role)
+11. How would you automate disk space monitoring?
+12. How would you write a script to check if a server is reachable?
+13. How do you automate backup verification?
+14. How would you collect logs from multiple servers?
+15. How do you schedule Python scripts in production?
+16. How would you automate user onboarding in an organization?
+17. How do you send email alerts from a Python script?
+18. How would you design a script to monitor CPU/RAM usage?
+19. How would you handle script failures in production?
+20. How do you ensure your automation script is reusable?
+
+Linux / Windows (IT Operations Focus)
+21. What is the difference between hard link and soft link?
+22. How do you check running processes?
+23. How do you kill a process in Linux?
+24. What is systemd?
+25. How do you check logs in Linux?
+26. How do you check disk usage?
+27. What is SSH and how does it work?
+28. What is SCP vs RSYNC?
+29. How do you find a file in Linux?
+30. What is chmod 777?
+
+Networking Basics (often asked in IT companies)
+31. What is DNS?
+32. Difference between TCP and UDP?
+33. What is IP address?
+34. What is a firewall?
+35. What is port?
+36. What happens when you type a URL in a browser?
+
+API & Integration (VERY IMPORTANT)
+37. What is REST API?
+38. Difference between REST and SOAP?
+39. What is JSON parsing in Python?
+40. What is status code 200, 404, 500?
+41. How do you authenticate API requests?
+42. What is POSTMAN used for?
+43. How do you handle API timeouts?
+
+SQL (Important for reporting tools)
+44. What is normalization?
+45. Difference between WHERE and HAVING?
+46. What is primary key and foreign key?
+47. Write SQL query to find nth highest salary.
+48. What are indexes in SQL?
+49. Difference between SQL and NoSQL?
+50. What is JOIN? Types of JOIN?
+
+Real Scenario Questions (VERY IMPORTANT)
+51. You have 500 servers. How will you monitor them?
+52. A script is failing randomly in production. What will you do?
+53. How would you design a log monitoring system?
+54. How would you detect failed backups automatically?
+55. How would you handle automation for different environments (dev/test/prod)?
+56. How would you ensure your script does not crash in production?
+57. How do you debug a Python script running on a remote server?
+
+Coding Questions (Very Likely)
+58. Write a program to read a log file and extract ERROR lines.
+59. Find frequency of words in a file.
+60. Reverse words in a sentence.
+61. Remove duplicate lines from a file.
+62. Merge multiple CSV files into one.
+63. Check if a file exists before processing.
+64. Find top 10 largest files in a directory.
+65. Parse JSON and extract specific fields.
+66. Write a script to rename multiple files in a folder.
+67. Find missing numbers in a sequence.
+
+DevOps / Tools (basic awareness)
+68. What is CI/CD?
+69. What is Jenkins?
+70. What is Docker?
+71. What is virtualization?
+72. What is cloud computing?
+73. AWS basics: EC2, S3, IAM
+
+Behavioral Questions
+74. Tell me about a challenging project.
+75. How do you handle tight deadlines?
+76. Have you worked in a team?
+77. What if your script breaks in production?
+78. How do you prioritize tasks?
+
+Most IMPORTANT Topics to Focus (Dynacons Role)
+
+If you have limited time, focus on:
+
+Python scripting (os, sys, subprocess, requests)
+File handling (CSV, logs, JSON)
+API automation
+Linux commands
+Basic SQL
+Real-world automation scenarios
+Error handling & logging
+If you want next step (very useful)
