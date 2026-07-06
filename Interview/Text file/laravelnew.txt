@@ -611,7 +611,7 @@ Makes switching databases easier.
 
 What are some common security vulnerabilities in PHP applications, and how would you mitigate them in your framework?
 
-SQL Injection: Use prepared statements and parameterized queries (e.g., PDO).
+SQL Injection: Use prepared statements and parameterized queries, parameter binding, and avoiding direct query concatenation(e.g., PDO).
 Cross-Site Scripting (XSS): Escape user input with functions like htmlspecialchars().
 Cross-Site Request Forgery (CSRF): Implement token-based validation for forms.
 Session Hijacking: Use secure, HttpOnly cookies and regenerate session IDs after login.
